@@ -1,0 +1,12 @@
+id: LOG-2026-08-15-221325
+time: 2026-08-15T22:13:25.114977+00:00
+actor: lexby
+kind: implementation-decision
+issue: design_w1_commencement
+decision: W1 REGISTER-COMPLETE granted per [2026] VJS-CC-WAYMARK 2 on PROOF-20260815-214106 (register_completeness) + PROOF-20260815-214107 (reconciliation); reservations for W2 (Figma), W3 (Principal), W4, states and SMTP recorded in the order
+basis:
+- 2026-VJS-CC-WAYMARK-W1-001
+risk: medium
+reversibility: easy
+court_required: false
+why: First warrant on the waymark surface; the chain's Principal-gated stages are adjudicated as reserved, not waived

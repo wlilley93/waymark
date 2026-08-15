@@ -1,0 +1,12 @@
+id: LOG-2026-08-15-221629
+time: 2026-08-15T22:16:29.662079+00:00
+actor: lexby
+kind: implementation-decision
+issue: design_w1_commencement
+decision: 'Terminal design-governance state under PERMIT-1786832179: W1 recorded with [2026] VJS-CC-WAYMARK 2 as grantor on proofs 214106/214107; ci ledger records the concluded successful workflow run; lock carries job/step-precise blocking CI references for the two test gates (binary gates stay package_script - vendor repo is private, recorded); README carries the reservation table (order D3) and the live deployment section. Full suite: 51 unit (7+36+8), 2 e2e, typecheck clean'
+basis:
+- PERMIT-1786832179
+risk: low
+reversibility: easy
+court_required: false
+why: Discharge the terminal design-governance permit

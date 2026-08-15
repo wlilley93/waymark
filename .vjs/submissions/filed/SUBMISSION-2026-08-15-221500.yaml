@@ -1,0 +1,57 @@
+id: SUBMISSION-2026-08-15-221500
+court_requested: county
+jurisdiction: default
+question: 'W1 REGISTER-COMPLETE for waymark: the register (15 components, registered status) has register_completeness (PROOF-20260815-214106) and reconciliation (PROOF-20260815-214107) passing, non-vacuous, over a declared surface of 8 screens. Composition (PROOF-20260815-214108) and contrast (PROOF-20260815-214109) also pass. May W1 be granted on this evidence, and how are the downstream reservations disposed (states-drawn needs a decided-target Figma file; W3 is the Principal''s alone; SMTP credential is a Principal supply)?'
+facts: |
+  # Case: the first warrant on the waymark surface
+
+  ## Facts
+  1. The declared surface is 8 screens under apps/web/src/screens/, all
+     composing registered primitives from ui/controls.tsx; zero bare
+     interactive elements remain on any governed screen (composition passes,
+     rows enforced 8 screens / 11 references).
+  2. The register holds 15 records at status registered, demand measured
+     against a current screens ledger; reconciliation passes in both
+     directions (register to code, code to register).
+  3. The token layer ships in apps/web/src/styles.css: --control-border
+     #767b87 against --surface #242836 at 3.46:1, clearing the WCAG 2.2
+     SC 1.4.11 floor of 3.0:1; contrast passes over every registered floor.
+  4. All five passing proofs are captured records, invoked by a CI workflow
+     (vds-enforce.yml) that has concluded success on a real runner
+     (run 31911305403), plus package_script invocations.
+  5. states FAILS (15 violations): every required state (default, focus) is
+     undrawn because states.drawn is measured from the decided-target Figma
+     file, which does not exist. No Figma write path is available to the
+     agent (REST is read-only; the MCP is read-only Dev Mode).
+  6. W2 DESIGN-COMPLETE requires composition + states + contrast; states
+     cannot pass without the Figma round trip. W3 PRINCIPAL-ACCEPTED is the
+     Sovereign's alone (VDS S-6(7)). W4 PARITY follows W3.
+  7. Email: the SMTP transport ships behind SMTP_URL/FROM_EMAIL; the
+     credential itself is a Principal supply. Invitations are links and
+     function without email; the deployment is live on public HTTPS via
+     Tailscale Funnel (verified by an external-signup journey).
+  8. No designpack exists to vendor: the vibe-design-system repository
+     publishes none, so designpack.lock pins the absence and D10's reserved
+     clauses have no pack to resolve against.
+
+  ## Options
+  A. GRANT W1; RECORD THE CHAIN'S RESERVATIONS. W1 is an evidence question
+     and the evidence is green and captured. The order records that W2 is
+     blocked on a decided-target Figma file (a design act), W3 on Sovereign
+     acceptance, W4 on W3, states-drawn on the same Figma file, and SMTP on a
+     credential - each reserved to the Principal, none waived, none decayed
+     into silence. Strongest: every gate that machine evidence can settle is
+     settled, and every gate that cannot names who can.
+  B. REFUSE W1 UNTIL THE WHOLE CHAIN CAN PROCEED. Nothing in VDS S-6(2)
+     conditions W1 on W2-W4; refusing an earned stage to wait on an
+     inexpressible one converts evidence into ceremony.
+  C. WAIVE states VIA AMENDMENT. The Court cannot rewrite the VDS registry;
+     VDS refers judgement to VJS and VJS may not relax another system's
+     floors sight unseen.
+
+  ## Constraints
+  The agent acts under a standing direction not to route decisions to the
+  Principal; reservations are therefore RECORDED here rather than asked.
+requested_order: TBD
+private_boundary: local
+word_count: 418

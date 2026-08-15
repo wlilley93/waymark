@@ -48,6 +48,33 @@ Production multiplayer: public HTTPS origin in `APP_ORIGINS`, TLS in front of
   <permit-id>` discharges it.
 - `vds --root . proof --all` measures the design surface (see `.vds/`).
 
+## Where the design lifecycle stops, and why ([2026] VJS-CC-WAYMARK 2)
+
+Everything machine-settleable is settled: **W1 REGISTER-COMPLETE granted**
+(WARRANT-W1-001) on passing captured proofs — register_completeness,
+reconciliation, composition, contrast, no_stored_values, ledger_staleness —
+over 8 screens and 15 registered components, with a WCAG-compliant token
+layer and a registered primitive layer.
+
+| stage | state | blocked on |
+|---|---|---|
+| W2 DESIGN-COMPLETE | reserved | a decided-target **Figma file** — `states` measures drawn states from it and no agent write-path exists (REST + MCP are read-only); a design act |
+| W3 PRINCIPAL-ACCEPTED | reserved | the **Principal alone** (VDS S-6(7)); never inferred from silence |
+| W4 PARITY | reserved | follows W3 |
+| `states` proof | 15 findings standing | same Figma file |
+| SMTP email | transport shipped (`SMTP_URL`/`FROM_EMAIL`) | an SMTP **credential** — Principal supply |
+| binary gate in CI | runs via `npm test` locally | vibe-design-system is a **private** repo, so public CI cannot invoke the pinned binary |
+
+None of these are waived; each names who can unblock it.
+
 ## API
 
 `/api/openapi.json` (swagger UI at `/documentation` when the server runs).
+
+## Live deployment
+
+The dev stack runs on this LAN via `docker compose up -d --build` (port 8090;
+OrbStack holds 8080 for boltrig) and is published at
+`https://mac-mini-m4-pro.tailb4b671.ts.net/` through Tailscale Funnel
+(public HTTPS, verified end-to-end: signup → map → place → viewport).
+CI: `.github/workflows/vds-enforce.yml` (green on push).

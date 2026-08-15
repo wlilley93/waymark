@@ -1,0 +1,39 @@
+id: WARRANT-W1-001
+stage: W1_REGISTER_COMPLETE
+project: waymark
+status: granted
+issue: design_w1_commencement
+holding: 'Granted on [2026] VJS-CC-WAYMARK 2: register_completeness and reconciliation exit 0 non-vacuous over the declared surface of 8 screens and 15 registered records; composition and contrast corroborate. W2/W3/W4 reservations recorded in the order.'
+granted_by: vjs_court
+grantor_citation: '[2026] VJS-CC-WAYMARK 2'
+assent_source: sovereign_assent
+acceptance_event: null
+evidence:
+- proof_id: PROOF-20260815-214106
+  kind: register_completeness
+  digest: sha256:63fb455e4c62b3a211e04123b31c5f724dd8100388b707b60d0a3bd7f760b16c
+  status: passed
+- proof_id: PROOF-20260815-214107
+  kind: reconciliation
+  digest: sha256:8a34271ca065bb107deb34eed176755fd39035a7474500dd720f436059f9d9c1
+  status: passed
+case_file_digest: sha256:e6694118c816ba17c76c786a65177bee69a17f70c845c178d72a95900dc10ab2
+directives: []
+forbidden: []
+exceptions: null
+supersedes: []
+unlocks:
+- design_may_begin
+surface:
+  screens_digest: sha256:87e6866c0728ee251b0741231031720d01f0b3dcbd16f181acf20f9b20bbcede
+  register_digest: sha256:d47d34ca9a5a73dfe4b43778763eccb7ced3367625d123b8d5dd93d5d7e60344
+runtime_summary: 'W1 REGISTER-COMPLETE over 8 screens, 15 records; reservations: W2 needs a decided-target Figma file, W3 the Principal, W4 follows W3.'
+created_at: 2026-08-15T22:13:39Z
+granted_at: 2026-08-15T22:13:39Z
+bench:
+- lexby-first-instance
+vote: null
+source_opinion: null
+appealable: true
+reserved:
+- 'VDS S-9(10) RESERVED (SUBMISSION-VDS-005): the composition and register_completeness proofs treat bare HTML elements as informational rows, so this warrant does not reach the primitive layer.'
