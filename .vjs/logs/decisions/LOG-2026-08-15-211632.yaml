@@ -1,0 +1,12 @@
+id: LOG-2026-08-15-211632
+time: 2026-08-15T21:16:32.835283+00:00
+actor: lexby
+kind: code_change
+issue: spec_v1_1
+decision: 'Closed the nine outstanding build permits with measured proof: 44 unit tests across shared/server/web, playwright e2e ''two users, one live map'' green, tsc clean, three commits (2faefe9, 94dff3d, d07cf35). Discharges PERMIT-1786828586'
+basis:
+- PERMIT-1786828586
+risk: low
+reversibility: easy
+court_required: false
+why: Permit hygiene at programme end

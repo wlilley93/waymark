@@ -25,7 +25,7 @@ obligations:
   due: before_commit
   description: Run vjs validate before commit
 expires_at: 2026-08-16T21:12:40.591867+00:00
-status: active
+status: closed
 self_issued: true
 meaning: 'agent-routed self-issue: records that the actor took the front door (ACT-007 local-sovereign invocation); NOT an external authority''s approval. It cannot satisfy a check reserved to the Sovereign (assent) or to a constituted bench (an order).'
 intent_digest: sha256:f07e60bb8b278f9623e8252e1fdd19707dd6292271926a2035341d679068e42a

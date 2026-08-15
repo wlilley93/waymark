@@ -1,5 +1,5 @@
-id: PERMIT-1786826261
-route_id: ROUTE-20260815-203741
+id: PERMIT-1786828614
+route_id: ROUTE-20260815-211654
 actor: lexby
 scope:
   paths:
@@ -19,11 +19,11 @@ obligations:
   required: true
   due: before_commit
   description: Run vjs validate before commit
-expires_at: 2026-08-16T20:37:41.669476+00:00
-status: closed
+expires_at: 2026-08-16T21:16:54.591640+00:00
+status: active
 self_issued: true
 meaning: 'agent-routed self-issue: records that the actor took the front door (ACT-007 local-sovereign invocation); NOT an external authority''s approval. It cannot satisfy a check reserved to the Sovereign (assent) or to a constituted bench (an order).'
-intent_digest: sha256:38d5477091f307cb0c5e3d2cbe98d778a2022472e8b9bde4459f360d82cf2764
+intent_digest: sha256:61e502161901bf07211a52ced48b76b9f61d1153f4f0e75a2f206f918f49f431
 law_source:
 - ACT-001:s1
 - ACT-001:s2

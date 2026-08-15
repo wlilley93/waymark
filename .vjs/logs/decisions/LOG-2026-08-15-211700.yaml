@@ -1,0 +1,12 @@
+id: LOG-2026-08-15-211700
+time: 2026-08-15T21:17:00.276634+00:00
+actor: lexby
+kind: code_change
+issue: spec_v1_1
+decision: 'Recording the nine permit closures (proof: 44 unit tests, green e2e, clean tsc, commits 2faefe9/94dff3d/d07cf35) and the VDS proof artefacts. Discharges PERMIT-1786828614'
+basis:
+- PERMIT-1786828614
+risk: low
+reversibility: easy
+court_required: false
+why: Discharge before commit
