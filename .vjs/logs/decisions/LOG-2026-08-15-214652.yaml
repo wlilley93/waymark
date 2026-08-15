@@ -1,0 +1,12 @@
+id: LOG-2026-08-15-214652
+time: 2026-08-15T21:46:52.055714+00:00
+actor: lexby
+kind: code_change
+issue: spec_v1_1
+decision: pre-push/pre-commit no longer forward git hook arguments to the kernel (git passes 'origin main' etc. to the hook; validate takes no such args). Discharges PERMIT-1786830405
+basis:
+- PERMIT-1786830405
+risk: low
+reversibility: easy
+court_required: false
+why: Discharge before commit

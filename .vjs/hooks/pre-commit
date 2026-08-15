@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-V="${VJS_BIN:-$HOME/.local/bin/vjs}"; command -v vjs >/dev/null && exec vjs validate --staged "$@" || exec "$V" validate --staged "$@"
+V="${VJS_BIN:-$HOME/.local/bin/vjs}"; command -v vjs >/dev/null && exec vjs validate --staged || exec "$V" validate --staged
