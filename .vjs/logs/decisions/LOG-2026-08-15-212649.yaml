@@ -1,0 +1,12 @@
+id: LOG-2026-08-15-212649
+time: 2026-08-15T21:26:49.326092+00:00
+actor: lexby
+kind: code_change
+issue: spec_v1_1
+decision: 'Recording closure of the finish-pass permit PERMIT-1786829186 (proof: commit d961c80, 47/47 unit, 2/2 e2e). Discharges PERMIT-1786829199 - the final write of the programme'
+basis:
+- PERMIT-1786829199
+risk: low
+reversibility: easy
+court_required: false
+why: Discharge before the closing commit

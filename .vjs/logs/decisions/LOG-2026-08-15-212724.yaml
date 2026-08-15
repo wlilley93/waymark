@@ -1,0 +1,12 @@
+id: LOG-2026-08-15-212724
+time: 2026-08-15T21:27:24.447012+00:00
+actor: lexby
+kind: code_change
+issue: spec_v1_1
+decision: 'Terminal governance commit under PERMIT-1786829237: the closure artefacts of PERMIT-1786829186/1786829199 (logs, permits, proofs; measured proof commit d961c80, 47/47 unit, 2/2 e2e, tsc clean). This permit is deliberately NOT closed: closing rewrites the permit file after its own commit, an infinite regress; the 2-hour expiry is the natural terminal state. Discharges PERMIT-1786829237'
+basis:
+- PERMIT-1786829237
+risk: low
+reversibility: easy
+court_required: false
+why: Discharge before the terminal commit; end the closure recursion by design
