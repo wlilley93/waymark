@@ -1,0 +1,80 @@
+name: ci
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgis/postgis:16-3.4
+        env:
+          POSTGRES_USER: waymark
+          POSTGRES_PASSWORD: waymark
+          POSTGRES_DB: waymark
+        ports:
+          - 5434:5432
+        options: >-
+          --health-cmd "pg_isready -U waymark"
+          --health-interval 5s
+          --health-timeout 3s
+          --health-retries 20
+    env:
+      DATABASE_URL: postgres://waymark:waymark@127.0.0.1:5434/waymark
+      TEST_DATABASE_URL: postgres://waymark:waymark@127.0.0.1:5434/waymark_test
+      VDS_BIN: "" # binary gate runs only where the vendor tree exists
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm install --no-audit --fund=false
+      - run: npm approve-scripts --all || true
+      - name: create test databases
+        run: |
+          docker exec $(docker ps -q --filter ancestor=postgis/postgis:16-3.4) psql -U waymark -d postgres -c "CREATE DATABASE waymark_test"
+          docker exec $(docker ps -q --filter ancestor=postgis/postgis:16-3.4) psql -U waymark -d waymark_test -c "CREATE EXTENSION IF NOT EXISTS postgis"
+      - run: npm run db:migrate
+      - run: npm -w @waymark/server run db:migrate
+        env:
+          DATABASE_URL: postgres://waymark:waymark@127.0.0.1:5434/waymark_test
+      - run: npm run typecheck
+      - name: unit tests
+        run: npm test
+        env:
+          VDS_GATE_SKIP: "1"
+
+  e2e:
+    runs-on: ubuntu-latest
+    needs: test
+    services:
+      postgres:
+        image: postgis/postgis:16-3.4
+        env:
+          POSTGRES_USER: waymark
+          POSTGRES_PASSWORD: waymark
+          POSTGRES_DB: waymark
+        ports:
+          - 5434:5432
+        options: >-
+          --health-cmd "pg_isready -U waymark"
+          --health-interval 5s
+          --health-timeout 3s
+          --health-retries 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm install --no-audit --fund=false
+      - run: npm approve-scripts --all || true
+      - run: npx playwright install chromium --with-deps
+      - run: npm -w @waymark/web run build
+      - name: e2e journey
+        run: npx playwright test
+        env:
+          CI: "true"

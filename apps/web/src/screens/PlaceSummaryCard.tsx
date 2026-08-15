@@ -1,3 +1,4 @@
+import { Button, Input, Select, Textarea } from "../ui/controls.js";
 import { useEffect, useMemo, useState } from "react";
 import type { MapPlaceDetail } from "@waymark/shared";
 import { api } from "../api/client.js";
@@ -46,7 +47,7 @@ export function PlaceSummaryCard() {
 
   return (
     <div className="panel summary-card">
-      <button className="close" onClick={() => select(null)} aria-label="Close">×</button>
+      <Button className="close" onClick={() => select(null)} aria-label="Close">×</Button>
       <h2>{mp.place.name}</h2>
       {primary && (
         <span className="tag" style={{ background: primary.color }}>
@@ -68,19 +69,19 @@ export function PlaceSummaryCard() {
       {mp.sharedNote && <p className="note">{mp.sharedNote}</p>}
 
       <div className="row">
-        <button onClick={() => api.rate(current.map.id, mp.id, (((detail?.yourRating ?? mp.yourRating) ?? 0) % 5) + 1).then(() => findNearby()).catch(() => {})}>
+        <Button onClick={() => api.rate(current.map.id, mp.id, (((detail?.yourRating ?? mp.yourRating) ?? 0) % 5) + 1).then(() => findNearby()).catch(() => {})}>
           {(detail?.yourRating ?? mp.yourRating) ? `★ ${detail?.yourRating ?? mp.yourRating}` : "Rate"}
-        </button>
-        <button onClick={() => void findNearby()}>More like this</button>
+        </Button>
+        <Button onClick={() => void findNearby()}>More like this</Button>
       </div>
 
       {nearby.length > 0 && (
         <div className="nearby">
           <h3>Similar nearby</h3>
           {nearby.map((n) => (
-            <button key={n.id} className="nearby-item" onClick={() => select(n.id)}>
+            <Button key={n.id} className="nearby-item" onClick={() => select(n.id)}>
               {n.name} <span>{n.dist.toFixed(1)} km</span>
-            </button>
+            </Button>
           ))}
         </div>
       )}
@@ -136,8 +137,8 @@ function CommentBox({ mapId, mpId }: { mapId: string; mpId: string }) {
         refresh();
       }}
     >
-      <input value={body} onChange={(e) => setBody(e.target.value)} placeholder="Add a comment…" />
-      <button>Send</button>
+      <Input value={body} onChange={(e) => setBody(e.target.value)} placeholder="Add a comment…" />
+      <Button>Send</Button>
     </form>
   );
 }
@@ -157,11 +158,11 @@ function NoteBox({ mapId, mpId, detail }: { mapId: string; mpId: string; detail:
         await api.saveNote(mapId, mpId, body, shared).catch(() => {});
       }}
     >
-      <input value={body} onChange={(e) => setBody(e.target.value)} placeholder="Your note (private unless shared)" />
+      <Input value={body} onChange={(e) => setBody(e.target.value)} placeholder="Your note (private unless shared)" />
       <label>
-        <input type="checkbox" checked={shared} onChange={(e) => setShared(e.target.checked)} /> share
+        <Input type="checkbox" checked={shared} onChange={(e) => setShared(e.target.checked)} /> share
       </label>
-      <button>Save note</button>
+      <Button>Save note</Button>
     </form>
   );
 }
@@ -171,7 +172,7 @@ function PhotoBox({ mapId, mpId }: { mapId: string; mpId: string }) {
   const inputRef = useMemo(() => ({ current: null as HTMLInputElement | null }), []);
   return (
     <div className="row">
-      <input
+      <Input
         ref={(el) => {
           inputRef.current = el;
         }}
@@ -186,7 +187,7 @@ function PhotoBox({ mapId, mpId }: { mapId: string; mpId: string }) {
           refresh();
         }}
       />
-      <button onClick={() => inputRef.current?.click()}>Add photo</button>
+      <Button onClick={() => inputRef.current?.click()}>Add photo</Button>
     </div>
   );
 }

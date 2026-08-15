@@ -1,11 +1,11 @@
 id: CMP-0004
 name: FiltersBar
-status: proposed
+status: registered
 contractVersion: 1
 figma: null
 code:
-  importPath: ./filters/FiltersBar.js
-  sourceFile: apps/web/src/filters/FiltersBar.tsx
+  importPath: ./FiltersBar.js
+  sourceFile: apps/web/src/screens/FiltersBar.tsx
   exportName: FiltersBar
 props: []
 states:
@@ -25,8 +25,8 @@ a11y:
     basis: WCAG 2.2 SC 1.4.11
     scope: null
 demand:
-  routes: 0
-  measuredAt: 2026-08-15T21:13:57Z
+  routes: 1
+  measuredAt: 2026-08-15T21:40:50Z
   measuredBy: vds register measure-demand
 supersedes: []
 supersededBy: null

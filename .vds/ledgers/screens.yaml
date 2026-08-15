@@ -1,8 +1,1485 @@
 schema_version: 1
-generated_at: 2026-08-15T21:25:36Z
+generated_at: 2026-08-15T21:40:50Z
 generated_by: vds ledger screens
 source_globs:
-- app/**/page.tsx
-source_digest: sha256:4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
-content_digest: sha256:54717b339327a3b00b5e05d8f9321cee1c86536e3f1d2fb176fe0c3fc4803a38
-screens: []
+- apps/web/src/screens/*.tsx
+source_digest: sha256:87e6866c0728ee251b0741231031720d01f0b3dcbd16f181acf20f9b20bbcede
+content_digest: sha256:4c072a126ade128862acaa03f9c048a5ced4f9adf421d1e6dba1fbf36f86e6e1
+screens:
+- route: apps/web/src/screens/AddPlaceSheet.tsx
+  digest: sha256:af7848b19dcc0c24f98be04895a218e41f7c3b6f6aa752fb41758acb8d1a3a92
+  references:
+  - name: div
+    root: div
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 82
+  - name: Button
+    root: Button
+    export_name: Button
+    namespace_member: false
+    kind: component
+    import_path: ../ui/controls.js
+    resolved_path: apps/web/src/ui/controls.js
+    line: 83
+  - name: h2
+    root: h2
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 84
+  - name: div
+    root: div
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 86
+  - name: Button
+    root: Button
+    export_name: Button
+    namespace_member: false
+    kind: component
+    import_path: ../ui/controls.js
+    resolved_path: apps/web/src/ui/controls.js
+    line: 87
+  - name: Button
+    root: Button
+    export_name: Button
+    namespace_member: false
+    kind: component
+    import_path: ../ui/controls.js
+    resolved_path: apps/web/src/ui/controls.js
+    line: 90
+  - name: p
+    root: p
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 96
+  - name: Button
+    root: Button
+    export_name: Button
+    namespace_member: false
+    kind: component
+    import_path: ../ui/controls.js
+    resolved_path: apps/web/src/ui/controls.js
+    line: 103
+  - name: div
+    root: div
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 107
+  - name: div
+    root: div
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 108
+  - name: Input
+    root: Input
+    export_name: Input
+    namespace_member: false
+    kind: component
+    import_path: ../ui/controls.js
+    resolved_path: apps/web/src/ui/controls.js
+    line: 109
+  - name: Button
+    root: Button
+    export_name: Button
+    namespace_member: false
+    kind: component
+    import_path: ../ui/controls.js
+    resolved_path: apps/web/src/ui/controls.js
+    line: 115
+  - name: ul
+    root: ul
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 120
+  - name: li
+    root: li
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 122
+  - name: Button
+    root: Button
+    export_name: Button
+    namespace_member: false
+    kind: component
+    import_path: ../ui/controls.js
+    resolved_path: apps/web/src/ui/controls.js
+    line: 123
+  - name: span
+    root: span
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 147
+  - name: Input
+    root: Input
+    export_name: Input
+    namespace_member: false
+    kind: component
+    import_path: ../ui/controls.js
+    resolved_path: apps/web/src/ui/controls.js
+    line: 158
+  - name: Input
+    root: Input
+    export_name: Input
+    namespace_member: false
+    kind: component
+    import_path: ../ui/controls.js
+    resolved_path: apps/web/src/ui/controls.js
+    line: 159
+  - name: Input
+    root: Input
+    export_name: Input
+    namespace_member: false
+    kind: component
+    import_path: ../ui/controls.js
+    resolved_path: apps/web/src/ui/controls.js
+    line: 160
+  - name: label
+    root: label
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 164
+  - name: Select
+    root: Select
+    export_name: Select
+    namespace_member: false
+    kind: component
+    import_path: ../ui/controls.js
+    resolved_path: apps/web/src/ui/controls.js
+    line: 166
+  - name: Option
+    root: Option
+    export_name: Option
+    namespace_member: false
+    kind: component
+    import_path: ../ui/controls.js
+    resolved_path: apps/web/src/ui/controls.js
+    line: 167
+  - name: Option
+    root: Option
+    export_name: Option
+    namespace_member: false
+    kind: component
+    import_path: ../ui/controls.js
+    resolved_path: apps/web/src/ui/controls.js
+    line: 169
+  - name: fieldset
+    root: fieldset
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 177
+  - name: legend
+    root: legend
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 178
+  - name: div
+    root: div
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 179
+  - name: Button
+    root: Button
+    export_name: Button
+    namespace_member: false
+    kind: component
+    import_path: ../ui/controls.js
+    resolved_path: apps/web/src/ui/controls.js
+    line: 183
+  - name: div
+    root: div
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 198
+  - name: label
+    root: label
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 199
+  - name: Select
+    root: Select
+    export_name: Select
+    namespace_member: false
+    kind: component
+    import_path: ../ui/controls.js
+    resolved_path: apps/web/src/ui/controls.js
+    line: 201
+  - name: Option
+    root: Option
+    export_name: Option
+    namespace_member: false
+    kind: component
+    import_path: ../ui/controls.js
+    resolved_path: apps/web/src/ui/controls.js
+    line: 202
+  - name: Option
+    root: Option
+    export_name: Option
+    namespace_member: false
+    kind: component
+    import_path: ../ui/controls.js
+    resolved_path: apps/web/src/ui/controls.js
+    line: 204
+  - name: Textarea
+    root: Textarea
+    export_name: Textarea
+    namespace_member: false
+    kind: component
+    import_path: ../ui/controls.js
+    resolved_path: apps/web/src/ui/controls.js
+    line: 211
+  - name: Textarea
+    root: Textarea
+    export_name: Textarea
+    namespace_member: false
+    kind: component
+    import_path: ../ui/controls.js
+    resolved_path: apps/web/src/ui/controls.js
+    line: 212
+  - name: p
+    root: p
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 214
+  - name: Button
+    root: Button
+    export_name: Button
+    namespace_member: false
+    kind: component
+    import_path: ../ui/controls.js
+    resolved_path: apps/web/src/ui/controls.js
+    line: 215
+- route: apps/web/src/screens/App.tsx
+  digest: sha256:35f1a26941acdb82c037d9c6cbc2efcd11113c17b089f3639310bbbeb98cbb54
+  references:
+  - name: div
+    root: div
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 55
+  - name: AuthScreen
+    root: AuthScreen
+    export_name: AuthScreen
+    namespace_member: false
+    kind: component
+    import_path: ./AuthScreen.js
+    resolved_path: apps/web/src/screens/AuthScreen.js
+    line: 56
+  - name: Dashboard
+    root: Dashboard
+    export_name: Dashboard
+    namespace_member: false
+    kind: component
+    import_path: ./Dashboard.js
+    resolved_path: apps/web/src/screens/Dashboard.js
+    line: 57
+  - name: div
+    root: div
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 60
+  - name: header
+    root: header
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 61
+  - name: Button
+    root: Button
+    export_name: Button
+    namespace_member: false
+    kind: component
+    import_path: ../ui/controls.js
+    resolved_path: apps/web/src/ui/controls.js
+    line: 62
+  - name: strong
+    root: strong
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 65
+  - name: span
+    root: span
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 66
+  - name: span
+    root: span
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 67
+  - name: Button
+    root: Button
+    export_name: Button
+    namespace_member: false
+    kind: component
+    import_path: ../ui/controls.js
+    resolved_path: apps/web/src/ui/controls.js
+    line: 68
+  - name: Button
+    root: Button
+    export_name: Button
+    namespace_member: false
+    kind: component
+    import_path: ../ui/controls.js
+    resolved_path: apps/web/src/ui/controls.js
+    line: 69
+  - name: Button
+    root: Button
+    export_name: Button
+    namespace_member: false
+    kind: component
+    import_path: ../ui/controls.js
+    resolved_path: apps/web/src/ui/controls.js
+    line: 70
+  - name: MapView
+    root: MapView
+    export_name: MapView
+    namespace_member: false
+    kind: component
+    import_path: ./MapView.js
+    resolved_path: apps/web/src/screens/MapView.js
+    line: 81
+  - name: FiltersBar
+    root: FiltersBar
+    export_name: FiltersBar
+    namespace_member: false
+    kind: component
+    import_path: ./FiltersBar.js
+    resolved_path: apps/web/src/screens/FiltersBar.js
+    line: 90
+  - name: PlaceSummaryCard
+    root: PlaceSummaryCard
+    export_name: PlaceSummaryCard
+    namespace_member: false
+    kind: component
+    import_path: ./PlaceSummaryCard.js
+    resolved_path: apps/web/src/screens/PlaceSummaryCard.js
+    line: 91
+  - name: AddPlaceSheet
+    root: AddPlaceSheet
+    export_name: AddPlaceSheet
+    namespace_member: false
+    kind: component
+    import_path: ./AddPlaceSheet.js
+    resolved_path: apps/web/src/screens/AddPlaceSheet.js
+    line: 93
+  - name: MembersPanel
+    root: MembersPanel
+    export_name: MembersPanel
+    namespace_member: false
+    kind: component
+    import_path: ./Dashboard.js
+    resolved_path: apps/web/src/screens/Dashboard.js
+    line: 101
+  - name: ManagePanel
+    root: ManagePanel
+    export_name: ManagePanel
+    namespace_member: false
+    kind: component
+    import_path: ./ManagePanel.js
+    resolved_path: apps/web/src/screens/ManagePanel.js
+    line: 102
+- route: apps/web/src/screens/AuthScreen.tsx
+  digest: sha256:a6bf35444c50b1e16e7b4904f6b36292d773e402d03cebbe24624680cccd607b
+  references:
+  - name: div
+    root: div
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 45
+  - name: h1
+    root: h1
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 46
+  - name: p
+    root: p
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 47
+  - name: form
+    root: form
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 48
+  - name: Input
+    root: Input
+    export_name: Input
+    namespace_member: false
+    kind: component
+    import_path: ../ui/controls.js
+    resolved_path: apps/web/src/ui/controls.js
+    line: 49
+  - name: Input
+    root: Input
+    export_name: Input
+    namespace_member: false
+    kind: component
+    import_path: ../ui/controls.js
+    resolved_path: apps/web/src/ui/controls.js
+    line: 50
+  - name: Input
+    root: Input
+    export_name: Input
+    namespace_member: false
+    kind: component
+    import_path: ../ui/controls.js
+    resolved_path: apps/web/src/ui/controls.js
+    line: 51
+  - name: Button
+    root: Button
+    export_name: Button
+    namespace_member: false
+    kind: component
+    import_path: ../ui/controls.js
+    resolved_path: apps/web/src/ui/controls.js
+    line: 52
+  - name: div
+    root: div
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 54
+  - name: Button
+    root: Button
+    export_name: Button
+    namespace_member: false
+    kind: component
+    import_path: ../ui/controls.js
+    resolved_path: apps/web/src/ui/controls.js
+    line: 55
+  - name: Button
+    root: Button
+    export_name: Button
+    namespace_member: false
+    kind: component
+    import_path: ../ui/controls.js
+    resolved_path: apps/web/src/ui/controls.js
+    line: 58
+  - name: p
+    root: p
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 62
+  - name: p
+    root: p
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 63
+- route: apps/web/src/screens/Dashboard.tsx
+  digest: sha256:f6e36b9f0bcc39582a1663c09dfb195921724783e96078bb2eaf1e2040cfb6e1
+  references:
+  - name: div
+    root: div
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 41
+  - name: header
+    root: header
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 42
+  - name: h1
+    root: h1
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 43
+  - name: span
+    root: span
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 44
+  - name: Button
+    root: Button
+    export_name: Button
+    namespace_member: false
+    kind: component
+    import_path: ../ui/controls.js
+    resolved_path: apps/web/src/ui/controls.js
+    line: 45
+  - name: form
+    root: form
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 57
+  - name: Input
+    root: Input
+    export_name: Input
+    namespace_member: false
+    kind: component
+    import_path: ../ui/controls.js
+    resolved_path: apps/web/src/ui/controls.js
+    line: 72
+  - name: Button
+    root: Button
+    export_name: Button
+    namespace_member: false
+    kind: component
+    import_path: ../ui/controls.js
+    resolved_path: apps/web/src/ui/controls.js
+    line: 73
+  - name: p
+    root: p
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 76
+  - name: ul
+    root: ul
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 78
+  - name: li
+    root: li
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 80
+  - name: Button
+    root: Button
+    export_name: Button
+    namespace_member: false
+    kind: component
+    import_path: ../ui/controls.js
+    resolved_path: apps/web/src/ui/controls.js
+    line: 81
+  - name: strong
+    root: strong
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 82
+  - name: span
+    root: span
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 83
+  - name: p
+    root: p
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 90
+  - name: div
+    root: div
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 109
+  - name: Button
+    root: Button
+    export_name: Button
+    namespace_member: false
+    kind: component
+    import_path: ../ui/controls.js
+    resolved_path: apps/web/src/ui/controls.js
+    line: 110
+  - name: h2
+    root: h2
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 111
+  - name: ul
+    root: ul
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 112
+  - name: li
+    root: li
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 114
+  - name: span
+    root: span
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 115
+  - name: Select
+    root: Select
+    export_name: Select
+    namespace_member: false
+    kind: component
+    import_path: ../ui/controls.js
+    resolved_path: apps/web/src/ui/controls.js
+    line: 118
+  - name: Option
+    root: Option
+    export_name: Option
+    namespace_member: false
+    kind: component
+    import_path: ../ui/controls.js
+    resolved_path: apps/web/src/ui/controls.js
+    line: 122
+  - name: Option
+    root: Option
+    export_name: Option
+    namespace_member: false
+    kind: component
+    import_path: ../ui/controls.js
+    resolved_path: apps/web/src/ui/controls.js
+    line: 123
+  - name: Button
+    root: Button
+    export_name: Button
+    namespace_member: false
+    kind: component
+    import_path: ../ui/controls.js
+    resolved_path: apps/web/src/ui/controls.js
+    line: 125
+  - name: span
+    root: span
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 130
+  - name: h3
+    root: h3
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 136
+  - name: div
+    root: div
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 137
+  - name: Select
+    root: Select
+    export_name: Select
+    namespace_member: false
+    kind: component
+    import_path: ../ui/controls.js
+    resolved_path: apps/web/src/ui/controls.js
+    line: 138
+  - name: Option
+    root: Option
+    export_name: Option
+    namespace_member: false
+    kind: component
+    import_path: ../ui/controls.js
+    resolved_path: apps/web/src/ui/controls.js
+    line: 139
+  - name: Option
+    root: Option
+    export_name: Option
+    namespace_member: false
+    kind: component
+    import_path: ../ui/controls.js
+    resolved_path: apps/web/src/ui/controls.js
+    line: 140
+  - name: Button
+    root: Button
+    export_name: Button
+    namespace_member: false
+    kind: component
+    import_path: ../ui/controls.js
+    resolved_path: apps/web/src/ui/controls.js
+    line: 142
+  - name: ul
+    root: ul
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 153
+  - name: li
+    root: li
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 157
+  - name: Button
+    root: Button
+    export_name: Button
+    namespace_member: false
+    kind: component
+    import_path: ../ui/controls.js
+    resolved_path: apps/web/src/ui/controls.js
+    line: 158
+  - name: Button
+    root: Button
+    export_name: Button
+    namespace_member: false
+    kind: component
+    import_path: ../ui/controls.js
+    resolved_path: apps/web/src/ui/controls.js
+    line: 161
+- route: apps/web/src/screens/FiltersBar.tsx
+  digest: sha256:951f450b0f4e4a87a0527a5243c2a9fb31395e8f20e097f0dfb7577be83c52e6
+  references:
+  - name: div
+    root: div
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 17
+  - name: div
+    root: div
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 19
+  - name: span
+    root: span
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 20
+  - name: Button
+    root: Button
+    export_name: Button
+    namespace_member: false
+    kind: component
+    import_path: ../ui/controls.js
+    resolved_path: apps/web/src/ui/controls.js
+    line: 24
+  - name: div
+    root: div
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 35
+  - name: span
+    root: span
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 36
+  - name: Button
+    root: Button
+    export_name: Button
+    namespace_member: false
+    kind: component
+    import_path: ../ui/controls.js
+    resolved_path: apps/web/src/ui/controls.js
+    line: 38
+  - name: div
+    root: div
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 47
+  - name: Button
+    root: Button
+    export_name: Button
+    namespace_member: false
+    kind: component
+    import_path: ../ui/controls.js
+    resolved_path: apps/web/src/ui/controls.js
+    line: 48
+- route: apps/web/src/screens/ManagePanel.tsx
+  digest: sha256:5932320b33b239f27195a0cd0ba510f0f1b0047c2c200f03e615bb92e099fca0
+  references:
+  - name: div
+    root: div
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 79
+  - name: Button
+    root: Button
+    export_name: Button
+    namespace_member: false
+    kind: component
+    import_path: ../ui/controls.js
+    resolved_path: apps/web/src/ui/controls.js
+    line: 80
+  - name: h2
+    root: h2
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 81
+  - name: p
+    root: p
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 82
+  - name: h3
+    root: h3
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 84
+  - name: div
+    root: div
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 86
+  - name: span
+    root: span
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 87
+  - name: span
+    root: span
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 88
+  - name: span
+    root: span
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 92
+  - name: div
+    root: div
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 101
+  - name: Select
+    root: Select
+    export_name: Select
+    namespace_member: false
+    kind: component
+    import_path: ../ui/controls.js
+    resolved_path: apps/web/src/ui/controls.js
+    line: 102
+  - name: Option
+    root: Option
+    export_name: Option
+    namespace_member: false
+    kind: component
+    import_path: ../ui/controls.js
+    resolved_path: apps/web/src/ui/controls.js
+    line: 103
+  - name: Option
+    root: Option
+    export_name: Option
+    namespace_member: false
+    kind: component
+    import_path: ../ui/controls.js
+    resolved_path: apps/web/src/ui/controls.js
+    line: 105
+  - name: Input
+    root: Input
+    export_name: Input
+    namespace_member: false
+    kind: component
+    import_path: ../ui/controls.js
+    resolved_path: apps/web/src/ui/controls.js
+    line: 110
+  - name: Button
+    root: Button
+    export_name: Button
+    namespace_member: false
+    kind: component
+    import_path: ../ui/controls.js
+    resolved_path: apps/web/src/ui/controls.js
+    line: 111
+  - name: div
+    root: div
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 113
+  - name: Input
+    root: Input
+    export_name: Input
+    namespace_member: false
+    kind: component
+    import_path: ../ui/controls.js
+    resolved_path: apps/web/src/ui/controls.js
+    line: 114
+  - name: Input
+    root: Input
+    export_name: Input
+    namespace_member: false
+    kind: component
+    import_path: ../ui/controls.js
+    resolved_path: apps/web/src/ui/controls.js
+    line: 115
+  - name: Button
+    root: Button
+    export_name: Button
+    namespace_member: false
+    kind: component
+    import_path: ../ui/controls.js
+    resolved_path: apps/web/src/ui/controls.js
+    line: 116
+  - name: h3
+    root: h3
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 121
+  - name: p
+    root: p
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 122
+  - name: p
+    root: p
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 124
+  - name: span
+    root: span
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 125
+  - name: strong
+    root: strong
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 125
+  - name: div
+    root: div
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 130
+  - name: Input
+    root: Input
+    export_name: Input
+    namespace_member: false
+    kind: component
+    import_path: ../ui/controls.js
+    resolved_path: apps/web/src/ui/controls.js
+    line: 131
+  - name: Input
+    root: Input
+    export_name: Input
+    namespace_member: false
+    kind: component
+    import_path: ../ui/controls.js
+    resolved_path: apps/web/src/ui/controls.js
+    line: 132
+  - name: div
+    root: div
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 134
+  - name: Select
+    root: Select
+    export_name: Select
+    namespace_member: false
+    kind: component
+    import_path: ../ui/controls.js
+    resolved_path: apps/web/src/ui/controls.js
+    line: 135
+  - name: Option
+    root: Option
+    export_name: Option
+    namespace_member: false
+    kind: component
+    import_path: ../ui/controls.js
+    resolved_path: apps/web/src/ui/controls.js
+    line: 137
+  - name: Input
+    root: Input
+    export_name: Input
+    namespace_member: false
+    kind: component
+    import_path: ../ui/controls.js
+    resolved_path: apps/web/src/ui/controls.js
+    line: 143
+  - name: Button
+    root: Button
+    export_name: Button
+    namespace_member: false
+    kind: component
+    import_path: ../ui/controls.js
+    resolved_path: apps/web/src/ui/controls.js
+    line: 145
+  - name: p
+    root: p
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 150
+- route: apps/web/src/screens/MapView.tsx
+  digest: sha256:5bcae4c6acd015d0b990e6d3c4ac9c01ddd4bb379b71d77eae3a4bbd5a46757a
+  references:
+  - name: div
+    root: div
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 236
+  - name: div
+    root: div
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 237
+  - name: div
+    root: div
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 238
+  - name: Select
+    root: Select
+    export_name: Select
+    namespace_member: false
+    kind: component
+    import_path: ../ui/controls.js
+    resolved_path: apps/web/src/ui/controls.js
+    line: 239
+  - name: Option
+    root: Option
+    export_name: Option
+    namespace_member: false
+    kind: component
+    import_path: ../ui/controls.js
+    resolved_path: apps/web/src/ui/controls.js
+    line: 249
+  - name: Button
+    root: Button
+    export_name: Button
+    namespace_member: false
+    kind: component
+    import_path: ../ui/controls.js
+    resolved_path: apps/web/src/ui/controls.js
+    line: 254
+- route: apps/web/src/screens/PlaceSummaryCard.tsx
+  digest: sha256:a872076fa6584b68bffa162469af96f51bd9615f958e472e8296c702e07c0ac7
+  references:
+  - name: div
+    root: div
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 49
+  - name: Button
+    root: Button
+    export_name: Button
+    namespace_member: false
+    kind: component
+    import_path: ../ui/controls.js
+    resolved_path: apps/web/src/ui/controls.js
+    line: 50
+  - name: h2
+    root: h2
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 51
+  - name: span
+    root: span
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 53
+  - name: span
+    root: span
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 58
+  - name: p
+    root: p
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 62
+  - name: div
+    root: div
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 63
+  - name: span
+    root: span
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 64
+  - name: span
+    root: span
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 65
+  - name: span
+    root: span
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 66
+  - name: span
+    root: span
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 67
+  - name: p
+    root: p
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 69
+  - name: div
+    root: div
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 71
+  - name: Button
+    root: Button
+    export_name: Button
+    namespace_member: false
+    kind: component
+    import_path: ../ui/controls.js
+    resolved_path: apps/web/src/ui/controls.js
+    line: 72
+  - name: Button
+    root: Button
+    export_name: Button
+    namespace_member: false
+    kind: component
+    import_path: ../ui/controls.js
+    resolved_path: apps/web/src/ui/controls.js
+    line: 75
+  - name: div
+    root: div
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 79
+  - name: h3
+    root: h3
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 80
+  - name: Button
+    root: Button
+    export_name: Button
+    namespace_member: false
+    kind: component
+    import_path: ../ui/controls.js
+    resolved_path: apps/web/src/ui/controls.js
+    line: 82
+  - name: span
+    root: span
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 83
+  - name: div
+    root: div
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 90
+  - name: dl
+    root: dl
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 92
+  - name: div
+    root: div
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 94
+  - name: dt
+    root: dt
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 95
+  - name: dd
+    root: dd
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 96
+  - name: p
+    root: p
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 101
+  - name: p
+    root: p
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 103
+  - name: div
+    root: div
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 105
+  - name: p
+    root: p
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 107
+  - name: strong
+    root: strong
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 108
+  - name: CommentBox
+    root: CommentBox
+    export_name: null
+    namespace_member: false
+    kind: component
+    import_path: null
+    line: 112
+    unresolved_because: '"CommentBox" is not imported in this file, so it is defined locally or comes from a global'
+  - name: NoteBox
+    root: NoteBox
+    export_name: null
+    namespace_member: false
+    kind: component
+    import_path: null
+    line: 113
+    unresolved_because: '"NoteBox" is not imported in this file, so it is defined locally or comes from a global'
+  - name: PhotoBox
+    root: PhotoBox
+    export_name: null
+    namespace_member: false
+    kind: component
+    import_path: null
+    line: 114
+    unresolved_because: '"PhotoBox" is not imported in this file, so it is defined locally or comes from a global'
+  - name: p
+    root: p
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 116
+  - name: form
+    root: form
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 130
+  - name: Input
+    root: Input
+    export_name: Input
+    namespace_member: false
+    kind: component
+    import_path: ../ui/controls.js
+    resolved_path: apps/web/src/ui/controls.js
+    line: 140
+  - name: Button
+    root: Button
+    export_name: Button
+    namespace_member: false
+    kind: component
+    import_path: ../ui/controls.js
+    resolved_path: apps/web/src/ui/controls.js
+    line: 141
+  - name: form
+    root: form
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 154
+  - name: Input
+    root: Input
+    export_name: Input
+    namespace_member: false
+    kind: component
+    import_path: ../ui/controls.js
+    resolved_path: apps/web/src/ui/controls.js
+    line: 161
+  - name: label
+    root: label
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 162
+  - name: Input
+    root: Input
+    export_name: Input
+    namespace_member: false
+    kind: component
+    import_path: ../ui/controls.js
+    resolved_path: apps/web/src/ui/controls.js
+    line: 163
+  - name: Button
+    root: Button
+    export_name: Button
+    namespace_member: false
+    kind: component
+    import_path: ../ui/controls.js
+    resolved_path: apps/web/src/ui/controls.js
+    line: 165
+  - name: div
+    root: div
+    export_name: null
+    namespace_member: false
+    kind: element
+    import_path: null
+    line: 174
+  - name: Input
+    root: Input
+    export_name: Input
+    namespace_member: false
+    kind: component
+    import_path: ../ui/controls.js
+    resolved_path: apps/web/src/ui/controls.js
+    line: 175
+  - name: Button
+    root: Button
+    export_name: Button
+    namespace_member: false
+    kind: component
+    import_path: ../ui/controls.js
+    resolved_path: apps/web/src/ui/controls.js
+    line: 190

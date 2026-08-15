@@ -1,3 +1,4 @@
+import { Button, Input, Select, Textarea, Option } from "../ui/controls.js";
 import { useEffect, useRef } from "react";
 import maplibregl from "maplibre-gl";
 import type { MapPlaceSummary } from "@waymark/shared";
@@ -235,7 +236,7 @@ export function MapView({ onViewport, onPick, pickMode }: Props) {
     <div className="map-wrap">
       <div ref={containerRef} className="map-canvas" />
       <div className="map-controls">
-        <select
+        <Select
           value={styleId}
           onChange={(e) => {
             const style = MAP_STYLES.find((s) => s.id === e.target.value)!;
@@ -245,12 +246,12 @@ export function MapView({ onViewport, onPick, pickMode }: Props) {
           aria-label="Map style"
         >
           {MAP_STYLES.map((s) => (
-            <option key={s.id} value={s.id}>
+            <Option key={s.id} value={s.id}>
               {s.name}
-            </option>
+            </Option>
           ))}
-        </select>
-        <button
+        </Select>
+        <Button
           className={terrainOn ? "on" : ""}
           onClick={() => {
             const map = mapRef.current;
@@ -269,7 +270,7 @@ export function MapView({ onViewport, onPick, pickMode }: Props) {
           }}
         >
           3D
-        </button>
+        </Button>
       </div>
     </div>
   );

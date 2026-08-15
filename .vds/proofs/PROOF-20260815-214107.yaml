@@ -1,0 +1,26 @@
+id: PROOF-20260815-214107
+kind: reconciliation
+status: passed
+warrant_id: null
+command: vds proof reconciliation
+script: crates/vds-proof/src/reconciliation.rs
+exit_code: 0
+rows_considered: 69
+rows_enforced: 24
+rows_skipped_reasons:
+  demand_currency_reported_not_enforced_vds_s5_7: 15
+  prop_and_state_parity_needs_typescript_analysis: 15
+  record_declares_no_figma_node_to_resolve: 15
+violations: []
+notes:
+- '[reach] limb (c) of VDS S-5(6), whether each register entry''s Figma node id resolves in the pinned file, is NOT checked by this run, because no figma ledger is present. Resolving a node id is a network call and VDS S-7(2)(1) forbids one inside a proof, so the resolution happens out of band: run `vds figma pull` and re-run this proof to have limb (c) reached. Until then a register entry naming a node that was deleted from the decided-target file passes this run, and every record was counted and skipped rather than passed.'
+- '[reach] limb (d) of VDS S-5(6), whether prop and state contracts agree between the record and the code, is NOT checked by this run. Comparing them requires reading and analysing the component''s TypeScript source, which this build does not do, so every record with a declared code counterpart was counted and skipped rather than passed. A record whose props have drifted from its component''s signature passes this run.'
+- '[reach] this run establishes limbs (a) and (b) of VDS S-5(6) over the declared surface, and neither (c) nor (d). docs/GOAL.md D1 lists all four, and a warrant citing this proof must not be described as covering the two it did not reach.'
+- '[carve-out] a library file named index.*, *.test.*, *.spec.* or *.stories.* is counted and NOT enforced against the register under limb (b): a barrel re-exports components rather than defining one, and a test or a story is not a shipped component. A component defined inside a file with one of those names is therefore outside this proof, and the skip counts above are where that carve-out is visible rather than assumed.'
+inputs_digest: sha256:c95c9ceb21da0f70b4924b580cff5403612695b5dab76f0108d28117906f83b2
+digest: sha256:8a34271ca065bb107deb34eed176755fd39035a7474500dd720f436059f9d9c1
+designpack_digest: sha256:f9c369f3175c15169dafde47c01d7efc2f45c64090444f17f5b3f480e710ec5a
+captured_at: 2026-08-15T21:41:06Z
+capture_mode: automatic
+invoked_by: manual
+duration_ms: 0

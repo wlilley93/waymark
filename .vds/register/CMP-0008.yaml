@@ -1,12 +1,12 @@
-id: CMP-0006
-name: Dashboard
+id: CMP-0008
+name: ManagePanel
 status: registered
 contractVersion: 1
 figma: null
 code:
-  importPath: ./Dashboard.js
-  sourceFile: apps/web/src/screens/Dashboard.tsx
-  exportName: Dashboard
+  importPath: ./ManagePanel.js
+  sourceFile: apps/web/src/screens/ManagePanel.tsx
+  exportName: ManagePanel
 props: []
 states:
   required:

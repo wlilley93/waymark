@@ -1,3 +1,4 @@
+import { Button, Input, Select, Textarea, Option } from "../ui/controls.js";
 import { useEffect, useState } from "react";
 import { api } from "../api/client.js";
 import { useStore } from "../state/store.js";
@@ -76,7 +77,7 @@ export function ManagePanel({ mapId, onClose }: { mapId: string; onClose: () => 
 
   return (
     <div className="panel manage">
-      <button className="close" onClick={onClose} aria-label="Close">×</button>
+      <Button className="close" onClick={onClose} aria-label="Close">×</Button>
       <h2>Manage map</h2>
       {!canWrite && <p className="hint">viewers can browse only — ask an editor to change the taxonomy</p>}
 
@@ -98,21 +99,21 @@ export function ManagePanel({ mapId, onClose }: { mapId: string; onClose: () => 
       {canWrite && (
         <>
           <div className="row">
-            <select value={newTermFacet} onChange={(e) => setNewTermFacet(e.target.value)} aria-label="Facet for new term">
-              <option value="">facet…</option>
+            <Select value={newTermFacet} onChange={(e) => setNewTermFacet(e.target.value)} aria-label="Facet for new term">
+              <Option value="">facet…</Option>
               {facets.map((f) => (
-                <option key={f.id} value={f.id}>
+                <Option key={f.id} value={f.id}>
                   {f.name}
-                </option>
+                </Option>
               ))}
-            </select>
-            <input value={newTermName} onChange={(e) => setNewTermName(e.target.value)} placeholder="New term (e.g. Cosy)" />
-            <button onClick={() => void addTerm()}>Add term</button>
+            </Select>
+            <Input value={newTermName} onChange={(e) => setNewTermName(e.target.value)} placeholder="New term (e.g. Cosy)" />
+            <Button onClick={() => void addTerm()}>Add term</Button>
           </div>
           <div className="row">
-            <input value={newFacetKey} onChange={(e) => setNewFacetKey(e.target.value)} placeholder="key (e.g. season)" />
-            <input value={newFacetName} onChange={(e) => setNewFacetName(e.target.value)} placeholder="Name (e.g. Season)" />
-            <button onClick={() => void addFacet()}>Add facet</button>
+            <Input value={newFacetKey} onChange={(e) => setNewFacetKey(e.target.value)} placeholder="key (e.g. season)" />
+            <Input value={newFacetName} onChange={(e) => setNewFacetName(e.target.value)} placeholder="Name (e.g. Season)" />
+            <Button onClick={() => void addFacet()}>Add facet</Button>
           </div>
         </>
       )}
@@ -127,21 +128,21 @@ export function ManagePanel({ mapId, onClose }: { mapId: string; onClose: () => 
       {canWrite && (
         <>
           <div className="row">
-            <input value={fKey} onChange={(e) => setFKey(e.target.value)} placeholder="key (e.g. wheelchair)" />
-            <input value={fLabel} onChange={(e) => setFLabel(e.target.value)} placeholder="Label (e.g. Step-free access)" />
+            <Input value={fKey} onChange={(e) => setFKey(e.target.value)} placeholder="key (e.g. wheelchair)" />
+            <Input value={fLabel} onChange={(e) => setFLabel(e.target.value)} placeholder="Label (e.g. Step-free access)" />
           </div>
           <div className="row">
-            <select value={fType} onChange={(e) => setFType(e.target.value as typeof fType)} aria-label="Field type">
+            <Select value={fType} onChange={(e) => setFType(e.target.value as typeof fType)} aria-label="Field type">
               {FIELD_TYPES.map((t) => (
-                <option key={t} value={t}>
+                <Option key={t} value={t}>
                   {t}
-                </option>
+                </Option>
               ))}
-            </select>
+            </Select>
             {fType === "select" && (
-              <input value={fOptions} onChange={(e) => setFOptions(e.target.value)} placeholder="options, comma-separated" />
+              <Input value={fOptions} onChange={(e) => setFOptions(e.target.value)} placeholder="options, comma-separated" />
             )}
-            <button onClick={() => void addField()}>Add field</button>
+            <Button onClick={() => void addField()}>Add field</Button>
           </div>
         </>
       )}

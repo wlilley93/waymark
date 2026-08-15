@@ -1,3 +1,4 @@
+import { Button, Input, Select, Textarea, Option } from "../ui/controls.js";
 import { useState } from "react";
 import { api } from "../api/client.js";
 import { useStore } from "../state/store.js";
@@ -79,16 +80,16 @@ export function AddPlaceSheet({ picked, onClose }: Props) {
 
   return (
     <div className="panel add-sheet">
-      <button className="close" onClick={onClose} aria-label="Close">×</button>
+      <Button className="close" onClick={onClose} aria-label="Close">×</Button>
       <h2>Add a place</h2>
 
       <div className="tabs">
-        <button className={mode === "pin" ? "on" : ""} onClick={() => setMode("pin")}>
+        <Button className={mode === "pin" ? "on" : ""} onClick={() => setMode("pin")}>
           Drop pin
-        </button>
-        <button className={mode === "search" ? "on" : ""} onClick={() => setMode("search")}>
+        </Button>
+        <Button className={mode === "search" ? "on" : ""} onClick={() => setMode("search")}>
           Search
-        </button>
+        </Button>
       </div>
 
       {mode === "pin" ? (
@@ -99,27 +100,27 @@ export function AddPlaceSheet({ picked, onClose }: Props) {
               ? `Pin at ${picked.lat.toFixed(5)}, ${picked.lng.toFixed(5)} — or click the map to move it`
               : "Click the map to place the pin"}
           {placeId && (
-            <button className="link" onClick={() => { setPlaceId(null); setName(""); }}>clear</button>
+            <Button className="link" onClick={() => { setPlaceId(null); setName(""); }}>clear</Button>
           )}
         </p>
       ) : (
         <div>
           <div className="row">
-            <input
+            <Input
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && void doSearch()}
               placeholder="Search a place name (submitted search, not autocomplete)"
             />
-            <button onClick={() => void doSearch()} disabled={searching}>
+            <Button onClick={() => void doSearch()} disabled={searching}>
               {searching ? "…" : "Search"}
-            </button>
+            </Button>
           </div>
           {results.length > 0 && (
             <ul className="results">
               {results.map((r, i) => (
                 <li key={i}>
-                  <button
+                  <Button
                     onClick={() => {
                       setResults([]);
                       setSearching(true);
@@ -144,7 +145,7 @@ export function AddPlaceSheet({ picked, onClose }: Props) {
                   >
                     {r.name}
                     <span className="addr">{r.address}</span>
-                  </button>
+                  </Button>
                 </li>
               ))}
             </ul>
@@ -154,22 +155,22 @@ export function AddPlaceSheet({ picked, onClose }: Props) {
 
       {!placeId && (
         <>
-          <input value={name} onChange={(e) => setName(e.target.value)} placeholder="Name" />
-          <input value={address} onChange={(e) => setAddress(e.target.value)} placeholder="Address (optional)" />
-          <input value={website} onChange={(e) => setWebsite(e.target.value)} placeholder="Website (optional)" />
+          <Input value={name} onChange={(e) => setName(e.target.value)} placeholder="Name" />
+          <Input value={address} onChange={(e) => setAddress(e.target.value)} placeholder="Address (optional)" />
+          <Input value={website} onChange={(e) => setWebsite(e.target.value)} placeholder="Website (optional)" />
         </>
       )}
 
       <label>
         Category
-        <select value={primaryTermId} onChange={(e) => setPrimaryTermId(e.target.value)}>
-          <option value="">—</option>
+        <Select value={primaryTermId} onChange={(e) => setPrimaryTermId(e.target.value)}>
+          <Option value="">—</Option>
           {categoryTerms.map((t) => (
-            <option key={t.id} value={t.id}>
+            <Option key={t.id} value={t.id}>
               {t.name}
-            </option>
+            </Option>
           ))}
-        </select>
+        </Select>
       </label>
 
       {otherFacets.map((f) => (
@@ -179,7 +180,7 @@ export function AddPlaceSheet({ picked, onClose }: Props) {
             {current.terms
               .filter((t) => t.facetId === f.id)
               .map((t) => (
-                <button
+                <Button
                   key={t.id}
                   className={`chip ${termIds.includes(t.id) ? "on" : ""}`}
                   style={termIds.includes(t.id) ? { background: t.color, borderColor: t.color } : {}}
@@ -188,7 +189,7 @@ export function AddPlaceSheet({ picked, onClose }: Props) {
                   }
                 >
                   {t.name}
-                </button>
+                </Button>
               ))}
           </div>
         </fieldset>
@@ -197,23 +198,23 @@ export function AddPlaceSheet({ picked, onClose }: Props) {
       <div className="row">
         <label>
           Rating
-          <select value={rating ?? ""} onChange={(e) => setRating(e.target.value ? Number(e.target.value) : null)}>
-            <option value="">—</option>
+          <Select value={rating ?? ""} onChange={(e) => setRating(e.target.value ? Number(e.target.value) : null)}>
+            <Option value="">—</Option>
             {[1, 2, 3, 4, 5].map((n) => (
-              <option key={n} value={n}>
+              <Option key={n} value={n}>
                 {"★".repeat(n)}
-              </option>
+              </Option>
             ))}
-          </select>
+          </Select>
         </label>
       </div>
-      <textarea value={sharedNote} onChange={(e) => setSharedNote(e.target.value)} placeholder="Shared note for the group (optional)" rows={2} />
-      <textarea value={personalNote} onChange={(e) => setPersonalNote(e.target.value)} placeholder="Private note (only you)" rows={2} />
+      <Textarea value={sharedNote} onChange={(e) => setSharedNote(e.target.value)} placeholder="Shared note for the group (optional)" rows={2} />
+      <Textarea value={personalNote} onChange={(e) => setPersonalNote(e.target.value)} placeholder="Private note (only you)" rows={2} />
 
       {error && <p className="error">{error}</p>}
-      <button className="primary" onClick={() => void submit()}>
+      <Button className="primary" onClick={() => void submit()}>
         Save place
-      </button>
+      </Button>
     </div>
   );
 }

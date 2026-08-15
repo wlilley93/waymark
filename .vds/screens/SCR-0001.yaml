@@ -1,0 +1,13 @@
+id: SCR-0001
+route: dashboard
+status: proposed
+contractVersion: 1
+frame: null
+arrangement:
+  columns: 1
+  regions:
+  - header
+  - list
+  bands: []
+basis:
+- ACT-VDS-001:s5a

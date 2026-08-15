@@ -22,13 +22,17 @@ permits = ".vds/permits"
 [surface]
 # The DECLARED SURFACE. Every VDS claim is bounded by it, and a screen outside
 # these globs is outside every proof.
-screen_globs = ["app/**/page.tsx"]
+screen_globs = [
+  "apps/web/src/screens/*.tsx",
+]
 # A component reference whose import path starts with one of these is IN SCOPE
 # for enforcement. Anything else is counted and not enforced, and the count is
 # printed, so the carve-out is visible rather than assumed.
-governed_import_prefixes = ["@/components/"]
+governed_import_prefixes = ["./", "../"]
 # Directories the register is expected to cover, used by reconciliation.
-library_dirs = ["src/components/ui"]
+# Component directories only: the app entry (main.tsx) and the screen files
+# compose components; they are not library.
+library_dirs = ["apps/web/src/screens", "apps/web/src/ui"]
 screens_ledger = ".vds/ledgers/screens.yaml"
 component_extensions = ["tsx", "jsx"]
 # The shipped stylesheet: the system of record for what a token RESOLVES to
@@ -36,7 +40,7 @@ component_extensions = ["tsx", "jsx"]
 # every theme it declares. The value here is the path the specification names;
 # change it only if your project genuinely ships its tokens elsewhere, and know
 # that nothing else is measured.
-stylesheet = "app/globals.css"
+stylesheet = "apps/web/src/styles.css"
 
 [screens]
 # THE SCREEN SEAM: everything about a screen frame that is THIS PROJECT's
@@ -54,16 +58,16 @@ quarantine_markers = ["LEGACY UNDERLAY", "REFERENCE", "TARGET"]
 name_separator = "\u00b7"
 # The shell regions the generator looks for by name. A screen record's required
 # regions are checked against what it found, so both halves read THIS list.
-region_names = ["rail", "cmdbar", "body", "statusbar"]
+region_names = ["map", "filters", "detail", "header", "list", "manage"]
 frames_ledger = ".vds/ledgers/frames.yaml"
 
 [governance]
 # VDS S-3(8): the enforcement machinery must not be editable without a permit.
 permit_required = [
-  "app/globals.css",
-  "src/components/**",
+  "apps/web/src/styles.css",
+  "apps/web/src/**",
   "designpack/v1/**",
   ".vds/register/**",
   ".vds/config.toml",
 ]
-permit_exempt = [".vds/logs/**", ".vds/permits/**", ".vds/proofs/**"]
+permit_exempt = [".vjs/**", ".vds/logs/**", ".vds/permits/**", ".vds/proofs/**"]

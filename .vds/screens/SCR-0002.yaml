@@ -1,0 +1,15 @@
+id: SCR-0002
+route: map
+status: proposed
+contractVersion: 1
+frame: null
+arrangement:
+  columns: 1
+  regions:
+  - map
+  - filters
+  - detail
+  - manage
+  bands: []
+basis:
+- ACT-VDS-001:s5a

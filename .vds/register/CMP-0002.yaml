@@ -1,11 +1,11 @@
 id: CMP-0002
 name: PlaceSummaryCard
-status: proposed
+status: registered
 contractVersion: 1
 figma: null
 code:
-  importPath: ./places/PlaceSummaryCard.js
-  sourceFile: apps/web/src/places/PlaceSummaryCard.tsx
+  importPath: ./PlaceSummaryCard.js
+  sourceFile: apps/web/src/screens/PlaceSummaryCard.tsx
   exportName: PlaceSummaryCard
 props: []
 states:
@@ -25,8 +25,8 @@ a11y:
     basis: WCAG 2.2 SC 1.4.11
     scope: null
 demand:
-  routes: 0
-  measuredAt: 2026-08-15T21:13:57Z
+  routes: 1
+  measuredAt: 2026-08-15T21:40:50Z
   measuredBy: vds register measure-demand
 supersedes: []
 supersededBy: null

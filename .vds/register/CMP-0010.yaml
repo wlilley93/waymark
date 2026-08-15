@@ -1,12 +1,12 @@
-id: CMP-0006
-name: Dashboard
+id: CMP-0010
+name: Button
 status: registered
 contractVersion: 1
 figma: null
 code:
-  importPath: ./Dashboard.js
-  sourceFile: apps/web/src/screens/Dashboard.tsx
-  exportName: Dashboard
+  importPath: ../ui/controls.js
+  sourceFile: apps/web/src/ui/controls.tsx
+  exportName: Button
 props: []
 states:
   required:
@@ -25,7 +25,7 @@ a11y:
     basis: WCAG 2.2 SC 1.4.11
     scope: null
 demand:
-  routes: 1
+  routes: 8
   measuredAt: 2026-08-15T21:40:50Z
   measuredBy: vds register measure-demand
 supersedes: []

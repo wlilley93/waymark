@@ -1,0 +1,12 @@
+id: LOG-2026-08-15-214556
+time: 2026-08-15T21:45:56.576088+00:00
+actor: lexby
+kind: code_change
+issue: spec_v1_1
+decision: 'Design-surface completion under PERMIT-1786830348: VDS now measures a real design system - a WCAG-compliant token layer in styles.css (--control-border #767b87 on --surface #242836, 3.46:1), a registered primitive layer (ui/controls.tsx: Button, Input, Select, Option, Textarea, Checkbox) composed by every governed screen with zero bare interactive elements, screens normalised into screens/ for uniform import specifiers, 15 register records at registered status with demand measured. register_completeness, reconciliation, composition, contrast, no_stored_values, ledger_staleness all PASS captured (6 proofs, 0 fatals). D2 subscriber seat: binary pinned with in-repo negative control (vds-gate.test.ts seeds a stored colour, asserts non-zero exit) + kernel provenance commit. states proof remains Figma-gated (drawn states come from the decided-target file). CI workflow added; lock entries carry blocking ci_workflow invocations'
+basis:
+- PERMIT-1786830348
+risk: medium
+reversibility: easy
+court_required: false
+why: Discharge the design-completion permit before commit

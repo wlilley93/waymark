@@ -1,14 +1,15 @@
+import { Button } from "../ui/controls.js";
 import { useEffect, useState } from "react";
-import { useStore } from "./state/store.js";
-import { connectLive, type LiveClient } from "./state/live.js";
-import { api } from "./api/client.js";
-import { AuthScreen } from "./auth/AuthScreen.js";
-import { Dashboard, MembersPanel } from "./maps/Dashboard.js";
-import { ManagePanel } from "./maps/ManagePanel.js";
-import { MapView } from "./map/MapView.js";
-import { PlaceSummaryCard } from "./places/PlaceSummaryCard.js";
-import { AddPlaceSheet } from "./places/AddPlaceSheet.js";
-import { FiltersBar, loadViewport } from "./filters/FiltersBar.js";
+import { useStore } from "../state/store.js";
+import { connectLive, type LiveClient } from "../state/live.js";
+import { api } from "../api/client.js";
+import { AuthScreen } from "./AuthScreen.js";
+import { Dashboard, MembersPanel } from "./Dashboard.js";
+import { ManagePanel } from "./ManagePanel.js";
+import { MapView } from "./MapView.js";
+import { PlaceSummaryCard } from "./PlaceSummaryCard.js";
+import { AddPlaceSheet } from "./AddPlaceSheet.js";
+import { FiltersBar, loadViewport } from "./FiltersBar.js";
 import type { UserPublic } from "@waymark/shared";
 
 export function App() {
@@ -58,15 +59,15 @@ export function App() {
   return (
     <div className="app">
       <header className="topbar">
-        <button className="link" onClick={closeMap}>
+        <Button className="link" onClick={closeMap}>
           ← maps
-        </button>
+        </Button>
         <strong>{current.map.name}</strong>
         <span className={`live ${liveStatus}`}>{liveStatus}</span>
         <span className="spacer" />
-        <button onClick={() => { setShowMembers(!showMembers); setShowManage(false); }}>Members</button>
-        <button onClick={() => { setShowManage(!showManage); setShowMembers(false); }}>Manage</button>
-        <button
+        <Button onClick={() => { setShowMembers(!showMembers); setShowManage(false); }}>Members</Button>
+        <Button onClick={() => { setShowManage(!showManage); setShowMembers(false); }}>Manage</Button>
+        <Button
           className={adding ? "primary" : ""}
           onClick={() => {
             setAdding(!adding);
@@ -74,7 +75,7 @@ export function App() {
           }}
         >
           {adding ? "Cancel" : "+ Add place"}
-        </button>
+        </Button>
       </header>
 
       <MapView

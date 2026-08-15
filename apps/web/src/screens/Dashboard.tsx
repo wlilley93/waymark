@@ -1,3 +1,4 @@
+import { Button, Input, Select, Textarea, Option } from "../ui/controls.js";
 import { useEffect, useState } from "react";
 import type { InviteRecord, MemberRecord } from "@waymark/shared";
 import { api } from "../api/client.js";
@@ -41,7 +42,7 @@ export function Dashboard({ onOpenMap }: { onOpenMap: (mapId: string) => void })
       <header>
         <h1>Waymark</h1>
         <span className="who">{user?.name}</span>
-        <button
+        <Button
           onClick={() =>
             api.logout().then(() => {
               closeMap();
@@ -50,7 +51,7 @@ export function Dashboard({ onOpenMap }: { onOpenMap: (mapId: string) => void })
           }
         >
           Log out
-        </button>
+        </Button>
       </header>
 
       <form
@@ -68,8 +69,8 @@ export function Dashboard({ onOpenMap }: { onOpenMap: (mapId: string) => void })
           }
         }}
       >
-        <input value={name} onChange={(e) => setName(e.target.value)} placeholder="New map name — e.g. Leeds favourites" />
-        <button className="primary">Create map</button>
+        <Input value={name} onChange={(e) => setName(e.target.value)} placeholder="New map name — e.g. Leeds favourites" />
+        <Button className="primary">Create map</Button>
       </form>
 
       {error && <p className="error">{error}</p>}
@@ -77,12 +78,12 @@ export function Dashboard({ onOpenMap }: { onOpenMap: (mapId: string) => void })
       <ul className="map-list">
         {maps.map((m) => (
           <li key={m.id}>
-            <button onClick={() => onOpenMap(m.id)}>
+            <Button onClick={() => onOpenMap(m.id)}>
               <strong>{m.name}</strong>
               <span>
                 {m.placeCount} places · {m.memberCount} members · {m.yourRole}
               </span>
-            </button>
+            </Button>
           </li>
         ))}
       </ul>
@@ -106,7 +107,7 @@ export function MembersPanel({ mapId, onClose }: { mapId: string; onClose: () =>
 
   return (
     <div className="panel members">
-      <button className="close" onClick={onClose} aria-label="Close">×</button>
+      <Button className="close" onClick={onClose} aria-label="Close">×</Button>
       <h2>Members</h2>
       <ul>
         {members.map((m) => (
@@ -114,16 +115,16 @@ export function MembersPanel({ mapId, onClose }: { mapId: string; onClose: () =>
             {m.name} <span className="who">({m.email})</span>
             {isOwner && m.role !== "owner" && (
               <>
-                <select
+                <Select
                   value={m.role}
                   onChange={(e) => api.setMemberRole(mapId, m.userId, e.target.value).then(load).catch(() => {})}
                 >
-                  <option value="editor">editor</option>
-                  <option value="viewer">viewer</option>
-                </select>
-                <button className="link" onClick={() => api.removeMember(mapId, m.userId).then(load).catch(() => {})}>
+                  <Option value="editor">editor</Option>
+                  <Option value="viewer">viewer</Option>
+                </Select>
+                <Button className="link" onClick={() => api.removeMember(mapId, m.userId).then(load).catch(() => {})}>
                   remove
-                </button>
+                </Button>
               </>
             )}
             {m.role === "owner" && <span className="tag dim">owner</span>}
@@ -134,11 +135,11 @@ export function MembersPanel({ mapId, onClose }: { mapId: string; onClose: () =>
         <>
           <h3>Invite links</h3>
           <div className="row">
-            <select value={role} onChange={(e) => setRole(e.target.value as "editor" | "viewer")}>
-              <option value="editor">editor</option>
-              <option value="viewer">viewer</option>
-            </select>
-            <button
+            <Select value={role} onChange={(e) => setRole(e.target.value as "editor" | "viewer")}>
+              <Option value="editor">editor</Option>
+              <Option value="viewer">viewer</Option>
+            </Select>
+            <Button
               onClick={() =>
                 api
                   .createInvite(mapId, { role, ttlHours: 48 })
@@ -147,19 +148,19 @@ export function MembersPanel({ mapId, onClose }: { mapId: string; onClose: () =>
               }
             >
               Create invite
-            </button>
+            </Button>
           </div>
           <ul>
             {invites
               .filter((i) => !i.revokedAt)
               .map((i) => (
                 <li key={i.id}>
-                  <button className="link" onClick={() => i.url && navigator.clipboard?.writeText(i.url)}>
+                  <Button className="link" onClick={() => i.url && navigator.clipboard?.writeText(i.url)}>
                     copy link ({i.role}, {i.maxUses ?? "∞"} uses, used {i.uses})
-                  </button>
-                  <button className="link" onClick={() => api.revokeInvite(mapId, i.id).then(load).catch(() => {})}>
+                  </Button>
+                  <Button className="link" onClick={() => api.revokeInvite(mapId, i.id).then(load).catch(() => {})}>
                     revoke
-                  </button>
+                  </Button>
                 </li>
               ))}
           </ul>

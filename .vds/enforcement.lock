@@ -1,12 +1,27 @@
 schema_version: 1
-generated_at: 2026-08-15T21:14:20Z
+generated_at: 2026-08-15T21:44:29Z
 entries:
+- path: ../vibe-design-system/target/release/vds
+  digest: sha256:c7af8d5b16c3adfb2e97b496a7215d1bd1754789ee12704c30edcb68f7e6189c
+  kind: released_binary
+  invoked_by:
+  - surface: package_script
+    reference: npm test
+    blocking: true
+  proves: []
+  failing_direction_test:
+  - path: apps/server/test/vds-gate.test.ts
+    test_name: vds binary fails on a seeded stored colour
+    seeds: the pinned binary exits non-zero on a seeded stored-colour violation under .vds
+  pinned_at: 2026-08-15T21:42:56Z
+  pinned_by: williamlilley
+  provenance: 94c8e47478b7cdda9379ccd7c23019fc1aefd56f
 - path: apps/server/test/mapplaces.test.ts
   digest: sha256:279ad39a168fd4f85582824b124510c25e398ce4f45d062affc901eee911a938
   kind: proof_script
   invoked_by:
-  - surface: package_script
-    reference: npm test
+  - surface: ci_workflow
+    reference: .github/workflows/ci.yml
     blocking: true
   proves:
   - composition
@@ -14,19 +29,19 @@ entries:
   - path: apps/server/test/mapplaces.test.ts
     test_name: viewport loads by bbox intersection
     seeds: rejects places outside the bbox
-  pinned_at: 2026-08-15T21:14:20Z
+  pinned_at: 2026-08-15T21:44:17Z
   pinned_by: williamlilley
 - path: e2e/live.spec.ts
   digest: sha256:7843123125c36e8709e32a2260b0ae3535c9ad0d4c867fb14bb6ff5f4e3f791b
   kind: criteria_grader
   invoked_by:
-  - surface: package_script
-    reference: npm run e2e
+  - surface: ci_workflow
+    reference: .github/workflows/ci.yml
     blocking: true
   proves: []
   failing_direction_test:
   - path: e2e/live.spec.ts
     test_name: two users, one live map
     seeds: signup to live pin journey incl invite acceptance
-  pinned_at: 2026-08-15T21:14:20Z
+  pinned_at: 2026-08-15T21:44:29Z
   pinned_by: williamlilley

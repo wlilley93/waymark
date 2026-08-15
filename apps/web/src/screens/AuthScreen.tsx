@@ -1,3 +1,4 @@
+import { Button, Input, Select, Textarea, Option } from "../ui/controls.js";
 import { useState } from "react";
 import type { UserPublic } from "@waymark/shared";
 import { api } from "../api/client.js";
@@ -45,18 +46,18 @@ export function AuthScreen() {
       <h1>Waymark</h1>
       <p className="tagline">shared live maps of bookmarked places</p>
       <form onSubmit={submit}>
-        {mode === "signup" && <input value={name} onChange={(e) => setName(e.target.value)} placeholder="Your name" autoComplete="name" />}
-        <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" autoComplete="email" />
-        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password (10+ chars)" autoComplete={mode === "signup" ? "new-password" : "current-password"} />
-        <button className="primary">{mode === "signup" ? "Create account" : "Log in"}</button>
+        {mode === "signup" && <Input value={name} onChange={(e) => setName(e.target.value)} placeholder="Your name" autoComplete="name" />}
+        <Input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" autoComplete="email" />
+        <Input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password (10+ chars)" autoComplete={mode === "signup" ? "new-password" : "current-password"} />
+        <Button className="primary">{mode === "signup" ? "Create account" : "Log in"}</Button>
       </form>
       <div className="row">
-        <button className="link" onClick={() => setMode(mode === "login" ? "signup" : "login")}>
+        <Button className="link" onClick={() => setMode(mode === "login" ? "signup" : "login")}>
           {mode === "login" ? "need an account?" : "have an account?"}
-        </button>
-        <button className="link" onClick={() => void resetRequest()}>
+        </Button>
+        <Button className="link" onClick={() => void resetRequest()}>
           forgot password?
-        </button>
+        </Button>
       </div>
       {error && <p className="error">{error}</p>}
       {info && <p className="hint">{info}</p>}

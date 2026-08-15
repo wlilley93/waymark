@@ -1,3 +1,4 @@
+import { Button, Input, Select, Textarea } from "../ui/controls.js";
 import { api } from "../api/client.js";
 import { useStore } from "../state/store.js";
 
@@ -20,33 +21,33 @@ export function FiltersBar() {
           {current.terms
             .filter((t) => t.facetId === f.id)
             .map((t) => (
-              <button
+              <Button
                 key={t.id}
                 className={`chip ${filters.termIds.includes(t.id) ? "on" : ""}`}
                 style={filters.termIds.includes(t.id) ? { background: t.color, borderColor: t.color } : {}}
                 onClick={() => toggleTerm(t.id)}
               >
                 {t.name}
-              </button>
+              </Button>
             ))}
         </div>
       ))}
       <div className="filter-group">
         <span className="filter-name">Rating</span>
         {[3, 4].map((n) => (
-          <button
+          <Button
             key={n}
             className={`chip ${filters.minRating === n ? "on" : ""}`}
             onClick={() => setFilters({ minRating: filters.minRating === n ? undefined : n })}
           >
             ★{n}+
-          </button>
+          </Button>
         ))}
       </div>
       <div className="filter-group">
-        <button className={`chip ${filters.mine ? "on" : ""}`} onClick={() => setFilters({ mine: !filters.mine })}>
+        <Button className={`chip ${filters.mine ? "on" : ""}`} onClick={() => setFilters({ mine: !filters.mine })}>
           Only mine
-        </button>
+        </Button>
       </div>
     </div>
   );
