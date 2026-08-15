@@ -1,0 +1,12 @@
+id: LOG-2026-08-15-203906
+time: 2026-08-15T20:39:06.311569+00:00
+actor: lexby
+kind: code_change
+issue: spec_v1_1
+decision: 'Commit checkpoint under PERMIT-1786826338: monorepo, shared zod contract, Fastify server with auth floor, three-layer places, facets/terms, typed fields, If-Match concurrency, WS sequences with resync, geocoder interface; 29/29 tests green; VJS subscription surface compliant (hooks under 40 words)'
+basis:
+- PERMIT-1786826338
+risk: medium
+reversibility: easy
+court_required: false
+why: Discharge the checkpoint permit before commit

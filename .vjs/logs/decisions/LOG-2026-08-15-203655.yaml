@@ -1,0 +1,12 @@
+id: LOG-2026-08-15-203655
+time: 2026-08-15T20:36:55.929590+00:00
+actor: lexby
+kind: code_change
+issue: spec_v1_1
+decision: Vendored lawpack/v2 in-repo per the canonical subscriber pattern (config paths resolve inside the repo, INV-012); registered in store-register; shortened hook to the 40-word invariant and re-locked the install manifest. Discharges stale PERMIT-1786820534
+basis:
+- PERMIT-1786820534
+risk: low
+reversibility: easy
+court_required: false
+why: Fix the subscription surface so the gate passes on its own terms

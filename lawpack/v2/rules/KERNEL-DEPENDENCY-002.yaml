@@ -1,0 +1,28 @@
+id: KERNEL-DEPENDENCY-002
+authority: ACT-001:s3
+assent_source: standing_bounded_assent
+title: Kernel dependency policy
+status: binding
+rank: regulation
+scope:
+  paths:
+    - crates/vjs-core/**
+    - crates/vjs-lawpack/**
+  action_kinds:
+    - dependency_change
+effect:
+  must:
+    - justify_dependency
+    - run_tests
+  must_not:
+    - add_network_dependency_to_core
+    - add_model_dependency_to_core
+source:
+  v1:
+    - Bill 31
+    - Agent Lawfulness Hooks instruments
+summary: Kernel code must stay auditable and deterministic; extra crates require explicit safety or correctness reason.
+supersedes: []
+kernel_effect:
+  annotates:
+    - route.authority_basis

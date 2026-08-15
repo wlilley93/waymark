@@ -1,0 +1,107 @@
+id: 2026-VJS-CC-WAYMARK-SPEC-MODEL-001
+court: county
+jurisdiction: default
+repo_code: WAYMARK
+status: binding
+issue: spec_v1_1
+holding: |
+  Option A is adopted in full; v1.1 is the binding build specification. The Place
+  and the MapPlace are different things and v1.0 conflated them: a canonical
+  places row (name, geom, address, website, operational status, OSM natural key)
+  with place_sources for provider identity, and a map_places row (the group's
+  bookmark: shared note, added_by, version, map-specific attributes) referencing
+  it. Dedupe keys on (provider, external_id) where a source supplies one; manual
+  pins match on geom+name proximity at insert with an exact-match reuse rule.
+  Taxonomy becomes facets/terms: a facet is a dimension (category, vibe,
+  occasion, audience, facilities, price), a term is a value in it; map_place_terms
+  carries role primary|secondary so a venue is one primary category plus optional
+  secondary categories and any number of other-facet terms. Filters compose
+  across facets (family-friendly AND restaurant NOT bar). Custom fields become
+  typed field_definitions (key, label, data_type, validation, applicable terms,
+  filterable, required) with values in map_place_field_values JSONB constrained
+  by the definition; "no migrations for user-defined fields" stands, "never any
+  migration" does not - core concepts migrate. Conflict handling is versioned
+  optimistic concurrency: every mutation of map_places bumps version and writes
+  place_revisions; PATCH requires If-Match, mismatch returns 409 with the current
+  record; non-overlapping field auto-merge is a client concern on top, never a
+  server-side guess. The realtime layer treats WS events as notifications over
+  the transactional truth: every event carries (map_id, seq) from a per-map
+  monotonic sequence persisted in activity_events BEFORE broadcast; clients
+  resync by sinceSeq on reconnect; handlers are idempotent; the database is the
+  source of truth. Spatial queries split by kind: ST_DWithin(geography) for
+  radius/nearby, bbox && ST_MakeEnvelope for viewport loading. Geocoding goes
+  through a Geocoder provider interface; the Nominatim adapter serves explicit
+  submitted queries only (proper UA, >=1s spacing, cached), autocomplete is
+  forbidden against the public instance and a hosted/self-hosted provider is a
+  later swap. Tiles and terrain are replaceable sources; terrain is a toggle,
+  off by default. Deployment is split: dev on Tailscale, production multiplayer
+  needs public HTTPS + transactional email + app-level invites, and the spec says
+  so. The auth floor adds: login rate limiting, session rotation and revocation,
+  Secure+SameSite cookies, CSRF via custom-header same-origin policy, single-use
+  expiring reset and invite tokens stored hashed, audit events for auth
+  mutations. No runtime plugin system in v1: TypeScript interfaces and internal
+  registries only. Option B is rejected because schema normalisation after
+  duplicate data exists is the measured failure mode of every prior bookmark
+  map; Option C is rejected because If-Match and seq-on-write are API-contract
+  decisions, not additives - every client written against a contract without
+  them breaks when they arrive.
+directives:
+- id: D1
+  actor: lexby
+  must: implement_the_three_layer_place_model_places_place_sources_map_places_with_provider_natural_keys_and_exact_match_reuse_before_insert
+  when: null
+- id: D2
+  actor: lexby
+  must: implement_facets_terms_and_map_place_terms_with_role_primary_and_secondary_and_composable_cross_facet_filters
+  when: null
+- id: D3
+  actor: lexby
+  must: implement_typed_field_definitions_and_map_place_field_values_validated_against_their_definition
+  when: null
+- id: D4
+  actor: lexby
+  must: implement_versioned_optimistic_concurrency_if_match_409_on_conflict_and_place_revisions_audit_rows
+  when: null
+- id: D5
+  actor: lexby
+  must: implement_persisted_per_map_event_sequences_activity_events_and_client_resync_by_since_seq_with_idempotent_handlers
+  when: null
+- id: D6
+  actor: lexby
+  must: use_st_dwithin_geography_for_radius_queries_and_bbox_intersection_for_viewport_loading
+  when: null
+- id: D7
+  actor: lexby
+  must: route_all_geocoding_through_a_provider_interface_with_a_policy_compliant_nominatim_adapter_submitted_queries_only_no_autocomplete_against_the_public_instance
+  when: null
+- id: D8
+  actor: lexby
+  must: keep_tile_and_terrain_sources_replaceable_terrain_off_by_default_and_split_dev_tailscale_from_production_public_https_plus_email_deployment_postures_in_the_spec
+  when: null
+- id: D9
+  actor: lexby
+  must: implement_the_expanded_auth_floor_rate_limit_rotation_revocation_csrf_hashed_single_use_tokens_auth_audit_events
+  when: null
+- id: D10
+  actor: lexby
+  must: ship_internal_typescript_extension_interfaces_only_no_third_party_runtime_plugin_system_in_v1
+  when: null
+forbidden:
+- storing_map_specific_data_on_canonical_places_or_venue_data_on_map_places
+- last_write_wins_silent_overwrites_on_map_places
+- keystroke_autocomplete_or_unthrottled_systematic_queries_against_public_nominatim
+- broadcasting_events_not_already_persisted_transactionally
+- raw_unversioned_jsonb_blobs_standing_in_for_typed_field_definitions
+exceptions: null
+supersedes: []
+source_opinion: null
+runtime_summary: |
+  v1.1 binding: canonical places + map_places, facets/terms with primary and
+  secondary categories, typed custom fields, If-Match optimistic concurrency with
+  revisions, persisted per-map event seq with resync, ST_DWithin radius + bbox
+  viewport, Geocoder interface with compliant Nominatim adapter, replaceable
+  tiles with terrain off by default, dev/prod deployment split, expanded auth
+  floor, no runtime plugins.
+created_at: 2026-08-15T19:36:00Z
+citation: '[2026] VJS-CC-WAYMARK 1'
+assent_source: standing_bounded_assent

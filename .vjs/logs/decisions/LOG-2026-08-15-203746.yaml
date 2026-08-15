@@ -1,0 +1,12 @@
+id: LOG-2026-08-15-203746
+time: 2026-08-15T20:37:46.781865+00:00
+actor: lexby
+kind: code_change
+issue: spec_v1_1
+decision: 'Subscription surface corrected: hooks under the 40-word invariant with install manifest re-locked, store-register notes the external pinned canon. Vendoring the full lawpack was tried and REVERTED - it displaces the configured lawpack and drags canon-boundary fatals on the vendor''s own judgments'
+basis:
+- PERMIT-1786826261
+risk: low
+reversibility: easy
+court_required: false
+why: Discharge the surface-correction permit

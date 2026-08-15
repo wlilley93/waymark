@@ -1,0 +1,59 @@
+id: SUBMISSION-2026-08-15-193501
+court_requested: county
+jurisdiction: default
+question: 'Waymark v1.0 routes places to maps directly (places(map, ...)) with flat categories+qualifiers, last-write-wins merging, public-Nominatim proxy search, and one deployment posture. An external review (ChatGPT, 2026-08-15) proposes eleven amendments. Does the Court adopt the amended model (v1.1) as the binding build specification, and which amendments are mandatory vs deferred?'
+facts: |
+  # Case: the shape of the first build
+
+  ## Facts
+  1. REQUIREMENTS v1.0 (this repo, committed path) specifies a places table keyed
+     to a map: places(map, geog, category, name, fields jsonb). A real-world venue
+     bookmarked on three maps therefore yields three rows, or one venue homeless
+     on two maps.
+  2. v1.0 taxonomy: exactly one category, many flat qualifiers. A venue that is a
+     restaurant AND a bar cannot express both; "cosy date" merges vibe and occasion
+     into one unfilterable string.
+  3. v1.0 conflict rule: "last-write-wins with per-field merge" - two strategies
+     named as one, undefined for arrays, photo order and JSON fields.
+  4. v1.0 geocode: server-proxied Nominatim. The public instance's usage policy
+     prohibits autocomplete and systematic queries; a proxy does not launder the
+     request pattern.
+  5. v1.0 says "reached over LAN/Tailscale for now" while also promising invite
+     links and password reset with email stubbed - a product mode the deployment
+     cannot deliver.
+  6. The Principal directed: build end to end with the review's corrections in
+     scope, governed by VJS/VDS, asking the Court rather than the Principal.
+
+  ## Options
+  A. ADOPT THE FULL AMENDMENT SET (v1.1). Canonical places + place_sources +
+     map_places (a Place is the venue; a MapPlace is the group's bookmark);
+     facets/terms with primary+secondary categories; typed field_definitions with
+     JSONB values; geocoder-provider interface with compliant Nominatim adapter
+     (submitted queries only); versioned optimistic concurrency via If-Match; WS
+     sequence numbers + resync recovery; ST_DWithin for radius and bbox && for
+     viewport; replaceable tile/terrain sources, terrain off by default; dev
+     (Tailscale) vs production (public HTTPS) deployment split; expanded auth
+     security floor; no runtime plugin slots in v1. Strongest: the duplicate-place
+     and conflict defects are the two that "become expensive to unwind precisely
+     when the application starts succeeding". Cost: ~6 more tables, one more join
+     on every map query.
+  B. KEEP v1.0 AS WRITTEN. Simplest schema, fastest first build; the defects are
+     real but a v2 migration can normalise later. Strongest: YAGNI for a
+     friends-and-family map. Cost: dedupe, cross-map correction and merge arrive
+     as migrations over data already duplicated - the exact failure mode the
+     review names; last-write-wins silently drops concurrent edits.
+  C. ADOPT THE DATA AMENDMENTS, DEFER THE OPERATIONAL ONES (concurrency, WS
+     recovery, deployment split). Strongest: schema is the hard-to-reverse part;
+     behaviour can bolt on. Cost: If-Match and event sequencing must be designed
+     into the API surface from the start or every client is written against a
+     contract that later breaks; a WS layer without resync is a demo, not
+     multiplayer.
+
+  ## Constraints
+  The Principal's direction bounds the answer: the review's amendments are in
+  scope, undelayed; the choice is between A, B and C, and the build follows the
+  ruling this session. Monorepo, React+Vite, Fastify, PostGIS, MapLibre+
+  OpenFreeMap are settled (v1.0 decisions, not before the Court).
+requested_order: TBD
+private_boundary: local
+word_count: 462

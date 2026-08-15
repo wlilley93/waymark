@@ -1,0 +1,20 @@
+# THE STORE REGISTER (ACT-PROCEEDINGS-DISCIPLINE s13). Every store capable of holding
+# a governed record or a citation, registered so the audit sweeps a map and not a
+# guess. Checked by the store-register gate at validate and local-ci: a governed
+# record root missing from here is Fatal; a ghost entry warns.
+#
+# Written by `vjs invoke` from this jurisdiction's configured paths. Edit freely:
+# this file is yours, and invoke will not overwrite it once it exists.
+stores:
+- path: lawpack/v2
+  kind: canonical_lawpack
+  registered_at: "2026-08-15"
+  note: the subscribed canon, digest-pinned in .vjs/lawpack.lock; external to this repo by local-sovereign invocation
+- path: .vjs/orders
+  kind: filed_orders
+  registered_at: "2026-08-15"
+  note: this jurisdiction's own filed orders, overlaid on the canon by the shared door
+- path: .vjs/court
+  kind: court_records
+  registered_at: "2026-08-15"
+  note: convenings and court records under REG-COURT-RECORD-001

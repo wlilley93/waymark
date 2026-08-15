@@ -1,0 +1,12 @@
+id: LOG-2026-08-15-203823
+time: 2026-08-15T20:38:23.047747+00:00
+actor: lexby
+kind: code_change
+issue: spec_v1_1
+decision: 'Removed .vjs/hooks/adapters: the shipped adapters run 49-132 words against INV-HOOKS-SHORT-001''s 40-word ceiling, and no runtime agent harness on this deployment consumes them. Installing them is deferred until the lawpack ships adapters within its own invariant'
+basis:
+- PERMIT-1786826295
+risk: low
+reversibility: easy
+court_required: false
+why: Invariant compliance on a surface this deployment does not use

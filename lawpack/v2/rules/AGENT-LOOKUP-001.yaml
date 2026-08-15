@@ -1,0 +1,28 @@
+id: AGENT-LOOKUP-001
+authority: ACT-001:s3
+assent_source: standing_bounded_assent
+title: Memory is not authority
+status: binding
+rank: regulation
+scope:
+  jurisdictions:
+    - "*"
+  action_kinds:
+    - governed_load_bearing_act
+    - public_record_change
+    - external_act
+effect:
+  must:
+    - call_kernel_route
+    - record_authority_basis
+exceptions:
+  - trivial_reversible_preference
+source:
+  v1:
+    - Bill 31
+    - Agent Lawfulness Hooks instruments
+summary: Retrieve current authority before governed load-bearing work.
+supersedes: []
+kernel_effect:
+  annotates:
+    - route.authority_basis

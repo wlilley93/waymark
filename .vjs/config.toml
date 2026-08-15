@@ -1,0 +1,24 @@
+version = "2"
+jurisdiction_id = "waymark"
+repo_code = "WAYMARK"
+lawpack = "vjs-v2@0.1.0"
+lawpack_path = "./lawpack/v2"
+principal = "William Lilley"
+
+[paths]
+orders = ".vjs/orders"
+logs = ".vjs/logs"
+submissions = ".vjs/submissions"
+specs = "lawpack/v2/specs"
+decisions = "lawpack/v2/decisions"
+proofs = ".vjs/proofs"
+permits = ".vjs/permits"
+private = ".vjs/private"
+cache = ".vjs/cache"
+
+[paths.public]
+enabled = false
+
+[governance]
+permit_required = ["src/**", "crates/**", "lawpack/**", "Cargo.toml", "package.json", "AGENTS.md", "VJS.md", "README.md"]
+permit_exempt = [".vjs/logs/**", ".vjs/permits/**", ".vjs/proofs/**", ".vjs/cache/**", ".vjs/private/**", "target/**", "node_modules/**"]

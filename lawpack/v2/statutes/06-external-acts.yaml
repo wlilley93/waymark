@@ -1,0 +1,96 @@
+id: ACT-006
+assent_source: sovereign_assent
+citation: "[2026] VJS-ACT 6"
+title: External Acts and Release Authority Act
+status: in_force
+enacted_by: principal
+purpose: >
+  To govern external acts, public releases, destructive operations, and require human
+  checkpoints for irreversible actions.
+
+sections:
+  - id: ACT-006:s1
+    title: External acts require explicit route
+    text: >
+      Pushing to a public repository, deploying to production, or interacting with external
+      services are external acts. They require an explicit route decision.
+    kernel_effect:
+      when:
+        any:
+          - action.kind == external_act
+          - action.kind == release_or_push
+      must:
+        - call_vjs_route
+        - verify_release_authority
+
+  - id: ACT-006:s2
+    title: Public release requires release authority
+    text: >
+      A public release requires a release warrant or Principal authorisation. The release
+      must identify the release, the authority basis, and the human checkpoint.
+    kernel_effect:
+      when:
+        any:
+          - public_target == true
+      must:
+        - verify_release_warrant
+      proof:
+        - release_warrant
+        - human_checkpoint
+
+  - id: ACT-006:s3
+    title: Credentials are never public
+    text: >
+      Credentials, API keys, and secrets must not enter public repositories. The scanner
+      must flag them. The agent must remove them before commit.
+    kernel_effect:
+      must:
+        - remove_secrets_before_commit
+        - flag_secrets_in_scanner
+      must_not:
+        - commit_secrets_to_public
+      defines:
+        - secrets.fatal_finding
+
+  - id: ACT-006:s4
+    title: Destructive actions require heightened proof
+    text: >
+      Destructive actions (deletion, reset, rebase, force-push) require explicit human
+      approval. The kernel must block them unless a permit with human approval is present.
+    kernel_effect:
+      when:
+        any:
+          - action.irreversible == true
+          - action.destructive == true
+      must:
+        - human_approval_required
+        - permit_with_human_approval
+      must_not:
+        - proceed_without_human_approval
+
+  - id: ACT-006:s5
+    title: External services are outside the kernel
+    text: >
+      External services (CI, deployment, third-party APIs) are outside the kernel. The
+      kernel may advise but cannot control them. The agent must use explicit credentials
+      and authority for external acts.
+    kernel_effect:
+      defines:
+        - external_services.outside_kernel
+        - kernel.may_advise_only
+      must:
+        - use_explicit_authority_for_external
+
+  - id: ACT-006:s6
+    title: Release receipt must be logged
+    text: >
+      Every public release must produce a receipt. The receipt records the release id,
+      authority basis, and human checkpoint. The receipt is logged locally.
+    kernel_effect:
+      when:
+        any:
+          - public_release.completed == true
+      must:
+        - log_release_receipt
+      proof:
+        - release_receipt

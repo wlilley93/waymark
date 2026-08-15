@@ -1,0 +1,10 @@
+id: INV-002
+title: No duplicate IDs
+severity: fatal
+rule:
+  kind: no_duplicate_ids
+basis:
+  - ACT-004:s8
+  - REG-003
+  - REG-006
+remedy: Use unique IDs for all records.

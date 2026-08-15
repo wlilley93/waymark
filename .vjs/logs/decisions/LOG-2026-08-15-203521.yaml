@@ -1,0 +1,12 @@
+id: LOG-2026-08-15-203521
+time: 2026-08-15T20:35:21.518983+00:00
+actor: lexby
+kind: code_change
+issue: spec_v1_1
+decision: 'Server implemented per [2026] VJS-CC-WAYMARK 1 D1-D9: three-layer place model with provider-key dedupe; facets/terms with primary/secondary roles; typed field_definitions validated by shared zod builders; If-Match optimistic concurrency with place_revisions audit; per-map persisted event sequences with post-commit broadcast and resync; bbox && for viewport and ST_DWithin for nearby; Geocoder interface with policy-compliant Nominatim adapter (UA, 1.1s spacing, cache, no autocomplete); auth floor (argon2id, rotation, revocation, rate limits, hashed single-use tokens, CSRF same-origin, auth audit); 29 tests green'
+basis:
+- 2026-VJS-CC-WAYMARK-SPEC-MODEL-001
+risk: medium
+reversibility: easy
+court_required: false
+why: First governed write of the build programme under the ruling; permit PERMIT-1786826106 scopes packages/ apps/server

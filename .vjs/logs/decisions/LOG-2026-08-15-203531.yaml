@@ -1,0 +1,12 @@
+id: LOG-2026-08-15-203531
+time: 2026-08-15T20:35:31.982698+00:00
+actor: lexby
+kind: code_change
+issue: spec_v1_1
+decision: 'Checkpoint commit of server M1-M3 under PERMIT-1786826106 and the follow-up permit: monorepo + shared contract + full Fastify server with 29 green tests, per [2026] VJS-CC-WAYMARK 1'
+basis:
+- PERMIT-1786826106
+risk: medium
+reversibility: easy
+court_required: false
+why: Discharge the permit obligation with the permit id in basis per the gate's discharge contract

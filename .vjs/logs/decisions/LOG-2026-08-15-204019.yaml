@@ -1,0 +1,12 @@
+id: LOG-2026-08-15-204019
+time: 2026-08-15T20:40:19.836206+00:00
+actor: lexby
+kind: code_change
+issue: spec_v1_1
+decision: 'Lawpack vendored in-repo with lawpack_path, specs and decisions all resolving to ./lawpack/v2 - the consistent canonical subscriber shape; validate reports zero Fatal and zero Error. First commit checkpoint: monorepo, shared zod contract, full server, 29/29 tests'
+basis:
+- PERMIT-1786826414
+risk: low
+reversibility: easy
+court_required: false
+why: Discharge the lawpack-vendoring permit

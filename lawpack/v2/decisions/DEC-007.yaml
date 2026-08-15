@@ -1,0 +1,35 @@
+id: DEC-007
+citation: "[2026] VJS-DEC 7"
+title: What the register carries; County Court orders are operational
+status: active
+scope:
+  paths:
+    - lawpack/v2/**
+    - .vjs/court/**
+decision: >
+  The public register (the Gazette) and the published lawpack carry the realm's
+  law - Acts, Regulations, Statutory Instruments, Rules, Decisions, Invariants
+  and Obligations - and the binding precedent of the Privy Council and the
+  Supreme Court. County Court orders are repo-level and operational; they are
+  recorded as shadow orders under .vjs/court/orders and are NOT entered in the
+  register or the published lawpack. A County Court order's load-bearing
+  principle is given lasting force only by enactment as an Act, Regulation or
+  Statutory Instrument, or by a higher court's ruling.
+basis:
+  - ACT-002:s1
+  - ACT-004:s1
+reason: >
+  The register is the record of the realm's law, not its operational docket.
+  Repo-level County Court orders (work programmes, local enforcement, internal
+  re-identifications) would bloat the public record and confuse readers without
+  adding law; their substance, where it matters, lives in standing law already
+  (e.g. DEC-006, REG-COURT-RECORD-001) or is enacted deliberately.
+consequences:
+  must:
+    - register_carries_law_and_pc_sc_precedent
+    - record_county_court_orders_as_shadow_in_vjs_court_orders
+    - enshrine_a_load_bearing_county_principle_as_act_regulation_or_si
+  must_not:
+    - publish_county_court_orders_in_the_register_or_lawpack
+review_triggers:
+  - gazette_entry_published

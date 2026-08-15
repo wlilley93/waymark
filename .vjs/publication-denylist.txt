@@ -1,0 +1,10 @@
+# Publication boundary denylist. One sha256 per line, of a lowercased
+# private term that must never reach a published record.
+#
+# ARMED EMPTY by `vjs invoke`: this estate has registered no private terms yet.
+# Empty is a statement, not an absence - the canon-write gate treats a MISSING
+# register as an error, because a gate that reads an unreadable register as
+# empty reports clean when it means it could not look ([2026] VJS-CC-VJS 17 C3).
+#
+# Add a term with: printf '%s' "the-term" | tr 'A-Z' 'a-z' | sha256sum
+# Never write the term itself into this file, or into any gate message.

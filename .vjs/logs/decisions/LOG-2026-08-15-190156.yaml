@@ -1,0 +1,12 @@
+id: LOG-2026-08-15-190156
+time: 2026-08-15T19:01:56.853402+00:00
+actor: lexby
+kind: implementation-decision
+issue: spec_v1_1
+decision: 'Adopt amended spec v1.1 as binding (Option A, [2026] VJS-CC-WAYMARK 1): three-layer place model, facets/terms, typed fields, If-Match concurrency, persisted WS sequences with resync, split spatial queries, geocoder interface, replaceable tiles, dev/prod split, auth floor, no runtime plugins'
+basis:
+- 2026-VJS-CC-WAYMARK-SPEC-MODEL-001
+risk: high
+reversibility: easy
+court_required: false
+why: Court disposed the first-impression routing; schema and API-contract amendments are the expensive-to-reverse class and were ruled before any governed write

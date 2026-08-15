@@ -1,0 +1,12 @@
+id: LOG-2026-08-15-203539
+time: 2026-08-15T20:35:39.575928+00:00
+actor: lexby
+kind: code_change
+issue: spec_v1_1
+decision: AGENTS.md verification commands included in the checkpoint; discharging PERMIT-1786826131
+basis:
+- PERMIT-1786826131
+risk: low
+reversibility: easy
+court_required: false
+why: Discharge contract requires permit id in basis

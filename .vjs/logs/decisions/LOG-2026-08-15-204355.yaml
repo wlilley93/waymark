@@ -1,0 +1,12 @@
+id: LOG-2026-08-15-204355
+time: 2026-08-15T20:43:55.824210+00:00
+actor: lexby
+kind: code_change
+issue: spec_v1_1
+decision: 'First commit under PERMIT-1786826630. The vendored canon was amended by local sovereignty: four V2 rules (AGENT-LOOKUP-001/002, DATA-PRIVATE-001, KERNEL-DEPENDENCY-002) gained the authority/status/kernel_effect fields INV-LAWMAKING-001 requires of first-staged law, and the lawpack was re-pinned by re-invocation. The amendment is additive metadata on V1-extraction rules and is recorded here for upstream'
+basis:
+- PERMIT-1786826630
+risk: medium
+reversibility: easy
+court_required: false
+why: Discharge the first-commit permit; record the canon amendment

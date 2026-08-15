@@ -1,0 +1,10 @@
+# VJS install manifest (REG-INSTALL-MANIFEST-001).
+schema_version = 1
+generated_at = "2026-08-15T20:44:22.842684+00:00"
+config_digest = "sha256:fbaa00868e347337f5bd755588c4819bef3b2db38a1e7949f3d610223f6949a7"
+invocation = ".vjs/invocation/20260815-185201-local-sovereign-invocation.yaml"
+invocation_digest = "sha256:5d9de42ccf448e1040cf9d36a302adafde0be88994f4484769a4c112443c64e0"
+lawpack_lock = ".vjs/lawpack.lock"
+hooks = ["pre-commit", "pre-push"]
+hook_digests = ["sha256:9537458039fde78363d6157d09b78bb6d3a872d9c9f7998f1f18563aede33105", "sha256:7065c7e0d0259a90077672d291e74fb8975ec31fb5e6a86e6bcae9e700222f08"]
+adapters = ["claude-post_action.sh", "claude-pre_write.sh", "claude-session_start.sh", "codex-post_action.sh", "codex-pre_write.sh", "codex-session_start.sh", "gemini-post_action.sh", "gemini-pre_write.sh", "gemini-session_start.sh", "mcp-post_action.sh", "mcp-pre_write.sh", "mcp-session_start.sh", "opencode-post_action.sh", "opencode-pre_write.sh", "opencode-session_start.sh", "shell-post_action.sh", "shell-pre_write.sh", "shell-session_start.sh"]
