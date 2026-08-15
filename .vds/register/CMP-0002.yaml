@@ -1,0 +1,35 @@
+id: CMP-0002
+name: PlaceSummaryCard
+status: proposed
+contractVersion: 1
+figma: null
+code:
+  importPath: ./places/PlaceSummaryCard.js
+  sourceFile: apps/web/src/places/PlaceSummaryCard.tsx
+  exportName: PlaceSummaryCard
+props: []
+states:
+  required:
+  - default
+  - focus
+  drawn: []
+  built: []
+a11y:
+  role: null
+  accessibleNameSource: undecided
+  keyboard: []
+  contrastFloors:
+  - boundary: control-border
+    against: surface
+    minRatio: 3.0
+    basis: WCAG 2.2 SC 1.4.11
+    scope: null
+demand:
+  routes: 0
+  measuredAt: 2026-08-15T21:13:57Z
+  measuredBy: vds register measure-demand
+supersedes: []
+supersededBy: null
+amendments: []
+basis:
+- ACT-VDS-001:s5

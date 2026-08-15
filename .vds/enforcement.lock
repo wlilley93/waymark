@@ -1,0 +1,32 @@
+schema_version: 1
+generated_at: 2026-08-15T21:14:20Z
+entries:
+- path: apps/server/test/mapplaces.test.ts
+  digest: sha256:279ad39a168fd4f85582824b124510c25e398ce4f45d062affc901eee911a938
+  kind: proof_script
+  invoked_by:
+  - surface: package_script
+    reference: npm test
+    blocking: true
+  proves:
+  - composition
+  failing_direction_test:
+  - path: apps/server/test/mapplaces.test.ts
+    test_name: viewport loads by bbox intersection
+    seeds: rejects places outside the bbox
+  pinned_at: 2026-08-15T21:14:20Z
+  pinned_by: williamlilley
+- path: e2e/live.spec.ts
+  digest: sha256:7843123125c36e8709e32a2260b0ae3535c9ad0d4c867fb14bb6ff5f4e3f791b
+  kind: criteria_grader
+  invoked_by:
+  - surface: package_script
+    reference: npm run e2e
+    blocking: true
+  proves: []
+  failing_direction_test:
+  - path: e2e/live.spec.ts
+    test_name: two users, one live map
+    seeds: signup to live pin journey incl invite acceptance
+  pinned_at: 2026-08-15T21:14:20Z
+  pinned_by: williamlilley

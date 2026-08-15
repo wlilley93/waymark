@@ -1,0 +1,12 @@
+id: LOG-2026-08-15-211554
+time: 2026-08-15T21:15:54.401478+00:00
+actor: lexby
+kind: code_change
+issue: spec_v1_1
+decision: 'M5 checkpoint under PERMIT-1786828519: VDS engaged for real - 6 components registered (CMP-0001..6) with contrast floors, screens ledger generated, proofs run (ledger_staleness and no_stored_values pass with rows enforced; the rest recorded vacuous - the honest day-zero position), enforcement lock pins the composition test and the e2e journey with in-repo negative controls; README, AGENTS verification commands, backup script, compose'
+basis:
+- PERMIT-1786828519
+risk: low
+reversibility: easy
+court_required: false
+why: Discharge the M5 permit before the final commit
