@@ -1,0 +1,12 @@
+id: LOG-2026-08-15-212633
+time: 2026-08-15T21:26:33.666355+00:00
+actor: lexby
+kind: code_change
+issue: spec_v1_1
+decision: 'Finish pass under PERMIT-1786829186: (1) ManagePanel delivers FR-4 - facets, terms and typed field definitions edited in-app with live taxonomy refresh; (2) photos endpoint now test-covered: upload+served PNG, sharp webp thumb, caption capture, 401/415/403 refusals; (3) e2e prefs spec covers style switch (styleLoaded verified), terrain default-off and persistence across reload; (4) e2e server webServer forced fresh per run - the in-memory signup limiter cannot carry between runs (observed 429 flake killed); (5) VDS screen records honestly REFUSED without frames - awaits the Principal''s Figma round-trip'
+basis:
+- PERMIT-1786829186
+risk: low
+reversibility: easy
+court_required: false
+why: Discharge the finish-pass permit before commit

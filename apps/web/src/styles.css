@@ -145,6 +145,9 @@ label input, label select { color: var(--text); }
 .members ul { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 6px; }
 .members li { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 
+.manage .facet-row { display: flex; flex-direction: column; gap: 4px; padding: 6px 0; border-bottom: 1px solid #323852; }
+.manage .field-row { margin: 0; display: flex; gap: 8px; align-items: baseline; flex-wrap: wrap; }
+
 /* maplibre overrides */
 .maplibregl-ctrl-group { background: var(--panel) !important; }
 .maplibregl-popup-content { background: var(--panel); color: var(--text); }

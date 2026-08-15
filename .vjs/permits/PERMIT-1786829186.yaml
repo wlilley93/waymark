@@ -1,8 +1,12 @@
-id: PERMIT-1786828614
-route_id: ROUTE-20260815-211654
+id: PERMIT-1786829186
+route_id: ROUTE-20260815-212626
 actor: lexby
 scope:
   paths:
+  - apps/web/**
+  - apps/server/test/**
+  - e2e/**
+  - playwright.config.ts
   - .vjs/**
   jurisdictions: null
   action_kinds: null
@@ -19,11 +23,11 @@ obligations:
   required: true
   due: before_commit
   description: Run vjs validate before commit
-expires_at: 2026-08-16T21:16:54.591640+00:00
-status: closed
+expires_at: 2026-08-16T21:26:26.999149+00:00
+status: active
 self_issued: true
 meaning: 'agent-routed self-issue: records that the actor took the front door (ACT-007 local-sovereign invocation); NOT an external authority''s approval. It cannot satisfy a check reserved to the Sovereign (assent) or to a constituted bench (an order).'
-intent_digest: sha256:61e502161901bf07211a52ced48b76b9f61d1153f4f0e75a2f206f918f49f431
+intent_digest: sha256:70cbf983c661633ccc0831dcde46d0185e3b9deb01c72db6f2d1a8a9ca855855
 law_source:
 - ACT-001:s1
 - ACT-001:s2

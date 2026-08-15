@@ -4,6 +4,7 @@ import { connectLive, type LiveClient } from "./state/live.js";
 import { api } from "./api/client.js";
 import { AuthScreen } from "./auth/AuthScreen.js";
 import { Dashboard, MembersPanel } from "./maps/Dashboard.js";
+import { ManagePanel } from "./maps/ManagePanel.js";
 import { MapView } from "./map/MapView.js";
 import { PlaceSummaryCard } from "./places/PlaceSummaryCard.js";
 import { AddPlaceSheet } from "./places/AddPlaceSheet.js";
@@ -15,6 +16,7 @@ export function App() {
   const [picked, setPicked] = useState<{ lng: number; lat: number } | null>(null);
   const [adding, setAdding] = useState(false);
   const [showMembers, setShowMembers] = useState(false);
+  const [showManage, setShowManage] = useState(false);
   const [liveStatus, setLiveStatus] = useState<"connecting" | "live" | "offline">("offline");
   const applyServerEvent = useStore((s) => s.applyServerEvent);
   const refreshSelected = useStore((s) => s.refreshSelected);
@@ -62,7 +64,8 @@ export function App() {
         <strong>{current.map.name}</strong>
         <span className={`live ${liveStatus}`}>{liveStatus}</span>
         <span className="spacer" />
-        <button onClick={() => setShowMembers(!showMembers)}>Members</button>
+        <button onClick={() => { setShowMembers(!showMembers); setShowManage(false); }}>Members</button>
+        <button onClick={() => { setShowManage(!showManage); setShowMembers(false); }}>Manage</button>
         <button
           className={adding ? "primary" : ""}
           onClick={() => {
@@ -95,6 +98,7 @@ export function App() {
         />
       )}
       {showMembers && <MembersPanel mapId={current.map.id} onClose={() => setShowMembers(false)} />}
+      {showManage && <ManagePanel mapId={current.map.id} onClose={() => setShowManage(false)} />}
     </div>
   );
 }

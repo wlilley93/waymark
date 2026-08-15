@@ -31,6 +31,7 @@ interface WaymarkStore {
   setFilters: (f: Partial<Filters>) => void;
   select: (id: string | null) => void;
   refreshSelected: () => Promise<void>;
+  refreshTaxonomy: () => Promise<void>;
 }
 
 export const useStore = create<WaymarkStore>((set, get) => ({
@@ -99,6 +100,15 @@ export const useStore = create<WaymarkStore>((set, get) => ({
     } catch {
       /* deleted or raced; the reducer handles removal via events */
     }
+  },
+
+  refreshTaxonomy: async () => {
+    const current = get().current;
+    if (!current) return;
+    const { facets, terms } = await api.facets(current.map.id);
+    const fields = await api.fields(current.map.id);
+    set({ current: { ...current, facets, terms } });
+    (get() as WaymarkStore & { fieldDefs?: FieldDefinitionRecord[] }).fieldDefs = fields;
   },
 }));
 
