@@ -1,0 +1,12 @@
+id: LOG-2026-08-15-221945
+time: 2026-08-15T22:19:45.799593+00:00
+actor: lexby
+kind: implementation-decision
+issue: design_w1_commencement
+decision: 'ci ledger refreshed with the latest concluded successful run (31911705634, 2m51s). PERMIT-1786832378 is terminal by expiry by design (closing it rewrites its own file post-commit). Programme end state: 9 MET / 2 UNMET-by-reservation (D4 binary-in-CI: private vendor; D6 W2-W4: Principal + Figma, per [2026] VJS-CC-WAYMARK 2)'
+basis:
+- PERMIT-1786832378
+risk: low
+reversibility: easy
+court_required: false
+why: Discharge before the terminal commit
