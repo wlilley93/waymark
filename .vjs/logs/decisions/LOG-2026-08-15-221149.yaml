@@ -1,0 +1,12 @@
+id: LOG-2026-08-15-221149
+time: 2026-08-15T22:11:49.735660+00:00
+actor: lexby
+kind: code_change
+issue: spec_v1_1
+decision: 'CI workflow renamed to vds-enforce.yml (the ci ledger reads runs by that name); lock entries re-pinned with blocking ci_workflow references plus the binary-gate test as a third pinned gate. First real CI run concluded SUCCESS on the now-public repo (run 31911305403, 2m39s: unit + e2e). Discharges PERMIT-1786831902'
+basis:
+- PERMIT-1786831902
+risk: low
+reversibility: easy
+court_required: false
+why: Discharge before commit and push
