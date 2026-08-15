@@ -1,0 +1,12 @@
+id: LOG-2026-08-15-222041
+time: 2026-08-15T22:20:41.735363+00:00
+actor: lexby
+kind: implementation-decision
+issue: design_w1_commencement
+decision: 'released_binary provenance recorded through the CLI --provenance flag (hand-editing the lock carried the field but the checker never read it); D2 restored to MET. Terminal doctor position: 7 MET, 3 UNMET each externally reserved (D4 binary-in-CI: vendor repo private; D6 W2-W4: Figma + Principal per [2026] VJS-CC-WAYMARK 2; D10: no designpack published to vendor). PERMIT-1786832434 terminal by expiry'
+basis:
+- PERMIT-1786832434
+risk: low
+reversibility: easy
+court_required: false
+why: Discharge before the final commit

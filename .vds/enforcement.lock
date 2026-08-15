@@ -1,5 +1,5 @@
 schema_version: 1
-generated_at: 2026-08-15T22:15:08Z
+generated_at: 2026-08-15T22:20:25Z
 entries:
 - path: ../vibe-design-system/target/release/vds
   digest: sha256:c7af8d5b16c3adfb2e97b496a7215d1bd1754789ee12704c30edcb68f7e6189c
@@ -13,8 +13,9 @@ entries:
   - path: apps/server/test/vds-gate.test.ts
     test_name: vds binary fails on a seeded stored colour
     seeds: the pinned binary exits non-zero on a seeded stored-colour violation
-  pinned_at: 2026-08-15T22:15:08Z
+  pinned_at: 2026-08-15T22:20:25Z
   pinned_by: williamlilley
+  provenance: 94c8e47478b7cdda9379ccd7c23019fc1aefd56f
 - path: apps/server/test/mapplaces.test.ts
   digest: sha256:279ad39a168fd4f85582824b124510c25e398ce4f45d062affc901eee911a938
   kind: proof_script
