@@ -1,0 +1,12 @@
+id: LOG-2026-08-15-211250
+time: 2026-08-15T21:12:50.128258+00:00
+actor: lexby
+kind: code_change
+issue: spec_v1_1
+decision: 'M4 checkpoint under PERMIT-1786828360: complete web client (MapLibre clustering + replaceable OpenFreeMap styles + optional terrain off by default + deep-link camera hash; progressive disclosure summary->detail->nearby; pin/search add flows; typed field rendering; notes/comments/photos/rating), live WS client with seq tracking and resync-on-reconnect, PWA shell, compose deployment with unpublished Postgres, backup script. Fixed a load-order CSS clash (.maplibregl-map position:relative vs .map-canvas) that collapsed the map container - e2e caught it'
+basis:
+- PERMIT-1786828360
+risk: medium
+reversibility: easy
+court_required: false
+why: Discharge the M4 permit before commit

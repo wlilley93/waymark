@@ -1,0 +1,150 @@
+:root {
+  --bg: #1b1e27;
+  --panel: #242836;
+  --panel-2: #2c3145;
+  --text: #e8eaf2;
+  --muted: #9aa3b8;
+  --accent: #4f6df5;
+  --danger: #ef476f;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html, body, #root { height: 100%; margin: 0; }
+body {
+  font: 15px/1.45 -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.loading { display: grid; place-items: center; height: 100vh; color: var(--muted); }
+
+/* auth */
+.auth {
+  max-width: 360px; margin: 12vh auto; padding: 24px;
+  background: var(--panel); border-radius: 14px;
+  display: flex; flex-direction: column; gap: 12px;
+}
+.auth h1 { margin: 0; }
+.tagline { color: var(--muted); margin: 0 0 8px; }
+.auth form { display: flex; flex-direction: column; gap: 10px; }
+
+/* dashboard */
+.dashboard { max-width: 640px; margin: 6vh auto; padding: 0 16px; display: flex; flex-direction: column; gap: 14px; }
+.dashboard header { display: flex; align-items: center; gap: 12px; }
+.dashboard header h1 { margin: 0; flex: 1; }
+.map-list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.map-list button {
+  width: 100%; text-align: left; padding: 14px; border-radius: 10px;
+  background: var(--panel); color: var(--text); border: 1px solid #333a52;
+  display: flex; flex-direction: column; gap: 4px; cursor: pointer; font-size: 16px;
+}
+.map-list button span { color: var(--muted); font-size: 13px; }
+
+/* app shell */
+.app { display: flex; flex-direction: column; height: 100%; }
+.topbar {
+  display: flex; align-items: center; gap: 10px; padding: 8px 12px;
+  background: var(--panel); z-index: 5;
+}
+.topbar .spacer { flex: 1; }
+.live { font-size: 11px; padding: 2px 8px; border-radius: 99px; }
+.live.live { background: #143d2b; color: #4ade80; }
+.live.connecting { background: #3d3414; color: #facc15; }
+.live.offline { background: #3d1420; color: #f87171; }
+
+.map-wrap { position: relative; flex: 1; min-height: 0; }
+/* .maplibregl-map sets position:relative; two classes = higher specificity,
+   load-order-proof: keep the container absolutely filling .map-wrap */
+.map-canvas.maplibregl-map { position: absolute; inset: 0; width: auto; height: auto; }
+.map-canvas .maplibregl-canvas { top: 0; left: 0; }
+.map-controls {
+  position: absolute; top: 10px; right: 10px; display: flex; gap: 6px; z-index: 4;
+}
+.map-controls select, .map-controls button {
+  background: var(--panel); color: var(--text); border: 1px solid #3a4260; border-radius: 8px;
+  padding: 6px 10px;
+}
+.map-controls button.on { background: var(--accent); }
+
+/* filters */
+.filters {
+  display: flex; flex-wrap: wrap; gap: 4px 14px; padding: 8px 12px;
+  background: var(--panel); max-height: 96px; overflow: auto; z-index: 4;
+}
+.filter-group { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
+.filter-name { color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; }
+
+.chip {
+  border: 1px solid #3a4260; background: transparent; color: var(--text);
+  border-radius: 99px; padding: 2px 10px; font-size: 12.5px; cursor: pointer;
+}
+.chip.on { color: #fff; }
+.chip.on.dim, .chip.dim { opacity: 0.95; }
+
+/* panels */
+.panel {
+  position: absolute; top: 58px; right: 10px; width: 340px; max-width: calc(100vw - 20px);
+  max-height: calc(100% - 140px); overflow: auto; z-index: 6;
+  background: var(--panel); border-radius: 14px; padding: 16px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.45);
+  display: flex; flex-direction: column; gap: 8px;
+}
+.panel .close { position: absolute; top: 8px; right: 8px; }
+.panel h2 { margin: 0; font-size: 18px; }
+.panel h3 { margin: 8px 0 0; font-size: 13px; color: var(--muted); text-transform: uppercase; }
+.tag {
+  display: inline-block; padding: 2px 10px; border-radius: 99px; font-size: 12px;
+  color: #10121a; margin-right: 4px;
+}
+.tag.dim { background: var(--panel-2); color: var(--text); }
+.addr { color: var(--muted); font-size: 12.5px; margin: 0; }
+.meta { display: flex; gap: 10px; color: var(--muted); font-size: 13px; }
+.note { background: var(--panel-2); border-radius: 8px; padding: 8px; margin: 0; }
+.note.private { border-left: 3px solid var(--accent); }
+.row { display: flex; gap: 8px; align-items: center; }
+.nearby { display: flex; flex-direction: column; gap: 4px; }
+.nearby-item {
+  text-align: left; background: var(--panel-2); color: var(--text); border: 0;
+  border-radius: 8px; padding: 8px 10px; cursor: pointer;
+  display: flex; justify-content: space-between;
+}
+.nearby-item span { color: var(--muted); }
+.fields { margin: 0; display: flex; flex-direction: column; gap: 4px; }
+.fields div { display: flex; gap: 8px; }
+.fields dt { color: var(--muted); min-width: 90px; }
+.fields dd { margin: 0; }
+.comments { display: flex; flex-direction: column; gap: 6px; }
+.comments p { margin: 0; }
+.revisions { color: var(--muted); font-size: 12px; }
+.results { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 4px; }
+.results button {
+  width: 100%; text-align: left; background: var(--panel-2); color: var(--text);
+  border: 0; border-radius: 8px; padding: 8px 10px; cursor: pointer; display: flex; flex-direction: column;
+}
+.tabs { display: flex; gap: 6px; }
+fieldset { border: 0; padding: 0; margin: 0; }
+legend { color: var(--muted); font-size: 11px; text-transform: uppercase; }
+.chips { display: flex; flex-wrap: wrap; gap: 4px; }
+
+input, select, textarea, button {
+  font: inherit; background: var(--panel-2); color: var(--text);
+  border: 1px solid #3a4260; border-radius: 8px; padding: 8px 10px;
+}
+button { cursor: pointer; }
+button.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+button.link { background: none; border: 0; color: var(--accent); padding: 4px; }
+button.on { outline: 1px solid var(--accent); }
+.error { color: var(--danger); margin: 0; }
+.hint { color: var(--muted); font-size: 13px; }
+.who { color: var(--muted); font-size: 12.5px; }
+textarea { resize: vertical; }
+label { display: flex; flex-direction: column; gap: 4px; font-size: 13px; color: var(--muted); }
+label input, label select { color: var(--text); }
+
+.members ul { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+.members li { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+
+/* maplibre overrides */
+.maplibregl-ctrl-group { background: var(--panel) !important; }
+.maplibregl-popup-content { background: var(--panel); color: var(--text); }

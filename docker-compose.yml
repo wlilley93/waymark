@@ -1,0 +1,54 @@
+# Waymark deployment — one artifact, two postures (REQUIREMENTS §11).
+#
+# DEV POSTURE (default): private access over LAN/Tailscale; email stubbed to logs.
+#   docker compose up -d --build
+#   → http://<host>:8080  (Postgres is NOT published to the host)
+#
+# PRODUCTION MULTIPLAYER: same compose; set APP_ORIGINS to the public HTTPS
+# origin, terminate TLS in front of the web service, and wire SMTP (the
+# server logs verification/reset tokens until then).
+
+services:
+  postgres:
+    image: postgis/postgis:16-3.4
+    environment:
+      POSTGRES_USER: waymark
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-waymark}
+      POSTGRES_DB: waymark
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U waymark"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+    # no ports: the database stays on the compose network only
+
+  server:
+    build:
+      context: .
+      dockerfile: apps/server/Dockerfile
+    environment:
+      DATABASE_URL: postgres://waymark:${POSTGRES_PASSWORD:-waymark}@postgres:5432/waymark
+      PHOTO_DIR: /data/photos
+      APP_ORIGINS: ${APP_ORIGINS:-http://localhost:8080}
+      SECURE_COOKIES: ${SECURE_COOKIES:-false}
+      PORT: "3000"
+    volumes:
+      - photos:/data/photos
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  web:
+    build:
+      context: .
+      dockerfile: apps/web/Dockerfile
+    ports:
+      - "8080:80"
+    depends_on:
+      - server
+
+volumes:
+  pgdata:
+  photos:
