@@ -62,9 +62,19 @@ test("two users, one live map", async ({ browser }) => {
   await alice.getByRole("button", { name: "Save place" }).click();
   await expect(alice.getByRole("heading", { name: "The Reliance" })).toBeVisible({ timeout: 10000 });
 
-  // Bob sees the place appear LIVE (no reload). The label layer needs zoom>=13,
-  // so assert on the live store via the summary: click where the pin is and the
-  // detail card opens with the name.
+  // Bob sees the place appear LIVE (no reload): wait until his map actually
+  // HOLDS the feature (style loaded + places source non-empty), then click it.
+  // Clicking blind coordinates races the live delivery and style load.
+  await bob.waitForFunction(
+    () => {
+      const m = (window as unknown as { __map?: { isStyleLoaded(): boolean; getSource(id: string): { serialize(): { data?: { features?: unknown[] } } } | undefined } }).__map;
+      if (!m || !m.isStyleLoaded()) return false;
+      const src = m.getSource("places");
+      if (!src) return false;
+      return (src.serialize().data?.features?.length ?? 0) >= 1;
+    },
+    { timeout: 15000 },
+  );
   const bobCanvas = bob.locator(".map-canvas canvas").first();
   await bobCanvas.click({ position: { x: 300, y: 250 } });
   await expect(bob.getByRole("heading", { name: "The Reliance" })).toBeVisible({ timeout: 10000 });

@@ -1,0 +1,12 @@
+id: LOG-2026-08-15-222446
+time: 2026-08-15T22:24:46.867656+00:00
+actor: lexby
+kind: code_change
+issue: spec_v1_1
+decision: 'E2e hardening under PERMIT-1786832679: the live-journey click raced live delivery and style load on cold CI runners (observed failure run 31911840777); Bob now waits on his map''s places source holding the feature before clicking the pin. Local: 2/2 green. ci ledger refreshed with the concluded HEAD run. Terminal permit by expiry'
+basis:
+- PERMIT-1786832679
+risk: low
+reversibility: easy
+court_required: false
+why: Discharge before commit
