@@ -31,23 +31,30 @@ services:
     environment:
       DATABASE_URL: postgres://waymark:${POSTGRES_PASSWORD:-waymark}@postgres:5432/waymark
       PHOTO_DIR: /data/photos
-      APP_ORIGINS: ${APP_ORIGINS:-http://localhost:8080}
+      APP_ORIGINS: ${APP_ORIGINS:-http://localhost:8090}
       SECURE_COOKIES: ${SECURE_COOKIES:-false}
+      # production email: set SMTP_URL (smtps://user:pass@host) + FROM_EMAIL;
+      # unset = dev posture, tokens logged by the server
+      SMTP_URL: ${SMTP_URL:-}
+      FROM_EMAIL: ${FROM_EMAIL:-waymark@localhost}
       PORT: "3000"
     volumes:
       - photos:/data/photos
     depends_on:
       postgres:
         condition: service_healthy
+    restart: unless-stopped
 
   web:
     build:
       context: .
       dockerfile: apps/web/Dockerfile
     ports:
-      - "8080:80"
+      # 8080 is taken on this host (OrbStack/boltrig); waymark claims 8090
+      - "8090:80"
     depends_on:
       - server
+    restart: unless-stopped
 
 volumes:
   pgdata:

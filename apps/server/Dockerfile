@@ -12,4 +12,5 @@ WORKDIR /app
 ENV NODE_ENV=production
 COPY --from=build /repo ./
 EXPOSE 3000
-CMD ["npm", "-w", "@waymark/server", "start"]
+# wait for postgres before migrating/serving: compose health gates race first boot
+CMD ["sh", "-c", "i=0; until node -e \"const n=require('net');const s=n.connect(5432,process.env.PGHOST||'postgres',()=>{s.end();process.exit(0)});s.on('error',()=>process.exit(1))\" 2>/dev/null; do i=$((i+1)); [ $i -gt 60 ] && echo 'postgres unreachable' && exit 1; sleep 2; done; exec npm -w @waymark/server start"]

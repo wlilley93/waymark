@@ -5,6 +5,8 @@ export interface Config {
   photoDir: string;
   appOrigins: string[];
   logEmails: boolean;
+  smtpUrl: string;
+  fromEmail: string;
   sessionTtlHours: number;
   secureCookies: boolean;
 }
@@ -24,6 +26,8 @@ export function loadConfig(): Config {
     photoDir: process.env.PHOTO_DIR ?? "./data/photos",
     appOrigins,
     logEmails: process.env.LOG_EMAILS !== "false",
+    smtpUrl: process.env.SMTP_URL ?? "",
+    fromEmail: process.env.FROM_EMAIL ?? "waymark@localhost",
     sessionTtlHours: Number(process.env.SESSION_TTL_HOURS ?? 24 * 14),
     secureCookies: process.env.SECURE_COOKIES === "true",
   };

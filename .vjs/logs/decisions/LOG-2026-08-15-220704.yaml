@@ -1,0 +1,12 @@
+id: LOG-2026-08-15-220704
+time: 2026-08-15T22:07:04.734245+00:00
+actor: lexby
+kind: code_change
+issue: spec_v1_1
+decision: 'Production posture under PERMIT-1786831616: SMTP transport added (SMTP_URL/FROM_EMAIL config, jsonTransport test seam, log fallback; 3 tests green); compose moved to host 8090 because OrbStack already publishes boltrig on 8080; Tailscale Funnel exposes https://mac-mini-m4-pro.tailb4b671.ts.net -> 8090 with SECURE_COOKIES=true and matching APP_ORIGINS; public journey verified by curl (signup 200, map 201, place 201, viewport returns the place); e2e webServer made container-name independent; compose server waits for postgres first boot (health gate raced). CI billing blocks private-repo minutes - repo to be made public for free Actions (reversible)'
+basis:
+- PERMIT-1786831616
+risk: medium
+reversibility: easy
+court_required: false
+why: Discharge the production-posture permit before commit and push

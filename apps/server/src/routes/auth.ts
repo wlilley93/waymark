@@ -21,9 +21,11 @@ import {
 } from "../plugins/session.js";
 import { hashToken, newToken } from "../util.js";
 import { rateLimit } from "../services/ratelimit.js";
+import { makeMailer } from "../services/mailer.js";
 
 export function buildAuthRoutes(db: Db) {
   const config = loadConfig();
+  const mailer = makeMailer({ smtpUrl: config.smtpUrl, fromEmail: config.fromEmail, logEmails: config.logEmails });
 
   async function audit(userId: string | null, action: string, req: { ip?: string }, detail?: unknown) {
     await db.insert(authAudit).values({
@@ -34,10 +36,8 @@ export function buildAuthRoutes(db: Db) {
     });
   }
 
-  function logEmail(to: string, subject: string, body: string) {
-    if (config.logEmails) {
-      console.log(`[email:stub] to=${to} subject="${subject}"\n${body}`);
-    }
+  function sendMail(to: string, subject: string, body: string) {
+    void mailer.send(to, subject, body);
   }
 
   return async function authRoutes(app: FastifyInstance) {
@@ -68,7 +68,7 @@ export function buildAuthRoutes(db: Db) {
         userId: user.id,
         expiresAt: new Date(Date.now() + 48 * 3600 * 1000).toISOString(),
       });
-      logEmail(
+      sendMail(
         user.email,
         "Verify your Waymark account",
         `POST /api/auth/verify { "token": "${verifyToken}" }`,
@@ -179,7 +179,7 @@ export function buildAuthRoutes(db: Db) {
           userId: user.id,
           expiresAt: new Date(Date.now() + 3600 * 1000).toISOString(),
         });
-        logEmail(
+        sendMail(
           user.email,
           "Reset your Waymark password",
           `POST /api/auth/reset { "token": "${token}", "password": "..." } (single use, 1h)`,
