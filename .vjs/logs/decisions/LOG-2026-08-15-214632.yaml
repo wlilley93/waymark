@@ -1,0 +1,12 @@
+id: LOG-2026-08-15-214632
+time: 2026-08-15T21:46:32.275477+00:00
+actor: lexby
+kind: code_change
+issue: spec_v1_1
+decision: 'Hooks made PATH-robust: vjs resolves via VJS_BIN or ~/.local/bin when absent from PATH (gh spawns git without the user PATH); install manifest re-locked, adapter registration trimmed. Discharges PERMIT-1786830385'
+basis:
+- PERMIT-1786830385
+risk: low
+reversibility: easy
+court_required: false
+why: Discharge before commit

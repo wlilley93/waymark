@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-exec vjs validate --staged --external "$@"
+V="${VJS_BIN:-$HOME/.local/bin/vjs}"; command -v vjs >/dev/null && exec vjs validate --staged --external "$@" || exec "$V" validate --staged --external "$@"
