@@ -1,5 +1,5 @@
 schema_version: 1
-generated_at: 2026-08-15T22:20:25Z
+generated_at: 2026-08-15T22:28:02Z
 entries:
 - path: ../vibe-design-system/target/release/vds
   digest: sha256:c7af8d5b16c3adfb2e97b496a7215d1bd1754789ee12704c30edcb68f7e6189c
@@ -46,7 +46,7 @@ entries:
   pinned_at: 2026-08-15T22:15:08Z
   pinned_by: williamlilley
 - path: e2e/live.spec.ts
-  digest: sha256:7843123125c36e8709e32a2260b0ae3535c9ad0d4c867fb14bb6ff5f4e3f791b
+  digest: sha256:1c089ea5469a5829a6eef6bc063c554040560cc76c98b48052c3710a7ad95810
   kind: criteria_grader
   invoked_by:
   - surface: ci_workflow
@@ -57,5 +57,7 @@ entries:
   - path: e2e/live.spec.ts
     test_name: two users, one live map
     seeds: signup to live pin journey incl invite acceptance
-  pinned_at: 2026-08-15T22:15:02Z
+  pinned_at: 2026-08-15T22:28:02Z
   pinned_by: williamlilley
+  supersedes_digest: sha256:7843123125c36e8709e32a2260b0ae3535c9ad0d4c867fb14bb6ff5f4e3f791b
+  relock_rationale: 'Flake fix only: Bob now waits on his own map source holding the feature before clicking the pin (observed CI race, run 31911840777). The journey asserted is unchanged: signup, invite, live pin visible to the second user. Negative control unchanged.'

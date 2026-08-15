@@ -1,0 +1,12 @@
+id: LOG-2026-08-15-222817
+time: 2026-08-15T22:28:17.113855+00:00
+actor: lexby
+kind: code_change
+issue: design_w1_commencement
+decision: 'e2e gate digest re-pinned with recorded rationale per VDS S-12(3): the flake fix changed the file''s bytes, the asserted journey and negative control are unchanged. Doctor terminal position: 7 MET, 3 UNMET each externally reserved (D4 vendor-private CI, D6 W2-W4 Figma+Principal, D10 no published designpack). PERMIT-1786832888 terminal by expiry'
+basis:
+- PERMIT-1786832888
+risk: low
+reversibility: easy
+court_required: false
+why: Discharge before the final commit
