@@ -1,0 +1,12 @@
+id: LOG-2026-08-16-110353
+time: 2026-08-16T11:03:53.111210650+00:00
+actor: lexby
+kind: code_change
+issue: spec_v1_1
+decision: Dock panels as bottom sheets at ≤720px (same tokens/voice), compact topbar with truncated title and live status dot, filters scroll as one chip row, 16px inputs against iOS zoom, ≥40px touch targets, safe-area padding; mobile e2e (390×844, isMobile) asserting no horizontal overflow and bottom-sheet geometry; playwright config parametrized via PORT/API_TARGET so the e2e API never collides with beelink intranet on 3000; docker-compose publishes web to the cable IP only so tailscaled may own tailnet TLS on 8090
+basis:
+- PERMIT-1786877869
+risk: low
+reversibility: easy
+court_required: false
+why: Discharge before commit

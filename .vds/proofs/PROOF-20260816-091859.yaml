@@ -1,0 +1,150 @@
+id: PROOF-20260816-091859
+kind: parity
+status: failed
+warrant_id: null
+command: vds proof parity
+script: crates/vds-proof/src/parity.rs
+exit_code: 1
+rows_considered: 15
+rows_enforced: 3
+rows_skipped_reasons:
+  component_source_declares_no_props_type_to_compare: 12
+violations:
+- location: .vds/register/CMP-0001.yaml <CMP-0001 MapView> -> apps/web/src/screens/MapView.tsx
+  rule: 'VDS S-7(5) parity W2: the contract names props and the component''s source declares no `<Name>Props` type to compare them against'
+  expected: a `<Name>Props` interface or type alias beside the export, so that the prop set can be compared in both directions
+  actual: no `<Name>Props` type or interface was found in this file, so the candidate carries no prop contract. Read the component and add what it accepts before advancing it past `proposed`., and CMP-0001 names no prop either. Neither side claims anything, so this row establishes nothing rather than agreeing with itself
+  severity: informational
+  drift: undetermined
+- location: .vds/register/CMP-0002.yaml <CMP-0002 PlaceSummaryCard> -> apps/web/src/screens/PlaceSummaryCard.tsx
+  rule: 'VDS S-7(5) parity W2: the contract names props and the component''s source declares no `<Name>Props` type to compare them against'
+  expected: a `<Name>Props` interface or type alias beside the export, so that the prop set can be compared in both directions
+  actual: no `<Name>Props` type or interface was found in this file, so the candidate carries no prop contract. Read the component and add what it accepts before advancing it past `proposed`., and CMP-0002 names no prop either. Neither side claims anything, so this row establishes nothing rather than agreeing with itself
+  severity: informational
+  drift: undetermined
+- location: .vds/register/CMP-0003.yaml <CMP-0003 AddPlaceSheet> -> apps/web/src/screens/AddPlaceSheet.tsx
+  rule: 'VDS S-7(5) parity W2: the contract names props and the component''s source declares no `<Name>Props` type to compare them against'
+  expected: a `<Name>Props` interface or type alias beside the export, so that the prop set can be compared in both directions
+  actual: no `<Name>Props` type or interface was found in this file, so the candidate carries no prop contract. Read the component and add what it accepts before advancing it past `proposed`., and CMP-0003 names no prop either. Neither side claims anything, so this row establishes nothing rather than agreeing with itself
+  severity: informational
+  drift: undetermined
+- location: .vds/register/CMP-0004.yaml <CMP-0004 FiltersBar> -> apps/web/src/screens/FiltersBar.tsx
+  rule: 'VDS S-7(5) parity W2: the contract names props and the component''s source declares no `<Name>Props` type to compare them against'
+  expected: a `<Name>Props` interface or type alias beside the export, so that the prop set can be compared in both directions
+  actual: no `<Name>Props` type or interface was found in this file, so the candidate carries no prop contract. Read the component and add what it accepts before advancing it past `proposed`., and CMP-0004 names no prop either. Neither side claims anything, so this row establishes nothing rather than agreeing with itself
+  severity: informational
+  drift: undetermined
+- location: .vds/register/CMP-0005.yaml <CMP-0005 AuthScreen> -> apps/web/src/screens/AuthScreen.tsx
+  rule: 'VDS S-7(5) parity W2: the contract names props and the component''s source declares no `<Name>Props` type to compare them against'
+  expected: a `<Name>Props` interface or type alias beside the export, so that the prop set can be compared in both directions
+  actual: no `<Name>Props` type or interface was found in this file, so the candidate carries no prop contract. Read the component and add what it accepts before advancing it past `proposed`., and CMP-0005 names no prop either. Neither side claims anything, so this row establishes nothing rather than agreeing with itself
+  severity: informational
+  drift: undetermined
+- location: .vds/register/CMP-0006.yaml <CMP-0006 Dashboard>
+  rule: 'VDS S-7(5) parity R9: every state the contract requires is carried by states.built'
+  expected: CMP-0006 builds every state it requires, so states.built contains default, focus
+  actual: CMP-0006 is at status registered and states.built omits default, focus. The built counterpart does not carry a state the contract requires, which is the gap VDS S-7(5) gives to this kind and `states` records without failing on
+  severity: fatal
+  drift: behind
+- location: .vds/register/CMP-0006.yaml <CMP-0006 Dashboard> prop onOpenMap
+  rule: 'VDS S-7(5) parity R6: every prop the component accepts is named by the contract'
+  expected: CMP-0006 names prop onOpenMap, which apps/web/src/screens/Dashboard.tsx accepts
+  actual: apps/web/src/screens/Dashboard.tsx accepts it and the contract does not name it. A prop nobody contracted is exactly how a component drifts, and letting it pass would make the register a subset of the component rather than a contract over it
+  severity: fatal
+  drift: ahead
+- location: .vds/register/CMP-0007.yaml <CMP-0007 MembersPanel>
+  rule: 'VDS S-7(5) parity R9: every state the contract requires is carried by states.built'
+  expected: CMP-0007 builds every state it requires, so states.built contains default, focus
+  actual: CMP-0007 is at status registered and states.built omits default, focus. The built counterpart does not carry a state the contract requires, which is the gap VDS S-7(5) gives to this kind and `states` records without failing on
+  severity: fatal
+  drift: behind
+- location: .vds/register/CMP-0007.yaml <CMP-0007 MembersPanel> prop mapId
+  rule: 'VDS S-7(5) parity R6: every prop the component accepts is named by the contract'
+  expected: CMP-0007 names prop mapId, which apps/web/src/screens/Dashboard.tsx accepts
+  actual: apps/web/src/screens/Dashboard.tsx accepts it and the contract does not name it. A prop nobody contracted is exactly how a component drifts, and letting it pass would make the register a subset of the component rather than a contract over it
+  severity: fatal
+  drift: ahead
+- location: .vds/register/CMP-0007.yaml <CMP-0007 MembersPanel> prop onClose
+  rule: 'VDS S-7(5) parity R6: every prop the component accepts is named by the contract'
+  expected: CMP-0007 names prop onClose, which apps/web/src/screens/Dashboard.tsx accepts
+  actual: apps/web/src/screens/Dashboard.tsx accepts it and the contract does not name it. A prop nobody contracted is exactly how a component drifts, and letting it pass would make the register a subset of the component rather than a contract over it
+  severity: fatal
+  drift: ahead
+- location: .vds/register/CMP-0008.yaml <CMP-0008 ManagePanel>
+  rule: 'VDS S-7(5) parity R9: every state the contract requires is carried by states.built'
+  expected: CMP-0008 builds every state it requires, so states.built contains default, focus
+  actual: CMP-0008 is at status registered and states.built omits default, focus. The built counterpart does not carry a state the contract requires, which is the gap VDS S-7(5) gives to this kind and `states` records without failing on
+  severity: fatal
+  drift: behind
+- location: .vds/register/CMP-0008.yaml <CMP-0008 ManagePanel> prop mapId
+  rule: 'VDS S-7(5) parity R6: every prop the component accepts is named by the contract'
+  expected: CMP-0008 names prop mapId, which apps/web/src/screens/ManagePanel.tsx accepts
+  actual: apps/web/src/screens/ManagePanel.tsx accepts it and the contract does not name it. A prop nobody contracted is exactly how a component drifts, and letting it pass would make the register a subset of the component rather than a contract over it
+  severity: fatal
+  drift: ahead
+- location: .vds/register/CMP-0008.yaml <CMP-0008 ManagePanel> prop onClose
+  rule: 'VDS S-7(5) parity R6: every prop the component accepts is named by the contract'
+  expected: CMP-0008 names prop onClose, which apps/web/src/screens/ManagePanel.tsx accepts
+  actual: apps/web/src/screens/ManagePanel.tsx accepts it and the contract does not name it. A prop nobody contracted is exactly how a component drifts, and letting it pass would make the register a subset of the component rather than a contract over it
+  severity: fatal
+  drift: ahead
+- location: .vds/register/CMP-0009.yaml <CMP-0009 App> -> apps/web/src/screens/App.tsx
+  rule: 'VDS S-7(5) parity W2: the contract names props and the component''s source declares no `<Name>Props` type to compare them against'
+  expected: a `<Name>Props` interface or type alias beside the export, so that the prop set can be compared in both directions
+  actual: no `<Name>Props` type or interface was found in this file, so the candidate carries no prop contract. Read the component and add what it accepts before advancing it past `proposed`., and CMP-0009 names no prop either. Neither side claims anything, so this row establishes nothing rather than agreeing with itself
+  severity: informational
+  drift: undetermined
+- location: .vds/register/CMP-0010.yaml <CMP-0010 Button> -> apps/web/src/ui/controls.tsx
+  rule: 'VDS S-7(5) parity W2: the contract names props and the component''s source declares no `<Name>Props` type to compare them against'
+  expected: a `<Name>Props` interface or type alias beside the export, so that the prop set can be compared in both directions
+  actual: no `<Name>Props` type or interface was found in this file, so the candidate carries no prop contract. Read the component and add what it accepts before advancing it past `proposed`., and CMP-0010 names no prop either. Neither side claims anything, so this row establishes nothing rather than agreeing with itself
+  severity: informational
+  drift: undetermined
+- location: .vds/register/CMP-0011.yaml <CMP-0011 Input> -> apps/web/src/ui/controls.tsx
+  rule: 'VDS S-7(5) parity W2: the contract names props and the component''s source declares no `<Name>Props` type to compare them against'
+  expected: a `<Name>Props` interface or type alias beside the export, so that the prop set can be compared in both directions
+  actual: no `<Name>Props` type or interface was found in this file, so the candidate carries no prop contract. Read the component and add what it accepts before advancing it past `proposed`., and CMP-0011 names no prop either. Neither side claims anything, so this row establishes nothing rather than agreeing with itself
+  severity: informational
+  drift: undetermined
+- location: .vds/register/CMP-0012.yaml <CMP-0012 Select> -> apps/web/src/ui/controls.tsx
+  rule: 'VDS S-7(5) parity W2: the contract names props and the component''s source declares no `<Name>Props` type to compare them against'
+  expected: a `<Name>Props` interface or type alias beside the export, so that the prop set can be compared in both directions
+  actual: no `<Name>Props` type or interface was found in this file, so the candidate carries no prop contract. Read the component and add what it accepts before advancing it past `proposed`., and CMP-0012 names no prop either. Neither side claims anything, so this row establishes nothing rather than agreeing with itself
+  severity: informational
+  drift: undetermined
+- location: .vds/register/CMP-0013.yaml <CMP-0013 Textarea> -> apps/web/src/ui/controls.tsx
+  rule: 'VDS S-7(5) parity W2: the contract names props and the component''s source declares no `<Name>Props` type to compare them against'
+  expected: a `<Name>Props` interface or type alias beside the export, so that the prop set can be compared in both directions
+  actual: no `<Name>Props` type or interface was found in this file, so the candidate carries no prop contract. Read the component and add what it accepts before advancing it past `proposed`., and CMP-0013 names no prop either. Neither side claims anything, so this row establishes nothing rather than agreeing with itself
+  severity: informational
+  drift: undetermined
+- location: .vds/register/CMP-0014.yaml <CMP-0014 Checkbox> -> apps/web/src/ui/controls.tsx
+  rule: 'VDS S-7(5) parity W2: the contract names props and the component''s source declares no `<Name>Props` type to compare them against'
+  expected: a `<Name>Props` interface or type alias beside the export, so that the prop set can be compared in both directions
+  actual: no `<Name>Props` type or interface was found in this file, so the candidate carries no prop contract. Read the component and add what it accepts before advancing it past `proposed`., and CMP-0014 names no prop either. Neither side claims anything, so this row establishes nothing rather than agreeing with itself
+  severity: informational
+  drift: undetermined
+- location: .vds/register/CMP-0015.yaml <CMP-0015 Option> -> apps/web/src/ui/controls.tsx
+  rule: 'VDS S-7(5) parity W2: the contract names props and the component''s source declares no `<Name>Props` type to compare them against'
+  expected: a `<Name>Props` interface or type alias beside the export, so that the prop set can be compared in both directions
+  actual: no `<Name>Props` type or interface was found in this file, so the candidate carries no prop contract. Read the component and add what it accepts before advancing it past `proposed`., and CMP-0015 names no prop either. Neither side claims anything, so this row establishes nothing rather than agreeing with itself
+  severity: informational
+  drift: undetermined
+notes:
+- '[figma] a prop''s `figmaProperty` names a variant property in the decided-target file, and NO figma ledger is on disk, so R11 and R12 are unreached and every such prop is skipped. Resolving one live is a call to the Figma API and VDS S-7(2)(1) forbids a network call inside a proof; `vds figma pull` generates the ledger out of band, and a ledger on disk is something this proof may read offline. Until it exists, a contract whose figmaProperty names a variant that was deleted from the file passes this run.'
+- '[scope] only records at `registered` or later are compared. VDS S-5(4) makes the lifecycle a directed path in which `registered` is the point a contract becomes complete and binding, so a `proposed` or `designed` record is a candidate and there is no contract to hold the code to. A `retired` record is a tombstone kept forever (VDS S-9(6)(3)) and its ABSENCE from the code is the correct state (VDS S-9(8)), so comparing a contract against a file that ought to be gone would invert the rule. A `deprecated` record is still shipped until it drains (VDS S-9(6)(2)) and is compared like any other.'
+- '[normalisation] two type expressions are compared as TOKEN SEQUENCES, not as strings. The comparison normalises exactly three things and nothing else: all whitespace between tokens, the quote character around a string literal, and the ORDER of the members of a top-level union. Everything else is a difference. Nested unions inside a generic or a function type are NOT reordered, and `T | undefined` is not folded into an optional `T`, because under exactOptionalPropertyTypes those are different contracts and folding them would erase a distinction the author may have made deliberately. Exact string equality was rejected because it reports a reordered union and a re-wrapped line as drift, and a gate that cries wolf gets disabled.'
+- '[export-limb] a record naming an export that the scanner READ THE FILE and did not find among the exports it did find is a fatal finding. A record whose source file yielded NO export at all is counted, skipped and warned about instead. The scanner is not a TypeScript compiler, so an export style it does not recognise would otherwise become a fatal finding against code that is perfectly correct, and that is the direction in which a gate gets turned off.'
+- '[props-reach] the prop list comes from a `<Name>Props` interface or type alias in the same file as the export. The scanner does not follow an `extends`, does not resolve a mapped or utility type, does not read a props type declared in another file and does not expand a spread of another component''s props. Where it finds no such type the row is counted, skipped and reported rather than compared, because a contract measured against a prop list that is empty for want of a reader would fail on every prop it names.'
+- '[states-reach] the states limb compares the record''s `states.required` against the record''s own `states.built`. It does NOT establish that the component implements a state: deciding from a static read of a TSX file whether hover, focus or loading is really implemented would need an analysis of styles, variants and event handling that this build does not do, and a heuristic that guessed would be confidently wrong. A pass therefore establishes that the contract''s required set is covered by the record''s own built claim, and never that the claim is true. The limb runs only on a row that was enforced, so a row skipped for want of a readable source carries no states finding either.'
+- |-
+  [redaction] a finding names the prop, the record, the source file and the SHAPE of the disagreement in counts, and never the type expressions themselves. A type expression can carry a realisation, a captured proof record lands under the tree `no_stored_values` scans, and a finding that copied one would put it there permanently and fail that gate forever on a file this proof wrote (VDS S-2(2), S-2(8)). Open the named record and the named source file to read the two expressions.
+  ONE EXCEPTION, R12: a finding about a figmaProperty NAMES the variant values on both sides. A variant value is not a realisation, and that is settled where the field is defined rather than asserted here (crates/vds-figma/src/ledger.rs: "a variant value is a label a designer typed, not a design value"), which is why the ledger carrying them already passes `no_stored_values`. Naming them costs nothing in safety and saves the reader diffing two files by hand.
+- '[reach] this run establishes, for every row it enforced, that the contract''s prop set and the component''s prop set are the same set, that they agree on requiredness, that their type expressions agree wherever agreement was decidable, and that `states.built` covers `states.required`. It establishes nothing about a row it skipped, nothing about a Figma variant, and nothing about whether a built state is really implemented. A warrant citing this proof must not be described more widely than that (VDS S-6(3)).'
+inputs_digest: sha256:1bcb66ae5b92e22c513490f0f4361677036432f9d0dcbbb9db7e13774f26e14b
+digest: sha256:0c98872183aa7be2dcee13388c6744237da8c1388e3267e9718954827b13058a
+designpack_digest: sha256:26881b72dd07cff7f05dde47452c2d9360691904dadbd1083906e1fc490e1c58
+captured_at: 2026-08-16T09:18:57Z
+capture_mode: automatic
+invoked_by: manual
+duration_ms: 0

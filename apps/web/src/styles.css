@@ -15,7 +15,7 @@
   color-scheme: dark;
 }
 
-* { box-sizing: border-box; }
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 html, body, #root { height: 100%; margin: 0; }
 body {
   font: 15px/1.45 -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
@@ -23,7 +23,7 @@ body {
   color: var(--text);
 }
 
-.loading { display: grid; place-items: center; height: 100vh; color: var(--muted); }
+.loading { display: grid; place-items: center; height: 100vh; height: 100dvh; color: var(--muted); }
 
 /* auth */
 .auth {
@@ -137,7 +137,7 @@ input, select, textarea, button {
   font: inherit; background: var(--panel-2); color: var(--text);
   border: 1px solid var(--control-border); border-radius: 8px; padding: 8px 10px;
 }
-button { cursor: pointer; }
+button { cursor: pointer; touch-action: manipulation; }
 button.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
 button.link { background: none; border: 0; color: var(--accent); padding: 4px; }
 button.on { outline: 1px solid var(--accent); }
@@ -162,3 +162,50 @@ label.checkbox { flex-direction: row; align-items: center; color: var(--text); f
 /* maplibre overrides */
 .maplibregl-ctrl-group { background: var(--panel) !important; }
 .maplibregl-popup-content { background: var(--panel); color: var(--text); }
+
+/* ============================================================
+   mobile: ≤720px — panels dock as bottom sheets, topbar and
+   filters compact, inputs stop iOS focus-zoom. The design
+   language is untouched: same tokens, same radii, same voice.
+   ============================================================ */
+@media (max-width: 720px) {
+  .topbar { gap: 6px; padding: 8px; }
+  .topbar strong { flex: 0 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .topbar button { padding: 6px 9px; font-size: 13.5px; }
+  /* the live badge becomes a status dot: the state colours carry the meaning */
+  .topbar .live { font-size: 0; width: 8px; height: 8px; padding: 0; border-radius: 99px; }
+
+  .map-controls { top: 12px; right: 8px; }
+  .map-controls button, .map-controls select { min-height: 36px; }
+
+  /* filters: one horizontally scrollable row — no wrap, no scrollbar chrome */
+  .filters { flex-wrap: nowrap; overflow-x: auto; max-height: none; padding: 8px; scrollbar-width: none; }
+  .filters::-webkit-scrollbar { display: none; }
+  .filter-group { flex-wrap: nowrap; }
+
+  /* panels become bottom sheets, keeping the map visible and one-hand usable */
+  .panel {
+    left: 8px; right: 8px; bottom: 8px; top: auto;
+    width: auto; max-width: none;
+    max-height: min(72dvh, 560px);
+    border-radius: 18px;
+    padding-bottom: calc(16px + env(safe-area-inset-bottom));
+    animation: sheet-up 240ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .panel::before {
+    content: ""; align-self: center; width: 36px; height: 4px;
+    border-radius: 99px; background: var(--panel-2); flex: 0 0 auto;
+  }
+  @keyframes sheet-up {
+    from { transform: translateY(24px); opacity: 0.5; }
+    to { transform: none; opacity: 1; }
+  }
+
+  /* action rows that would crowd a 390px sheet wrap instead of overflow */
+  .summary-card > .row, .note-form, .edit-box .row { flex-wrap: wrap; }
+
+  /* touch targets; 16px inputs stop iOS zoom-on-focus */
+  input, select, textarea, button { min-height: 40px; }
+  input, select, textarea { font-size: 16px; }
+  .chip { min-height: 34px; }
+}

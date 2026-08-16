@@ -1,0 +1,28 @@
+id: PROOF-20260816-091901
+kind: ledger_staleness
+status: failed
+warrant_id: null
+command: vds proof ledger_staleness
+script: crates/vds-proof/src/ledger_staleness.rs
+exit_code: 1
+rows_considered: 2
+rows_enforced: 2
+rows_skipped_reasons: {}
+violations:
+- location: .vds/ledgers/screens.yaml
+  rule: 'VDS S-7(5) ledger_staleness R1 / S-4(2): each generated ledger is current with its source'
+  expected: '.vds/ledgers/screens.yaml regenerates byte-identically from the screens its own source_globs name, so every proof that reads it reads the live surface (regenerate with: vds ledger screens)'
+  actual: 'the screens ledger is STALE, so no result from it can be trusted (VDS S-4(2)). | added since generation:   apps/web/src/screens/EditPlaceBox.tsx | changed since generation: apps/web/src/screens/FiltersBar.tsx, apps/web/src/screens/PlaceSummaryCard.tsx | Regenerate with: vds ledger screens'
+  severity: fatal
+  drift: undetermined
+notes:
+- the screens ledger's staleness test REGENERATES the ledger from its sources and compares the content, rather than comparing the source digest the ledger records. A source-digest comparison answers only whether the screens moved, so it certifies a hand-edited ledger clean, and a proof reading that ledger can then be flipped from failing to passing without touching a screen (VDS S-2(5)(4)).
+- 'what this run does NOT reach: this build holds one REGENERATING staleness test, the screens ledger''s. The figma ledger (R3), the frame ledger (R4) and the CI run ledger (R6) have self-consistency tests instead, because their source is behind a network call and there is no generator here to re-run against it. For every other file in the ledgers directory it establishes only that no staleness test exists, never that the file is current. It reaches nothing outside the configured ledgers directory. And where the declared screens ledger is absent the run is a precondition failure at exit 2, so the other files in that directory go unexamined rather than passing.'
+- '[ci-ledger] the CI run ledger''s source is `gh run list`, a network fact, so no gate can regenerate it offline - the same settlement as the figma (R3) and frame (R4) ledgers. What IS checked: every internal cross-total (histogram vs runs_concluded, successes vs the success bucket, the never_succeeded flag vs the numbers beside it, window ordering), because those are what a hand-edit breaks - an editor flipping `successes` to make D4 read better does not also rebuild the histogram derive() builds with it. What is NOT checked: currency. A stale-but-consistent ledger passes; `generated_at` is the reader''s signal, and D4''s own text says a ledger is evidence of the runs it recorded, not of runs since.'
+inputs_digest: sha256:9f65edb5aeae4677847f2943e4a578d3b27a020cf8c640163c7b171a38fd0c64
+digest: sha256:2d41f157564ae7c3329040497831651fcc174dd855e550822f12d83bff2bac2a
+designpack_digest: sha256:26881b72dd07cff7f05dde47452c2d9360691904dadbd1083906e1fc490e1c58
+captured_at: 2026-08-16T09:18:58Z
+capture_mode: automatic
+invoked_by: manual
+duration_ms: 1000

@@ -51,7 +51,7 @@ services:
       dockerfile: apps/web/Dockerfile
     ports:
       # 8080 is taken on this host (OrbStack/boltrig); waymark claims 8090
-      - "8090:80"
+      - "192.168.50.2:8090:80"
     depends_on:
       - server
     restart: unless-stopped
