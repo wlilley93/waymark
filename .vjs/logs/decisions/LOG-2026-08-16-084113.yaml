@@ -1,0 +1,12 @@
+id: LOG-2026-08-16-084113
+time: 2026-08-16T08:41:13.686935+00:00
+actor: lexby
+kind: code_change
+issue: design_w1_commencement
+decision: 'Terminal under PERMIT-1786869653: ci ledger refreshed after the first run with the instrument build cache (design job green). Programme fully disposed - every machine-settleable criterion settled, every human-gated stage handed off with its front door (DESIGN-BRIEF.md to draw from, figma-capture.sh to capture with, README table naming each holder). Terminal permit by expiry'
+basis:
+- PERMIT-1786869653
+risk: low
+reversibility: easy
+court_required: false
+why: Discharge before the terminal commit

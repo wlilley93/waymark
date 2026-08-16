@@ -1,20 +1,20 @@
 schema_version: 1
-generated_at: 2026-08-16T07:31:55Z
+generated_at: 2026-08-16T08:40:53Z
 generated_by: vds ledger ci
 source: gh run list --workflow=vds-enforce.yml --limit 60 --json conclusion,createdAt,headSha,workflowName
 workflows:
 - file: .github/workflows/vds-enforce.yml
-  runs_considered: 9
-  runs_concluded: 9
-  successes: 6
+  runs_considered: 11
+  runs_concluded: 11
+  successes: 8
   newest_conclusion: success
-  newest_at: 2026-08-16T07:29:16Z
+  newest_at: 2026-08-16T08:37:11Z
   oldest_at: 2026-08-15T22:11:53Z
-  newest_head_sha: 88821546dee382182feca785bf676f8285a7654f
+  newest_head_sha: f5c2852b5d8a8d8bf44f2f39be5f4575eae33d6c
   joined_on_name: ci
   conclusions:
     failure: 3
-    success: 6
+    success: 8
 notes:
 - joined lock path .github/workflows/vds-enforce.yml to forge runs by the workflow's declared name "ci". `gh run list` reports no path, so this join is the one place the wrong workflow could be measured.
 - This ledger records CONCLUSIONS. It does not establish that a successful run executed any particular gate, nor that it ran over the current tree.
