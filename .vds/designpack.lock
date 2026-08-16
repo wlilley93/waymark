@@ -1,6 +1,6 @@
 schema_version: 1
-designpack_id: none
-designpack_version: '0'
-digest: sha256:f9c369f3175c15169dafde47c01d7efc2f45c64090444f17f5b3f480e710ec5a
-generated_at: 2026-08-15T18:52:19Z
+designpack_id: local
+designpack_version: v1
+digest: sha256:26881b72dd07cff7f05dde47452c2d9360691904dadbd1083906e1fc490e1c58
+generated_at: 2026-08-16T07:17:57Z
 locked_by: williamlilley

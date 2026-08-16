@@ -1,5 +1,5 @@
 schema_version: 1
-generated_at: 2026-08-15T22:28:02Z
+generated_at: 2026-08-16T07:18:38Z
 entries:
 - path: ../vibe-design-system/target/release/vds
   digest: sha256:c7af8d5b16c3adfb2e97b496a7215d1bd1754789ee12704c30edcb68f7e6189c
@@ -8,14 +8,17 @@ entries:
   - surface: package_script
     reference: npm test
     blocking: true
+  - surface: ci_workflow
+    reference: .github/workflows/vds-enforce.yml job:design step:design gates
+    blocking: true
   proves: []
   failing_direction_test:
   - path: apps/server/test/vds-gate.test.ts
     test_name: vds binary fails on a seeded stored colour
     seeds: the pinned binary exits non-zero on a seeded stored-colour violation
-  pinned_at: 2026-08-15T22:20:25Z
+  pinned_at: 2026-08-16T07:18:38Z
   pinned_by: williamlilley
-  provenance: 94c8e47478b7cdda9379ccd7c23019fc1aefd56f
+  provenance: a6fb7ce
 - path: apps/server/test/mapplaces.test.ts
   digest: sha256:279ad39a168fd4f85582824b124510c25e398ce4f45d062affc901eee911a938
   kind: proof_script
@@ -38,12 +41,15 @@ entries:
   - surface: package_script
     reference: npm test
     blocking: true
+  - surface: ci_workflow
+    reference: .github/workflows/vds-enforce.yml job:design step:binary negative control
+    blocking: true
   proves: []
   failing_direction_test:
   - path: apps/server/test/vds-gate.test.ts
     test_name: vds binary fails on a seeded stored colour
     seeds: released binary exits non-zero on a seeded stored-colour violation
-  pinned_at: 2026-08-15T22:15:08Z
+  pinned_at: 2026-08-16T07:18:38Z
   pinned_by: williamlilley
 - path: e2e/live.spec.ts
   digest: sha256:1c089ea5469a5829a6eef6bc063c554040560cc76c98b48052c3710a7ad95810

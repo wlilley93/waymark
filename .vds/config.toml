@@ -3,7 +3,7 @@
 version = 1
 jurisdiction_id = "waymark"
 repo_code = "WAYMARK"
-designpack = "none@0"
+designpack = "local@v1"
 
 [paths]
 register = ".vds/register"

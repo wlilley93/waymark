@@ -1,0 +1,12 @@
+id: LOG-2026-08-16-072020
+time: 2026-08-16T07:20:20.418238+00:00
+actor: lexby
+kind: code_change
+issue: design_w1_commencement
+decision: 'D4 and D10 completed under PERMIT-1786864808. D10: designpack v1 published at vibe-design-system a6fb7ce (specification vendored verbatim, provenance records non-commencement and upstream RESERVED ownership), subscribed here: tree vendored, designpack.lock pins local@v1 sha256:26881b72..., config designpack=local@v1, pack verify passes. D4: vendor repo made public; CI gains a design job that builds vds from master, runs pack verify + the six green proofs, asserts states fails exactly exit 1 (known-red per [2026] VJS-CC-WAYMARK 2), and runs the binary negative control; lock entries carry package_script + blocking ci_workflow invocations, provenance a6fb7ce. Local: 51/51 unit, typecheck clean, lock verify no drift. Doctor 9 MET / 1 UNMET (D6, Court-reserved)'
+basis:
+- PERMIT-1786864808
+risk: medium
+reversibility: easy
+court_required: false
+why: Discharge the D4/D10 completion permit before commit

@@ -78,3 +78,52 @@ jobs:
         run: npx playwright test
         env:
           CI: "true"
+
+  # D4: the design gates invoked by CI, not only by the author. The vendor
+  # tree is public, so the runner builds the pinned instrument from source
+  # and runs the battery. `states` is KNOWN-RED (15 findings standing on the
+  # missing decided-target Figma file, [2026] VJS-CC-WAYMARK 2) — the gate
+  # failing IS the correct result; anything else is drift.
+  design:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: wlilley93/vibe-design-system
+          ref: master
+          path: ../vibe-design-system
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: ../vibe-design-system
+      - name: build vds
+        run: cargo build --release --bin vds
+        working-directory: ../vibe-design-system
+      - name: design gates
+        run: |
+          VDS=../vibe-design-system/target/release/vds
+          "$VDS" --root . pack verify
+          for K in register_completeness reconciliation composition contrast no_stored_values ledger_staleness; do
+            echo "== proof $K"
+            "$VDS" --root . proof "$K"
+          done
+          echo "== proof states (known-red: 15 findings on the missing Figma target)"
+          set +e
+          "$VDS" --root . proof states
+          code=$?
+          set -e
+          if [ "$code" -ne 1 ]; then
+            echo "states must fail with exit 1 (known-red per [2026] VJS-CC-WAYMARK 2); got $code"
+            exit 1
+          fi
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm install --no-audit --fund=false
+      - run: npm approve-scripts --all || true
+      - name: binary negative control
+        run: npx -w @waymark/server vitest run test/vds-gate.test.ts
+        env:
+          VDS_BIN: ../vibe-design-system/target/release/vds

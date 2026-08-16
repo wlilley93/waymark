@@ -61,11 +61,15 @@ layer and a registered primitive layer.
 | W2 DESIGN-COMPLETE | reserved | a decided-target **Figma file** — `states` measures drawn states from it and no agent write-path exists (REST + MCP are read-only); a design act |
 | W3 PRINCIPAL-ACCEPTED | reserved | the **Principal alone** (VDS S-6(7)); never inferred from silence |
 | W4 PARITY | reserved | follows W3 |
-| `states` proof | 15 findings standing | same Figma file |
+| `states` proof | 15 findings standing, CI-asserted known-red | same Figma file |
 | SMTP email | transport shipped (`SMTP_URL`/`FROM_EMAIL`) | an SMTP **credential** — Principal supply |
-| binary gate in CI | runs via `npm test` locally | vibe-design-system is a **private** repo, so public CI cannot invoke the pinned binary |
 
-None of these are waived; each names who can unblock it.
+Resolved since the W1 order: the binary gates now run in CI (a `design` job
+builds the pinned instrument from the public vendor tree and asserts the
+battery, with `states` asserted known-red), and the project **subscribes to
+designpack v1** (`designpack/v1` vendored, digest-pinned in
+`.vds/designpack.lock`) so the specification's RESERVED clauses resolve
+upstream. Doctor: **9 MET / 1 UNMET-by-reservation (D6)**.
 
 ## API
 
