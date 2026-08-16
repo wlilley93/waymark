@@ -88,18 +88,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/checkout@v4
-        with:
-          repository: wlilley93/vibe-design-system
-          ref: master
-          path: ../vibe-design-system
+      # the enforcement lock pins the SIBLING path ../vibe-design-system (the
+      # shape of a local checkout); actions/checkout cannot write outside the
+      # workspace, so clone it by hand at the pinned location
+      - name: clone vendor tree
+        run: git clone --depth 1 https://github.com/wlilley93/vibe-design-system ../vibe-design-system
       - uses: dtolnay/rust-toolchain@stable
-      - uses: Swatinem/rust-cache@v2
-        with:
-          workspaces: ../vibe-design-system
       - name: build vds
-        run: cargo build --release --bin vds
-        working-directory: ../vibe-design-system
+        run: cargo build --release --manifest-path ../vibe-design-system/Cargo.toml --bin vds
       - name: design gates
         run: |
           VDS=../vibe-design-system/target/release/vds

@@ -1,0 +1,12 @@
+id: LOG-2026-08-16-072426
+time: 2026-08-16T07:24:26.056489+00:00
+actor: lexby
+kind: code_change
+issue: design_w1_commencement
+decision: 'CI design job fixed under PERMIT-1786865056: the vendor tree is cloned by a run step at ../vibe-design-system because actions/checkout refuses paths outside the workspace while the lock pins that exact sibling path; vds builds via --manifest-path. Discharges PERMIT-1786865056'
+basis:
+- PERMIT-1786865056
+risk: low
+reversibility: easy
+court_required: false
+why: Discharge before commit
