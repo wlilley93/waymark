@@ -16,8 +16,8 @@ export default defineConfig({
         description: "Shared live map of bookmarked places",
         start_url: "/",
         display: "standalone",
-        background_color: "#1b1e27",
-        theme_color: "#1b1e27",
+        background_color: "#04060D",
+        theme_color: "#04060D",
         icons: [
           { src: "/icons/192.png", sizes: "192x192", type: "image/png" },
           { src: "/icons/512.png", sizes: "512x512", type: "image/png" },
