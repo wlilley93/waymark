@@ -1,0 +1,12 @@
+id: LOG-2026-08-16-113454
+time: 2026-08-16T11:34:54.762636689+00:00
+actor: lexby
+kind: governance_ratchet
+issue: conformance_ratchet
+decision: 'Arm the conformance ratchet at unwired = 240 (399 duties, 159 wired) per vjs audit; the baseline was never written, so every validate disclosed the count as not-a-pass. Arming banks the current floor: any future unwired rise is Fatal and must be accepted in the same commit as the instrument that adds it'
+basis:
+- PERMIT-1786877869
+risk: low
+reversibility: easy
+court_required: false
+why: Proceed-all instruction; PC-13 D11 audit map refreshed in the same commit
