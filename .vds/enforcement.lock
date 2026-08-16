@@ -1,5 +1,5 @@
 schema_version: 1
-generated_at: 2026-08-16T07:28:53Z
+generated_at: 2026-08-16T09:11:30Z
 entries:
 - path: ../vibe-design-system/target/release/vds
   digest: sha256:c7af8d5b16c3adfb2e97b496a7215d1bd1754789ee12704c30edcb68f7e6189c
@@ -54,7 +54,7 @@ entries:
   supersedes_digest: sha256:be0f74e80676172f12e5b268dcda8fcd7a9684b5d10a35dc2702ab92dbb836e9
   relock_rationale: 'Portability fix only: VDS_BIN now resolves against the repo root (was an absolute home path and an env-relative path that broke under the CI workspace cwd). The seeded violation and the asserted non-zero exit are unchanged.'
 - path: e2e/live.spec.ts
-  digest: sha256:1c089ea5469a5829a6eef6bc063c554040560cc76c98b48052c3710a7ad95810
+  digest: sha256:1bbff808d30d6801302efb609a103906b3d30f8f80e560cb2a00a2a29c7a2791
   kind: criteria_grader
   invoked_by:
   - surface: ci_workflow
@@ -65,7 +65,7 @@ entries:
   - path: e2e/live.spec.ts
     test_name: two users, one live map
     seeds: signup to live pin journey incl invite acceptance
-  pinned_at: 2026-08-15T22:28:02Z
+  pinned_at: 2026-08-16T09:11:30Z
   pinned_by: williamlilley
-  supersedes_digest: sha256:7843123125c36e8709e32a2260b0ae3535c9ad0d4c867fb14bb6ff5f4e3f791b
-  relock_rationale: 'Flake fix only: Bob now waits on his own map source holding the feature before clicking the pin (observed CI race, run 31911840777). The journey asserted is unchanged: signup, invite, live pin visible to the second user. Negative control unchanged.'
+  supersedes_digest: sha256:1c089ea5469a5829a6eef6bc063c554040560cc76c98b48052c3710a7ad95810
+  relock_rationale: 'Journey extended, not weakened: after the live pin is visible, Alice edits the bookmark (If-Match happy path) and the saved shared note is asserted. The original assertions all remain; the negative control is unchanged.'

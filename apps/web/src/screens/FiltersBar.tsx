@@ -53,10 +53,6 @@ export function FiltersBar() {
   );
 }
 
-export function refreshViewport(): Promise<void> {
-  // exposed for MapScreen to call after filter changes
-  return Promise.resolve();
-}
 
 export async function loadViewport(mapId: string, bbox: [number, number, number, number]) {
   const { setPlaces } = useStore.getState();

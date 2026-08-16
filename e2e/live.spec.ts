@@ -62,6 +62,12 @@ test("two users, one live map", async ({ browser }) => {
   await alice.getByRole("button", { name: "Save place" }).click();
   await expect(alice.getByRole("heading", { name: "The Reliance" })).toBeVisible({ timeout: 10000 });
 
+  // Alice edits the bookmark (If-Match happy path, [2026] VJS-CC-WAYMARK 1 D4)
+  await alice.getByRole("button", { name: "Edit", exact: true }).click();
+  await alice.getByPlaceholder("Shared note for the group").fill("great beer, better chips");
+  await alice.getByRole("button", { name: /^Save \(v1\)/ }).click();
+  await expect(alice.getByText("great beer, better chips")).toBeVisible({ timeout: 10000 });
+
   // Bob sees the place appear LIVE (no reload): wait until his map actually
   // HOLDS the feature (style loaded + places source non-empty), then click it.
   // Clicking blind coordinates races the live delivery and style load.

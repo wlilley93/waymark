@@ -1,8 +1,9 @@
-import { Button, Input, Select, Textarea } from "../ui/controls.js";
+import { Button, Input, Select, Option, Textarea } from "../ui/controls.js";
 import { useEffect, useMemo, useState } from "react";
 import type { MapPlaceDetail } from "@waymark/shared";
 import { api } from "../api/client.js";
 import { useStore } from "../state/store.js";
+import { EditPlaceBox } from "./EditPlaceBox.js";
 
 export function PlaceSummaryCard() {
   const selectedId = useStore((s) => s.selectedId);
@@ -11,6 +12,7 @@ export function PlaceSummaryCard() {
   const select = useStore((s) => s.select);
   const [detail, setDetail] = useState<MapPlaceDetail | null>(null);
   const [nearby, setNearby] = useState<{ id: string; name: string; dist: number }[]>([]);
+  const [editing, setEditing] = useState(false);
 
   const mp = selectedId ? places.byId[selectedId] : undefined;
   const terms = current?.terms ?? [];
@@ -18,11 +20,15 @@ export function PlaceSummaryCard() {
   useEffect(() => {
     setDetail(null);
     setNearby([]);
+    setEditing(false);
     if (!selectedId || !current) return;
     api.mapPlace(current.map.id, selectedId).then(setDetail).catch(() => {});
   }, [selectedId, current]);
 
   if (!mp || !current) return null;
+  const canWrite = current.map.yourRole === "owner" || current.map.yourRole === "editor";
+  const categoryFacetId = current.facets.find((f) => f.key === "category")?.id;
+  const fieldDefs = (useStore.getState() as { fieldDefs?: import("@waymark/shared").FieldDefinitionRecord[] }).fieldDefs ?? [];
   const primary = terms.find((t) => t.id === mp.primaryTermId);
   const others = mp.termIds.filter((t) => t !== mp.primaryTermId).map((id) => terms.find((t) => t.id === id));
 
@@ -73,7 +79,20 @@ export function PlaceSummaryCard() {
           {(detail?.yourRating ?? mp.yourRating) ? `★ ${detail?.yourRating ?? mp.yourRating}` : "Rate"}
         </Button>
         <Button onClick={() => void findNearby()}>More like this</Button>
+        {canWrite && !editing && <Button onClick={() => setEditing(true)}>Edit</Button>}
       </div>
+
+      {editing && detail && canWrite && (
+        <EditPlaceBox
+          mapId={current.map.id}
+          mp={mp}
+          detail={detail}
+          terms={terms}
+          categoryFacetId={categoryFacetId}
+          fieldDefs={fieldDefs}
+          onClose={() => setEditing(false)}
+        />
+      )}
 
       {nearby.length > 0 && (
         <div className="nearby">

@@ -14,7 +14,9 @@ export default defineConfig({
     {
       command: "npm -w @waymark/web run build >/dev/null 2>&1; npm -w @waymark/web run preview:e2e",
       url: "http://localhost:4173",
-      reuseExistingServer: true,
+      // ALWAYS fresh: a reused preview serves the build it started with, so
+      // code changes never reach the run (observed: new UI absent, old bundle)
+      reuseExistingServer: false,
     },
     {
       command:

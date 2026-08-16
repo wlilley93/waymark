@@ -35,7 +35,7 @@ The e2e suite creates its own `waymark_e2e` database; the server tests use
 
 ```bash
 docker compose up -d --build            # http://localhost:8080 (dev posture)
-./scripts/backup.sh                     # pg_dump + photos
+./scripts/backup.sh                     # pg_dump + photos (restore drill verified: counts match)
 ```
 
 Production multiplayer: public HTTPS origin in `APP_ORIGINS`, TLS in front of

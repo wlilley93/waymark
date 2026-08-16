@@ -1,0 +1,12 @@
+id: LOG-2026-08-16-091150
+time: 2026-08-16T09:11:50.419997+00:00
+actor: lexby
+kind: code_change
+issue: spec_v1_1
+decision: 'Concurrency surface completed under PERMIT-1786871499: EditPlaceBox is the first UI over the PATCH/If-Match contract (edit shared note, primary category, qualifier terms, typed custom fields; a 409 renders an explicit conflict banner naming both versions with reload, never silent overwrite - [2026] VJS-CC-WAYMARK 1 D4''s forbidden limb made visible to users). e2e journey extended with the edit happy path; gate digest re-pinned with rationale (S-12(3)). Second stale-server flake class killed: the web preview webServer also demanded reuseExistingServer false (observed serving an old bundle - new UI absent from the run). Backup script bug fixed (docker -v double-path on absolute OUT silently wrote photos.tgz under PWD/tmp) and the NFR-6 restore drill verified end-to-end: scratch postgis, restore, counts identical to live. 51 unit + 2 e2e green, typecheck clean'
+basis:
+- PERMIT-1786871499
+risk: low
+reversibility: easy
+court_required: false
+why: Discharge before commit

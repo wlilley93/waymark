@@ -155,6 +155,10 @@ label.checkbox { flex-direction: row; align-items: center; color: var(--text); f
 .manage .facet-row { display: flex; flex-direction: column; gap: 4px; padding: 6px 0; border-bottom: 1px solid #323852; }
 .manage .field-row { margin: 0; display: flex; gap: 8px; align-items: baseline; flex-wrap: wrap; }
 
+.edit-box { display: flex; flex-direction: column; gap: 8px; border-top: 1px solid #323852; padding-top: 8px; }
+.edit-box h3 { margin: 4px 0 0; font-size: 13px; color: var(--muted); text-transform: uppercase; }
+.conflict { color: var(--danger); background: #3d1420; border-radius: 8px; padding: 8px; margin: 0; font-size: 13px; }
+
 /* maplibre overrides */
 .maplibregl-ctrl-group { background: var(--panel) !important; }
 .maplibregl-popup-content { background: var(--panel); color: var(--text); }
