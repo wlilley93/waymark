@@ -1,0 +1,12 @@
+id: LOG-2026-08-16-073212
+time: 2026-08-16T07:32:12.094894+00:00
+actor: lexby
+kind: code_change
+issue: design_w1_commencement
+decision: 'Terminal state recorded under PERMIT-1786865523: first fully-green CI run including the design job (run 31933993156 - test, e2e and design all concluded success; the design job built the instrument from the public vendor HEAD, verified the pack pin, ran the six green proofs, asserted states known-red exit 1, and passed the binary negative control). Doctor terminal: 10 criteria - 9 MET, 1 UNMET (D6), 0 NOT CHECKED. D6 is the Court-adjudicated reservation ([2026] VJS-CC-WAYMARK 2): W2 needs a decided-target Figma file no agent can write, W3 is the Principal''s alone, W4 follows W3. This permit is terminal by expiry'
+basis:
+- PERMIT-1786865523
+risk: low
+reversibility: easy
+court_required: false
+why: Discharge before the terminal commit
