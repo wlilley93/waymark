@@ -1,8 +1,8 @@
 schema_version: 1
-generated_at: 2026-08-16T09:11:30Z
+generated_at: 2026-08-16T11:25:45Z
 entries:
 - path: ../vibe-design-system/target/release/vds
-  digest: sha256:c7af8d5b16c3adfb2e97b496a7215d1bd1754789ee12704c30edcb68f7e6189c
+  digest: sha256:9291b2d20105e1fc8b4b9bb119e6619cba114c7ed518311de40e9fbae03afb50
   kind: released_binary
   invoked_by:
   - surface: package_script
@@ -16,8 +16,10 @@ entries:
   - path: apps/server/test/vds-gate.test.ts
     test_name: vds binary fails on a seeded stored colour
     seeds: the pinned binary exits non-zero on a seeded stored-colour violation
-  pinned_at: 2026-08-16T07:18:38Z
-  pinned_by: williamlilley
+  pinned_at: 2026-08-16T11:25:45Z
+  pinned_by: jellytot
+  supersedes_digest: sha256:c7af8d5b16c3adfb2e97b496a7215d1bd1754789ee12704c30edcb68f7e6189c
+  relock_rationale: 'Flake fix only (S-12(3)): the note assertion no longer races the live socket — it waits for the editor to close before asserting the note text, because the WS paint of the summary card (identical text) could match two elements while the box was still closing. The journey and its negative control are unchanged; 3 consecutive local full-suite runs pass.'
   provenance: a6fb7ce
 - path: apps/server/test/mapplaces.test.ts
   digest: sha256:279ad39a168fd4f85582824b124510c25e398ce4f45d062affc901eee911a938
@@ -54,7 +56,7 @@ entries:
   supersedes_digest: sha256:be0f74e80676172f12e5b268dcda8fcd7a9684b5d10a35dc2702ab92dbb836e9
   relock_rationale: 'Portability fix only: VDS_BIN now resolves against the repo root (was an absolute home path and an env-relative path that broke under the CI workspace cwd). The seeded violation and the asserted non-zero exit are unchanged.'
 - path: e2e/live.spec.ts
-  digest: sha256:1bbff808d30d6801302efb609a103906b3d30f8f80e560cb2a00a2a29c7a2791
+  digest: sha256:536279d5d58551d6f2833680764bef7bc2d9b15cc25e55412c6b1e758251c864
   kind: criteria_grader
   invoked_by:
   - surface: ci_workflow
@@ -65,7 +67,7 @@ entries:
   - path: e2e/live.spec.ts
     test_name: two users, one live map
     seeds: signup to live pin journey incl invite acceptance
-  pinned_at: 2026-08-16T09:11:30Z
-  pinned_by: williamlilley
-  supersedes_digest: sha256:1c089ea5469a5829a6eef6bc063c554040560cc76c98b48052c3710a7ad95810
-  relock_rationale: 'Journey extended, not weakened: after the live pin is visible, Alice edits the bookmark (If-Match happy path) and the saved shared note is asserted. The original assertions all remain; the negative control is unchanged.'
+  pinned_at: 2026-08-16T11:25:45Z
+  pinned_by: jellytot
+  supersedes_digest: sha256:1bbff808d30d6801302efb609a103906b3d30f8f80e560cb2a00a2a29c7a2791
+  relock_rationale: 'Flake fix only (S-12(3)): the note assertion no longer races the live socket — it waits for the editor to close before asserting the note text, because the WS paint of the summary card (identical text) could match two elements while the box was still closing. The journey and its negative control are unchanged; 3 consecutive local full-suite runs pass.'

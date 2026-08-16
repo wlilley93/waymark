@@ -66,6 +66,10 @@ test("two users, one live map", async ({ browser }) => {
   await alice.getByRole("button", { name: "Edit", exact: true }).click();
   await alice.getByPlaceholder("Shared note for the group").fill("great beer, better chips");
   await alice.getByRole("button", { name: /^Save \(v1\)/ }).click();
+  // Wait for the editor to close before asserting the note: the live socket
+  // can paint the summary card's note (identical text) while the box is still
+  // closing, which would match two elements (observed on CI).
+  await expect(alice.getByRole("textbox", { name: "Shared note for the group" })).toHaveCount(0, { timeout: 10000 });
   await expect(alice.getByText("great beer, better chips")).toBeVisible({ timeout: 10000 });
 
   // Bob sees the place appear LIVE (no reload): wait until his map actually

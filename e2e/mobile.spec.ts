@@ -36,6 +36,13 @@ test("mobile: signup, open map, panels dock as bottom sheets", async ({ page }) 
   await page.getByRole("button", { name: "+ Add place" }).click();
   const sheet = page.locator(".add-sheet");
   await expect(sheet).toBeVisible();
+  // the sheet slides up on open — wait for the transform to settle before
+  // measuring geometry (boundingBox mid-animation reads a higher bottom edge)
+  await page.waitForFunction(() => {
+    const el = document.querySelector(".add-sheet");
+    if (!el) return false;
+    return el.getBoundingClientRect().bottom <= window.innerHeight;
+  });
   const box = (await sheet.boundingBox())!;
   expect(box.width, "sheet width").toBeGreaterThan(390 - 32);
   expect(box.y, "sheet top edge").toBeGreaterThan(844 * 0.3);
@@ -49,6 +56,11 @@ test("mobile: signup, open map, panels dock as bottom sheets", async ({ page }) 
   await expect(page.getByRole("heading", { name: "The Dock" })).toBeVisible({ timeout: 10000 });
 
   const card = page.locator(".summary-card");
+  await page.waitForFunction(() => {
+    const el = document.querySelector(".summary-card");
+    if (!el) return false;
+    return el.getBoundingClientRect().bottom <= window.innerHeight;
+  });
   const cbox = (await card.boundingBox())!;
   expect(cbox.width, "card width").toBeGreaterThan(390 - 32);
   expect(cbox.y, "card top edge").toBeGreaterThan(844 * 0.3);

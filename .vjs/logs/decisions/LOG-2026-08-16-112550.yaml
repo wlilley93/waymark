@@ -1,0 +1,12 @@
+id: LOG-2026-08-16-112550
+time: 2026-08-16T11:25:50.318860297+00:00
+actor: lexby
+kind: design_governance
+issue: vds_enforcement_lock
+decision: 'S-12(3) self-file: re-pinned e2e/live.spec.ts digest (1bbff808.. -> 536279d5..) because the note assertion raced the live socket — the summary-card WS paint (identical text) could match two elements while the editor was still closing. Now waits for the editor to close before asserting. Mobile spec also waits for the slide-up transform to settle before measuring sheet geometry. Journey and negative control unchanged; 3 consecutive full-suite runs pass locally'
+basis:
+- PERMIT-1786877869
+risk: low
+reversibility: easy
+court_required: false
+why: S-12(3) relock self-file

@@ -1,0 +1,12 @@
+id: LOG-2026-08-16-111846
+time: 2026-08-16T11:18:46.485013230+00:00
+actor: lexby
+kind: design_governance
+issue: vds_register
+decision: 'Register EditPlaceBox (CMP-0016) at registered, per the screens ledger: the design gates (register_completeness, reconciliation, composition) failed because the component minted in 6a81694 had no register record. Added at proposed, advanced to registered, demand re-measured across the register; screens ledger regenerated (EditPlaceBox, FiltersBar, PlaceSummaryCard changed). All six battery proofs pass with the vendored a6fb7ce build; states stays known-red exit 1'
+basis:
+- PERMIT-1786877869
+risk: low
+reversibility: easy
+court_required: false
+why: Unblock the CI design job and discharge the design governance duty
