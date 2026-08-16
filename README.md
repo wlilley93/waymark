@@ -58,10 +58,10 @@ layer and a registered primitive layer.
 
 | stage | state | blocked on |
 |---|---|---|
-| W2 DESIGN-COMPLETE | reserved | a decided-target **Figma file** — `states` measures drawn states from it and no agent write-path exists (REST + MCP are read-only); a design act |
+| W2 DESIGN-COMPLETE | **handed off** — draw from [`docs/DESIGN-BRIEF.md`](docs/DESIGN-BRIEF.md) into a Figma file, then `./scripts/figma-capture.sh <file-key> [nodes…]` | a person drawing: Figma's REST API is read-only for content (verified: files are view/extract only), so the decided-target file is a human act from the machine-generated brief |
 | W3 PRINCIPAL-ACCEPTED | reserved | the **Principal alone** (VDS S-6(7)); never inferred from silence |
 | W4 PARITY | reserved | follows W3 |
-| `states` proof | 15 findings standing, CI-asserted known-red | same Figma file |
+| `states` proof | 15 findings standing, CI-asserted known-red | the same Figma file, captured via the script above |
 | SMTP email | transport shipped (`SMTP_URL`/`FROM_EMAIL`) | an SMTP **credential** — Principal supply |
 
 Resolved since the W1 order: the binary gates now run in CI (a `design` job

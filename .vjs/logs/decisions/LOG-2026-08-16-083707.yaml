@@ -1,0 +1,12 @@
+id: LOG-2026-08-16-083707
+time: 2026-08-16T08:37:07.905915+00:00
+actor: lexby
+kind: code_change
+issue: design_w1_commencement
+decision: 'W2 hand-off under PERMIT-1786869411. Figma REST verified read-only for content (official docs: files are view/extract; writes exist only for comments/variables/webhooks) - so W2''s drawing act is definitively a person''s, per [2026] VJS-CC-WAYMARK 2. Shipped to make that act one-command: docs/DESIGN-BRIEF.md (vds brief output, the drawing contract) and scripts/figma-capture.sh (authenticated nodes capture into .vds/cache - gitignored by law so no design value commits - then figma frames + figma pull; verified fail-closed on a bad token, exit 1). CI design job gains a vendor-commit-keyed instrument build cache with continue-on-error both directions so a cache failure can never fake a gate failure. Discharges PERMIT-1786869411'
+basis:
+- PERMIT-1786869411
+risk: low
+reversibility: easy
+court_required: false
+why: Discharge before commit

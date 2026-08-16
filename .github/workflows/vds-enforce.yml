@@ -92,10 +92,27 @@ jobs:
       # shape of a local checkout); actions/checkout cannot write outside the
       # workspace, so clone it by hand at the pinned location
       - name: clone vendor tree
-        run: git clone --depth 1 https://github.com/wlilley93/vibe-design-system ../vibe-design-system
+        run: |
+          git clone --depth 1 https://github.com/wlilley93/vibe-design-system ../vibe-design-system
+          echo "VENDOR_SHA=$(git -C ../vibe-design-system rev-parse HEAD)" >> "$GITHUB_ENV"
+      # instrument build cache, keyed on the vendor commit: an optimisation,
+      # never a gate — a cache step that fails must not fake a design-gate failure
+      - name: restore vds build cache
+        uses: actions/cache@v4
+        with:
+          path: ../vibe-design-system/target
+          key: vds-${{ runner.os }}-${{ env.VENDOR_SHA }}
+        continue-on-error: true
       - uses: dtolnay/rust-toolchain@stable
       - name: build vds
         run: cargo build --release --manifest-path ../vibe-design-system/Cargo.toml --bin vds
+      - name: save vds build cache
+        uses: actions/cache/save@v4
+        with:
+          path: ../vibe-design-system/target
+          key: vds-${{ runner.os }}-${{ env.VENDOR_SHA }}-${{ github.run_id }}
+        continue-on-error: true
+        if: always()
       - name: design gates
         run: |
           VDS=../vibe-design-system/target/release/vds
