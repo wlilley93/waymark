@@ -50,8 +50,11 @@ services:
       context: .
       dockerfile: apps/web/Dockerfile
     ports:
-      # 8080 is taken on this host (OrbStack/boltrig); waymark claims 8090
-      - "192.168.50.2:8090:80"
+      # Loopback-only by default: tailscaled then owns the tailnet IP for TLS
+      # serve. Set WEB_BIND to a LAN IP (e.g. 192.168.50.2 on beelink) to also
+      # serve that interface directly. 8080 is taken on beelink (OrbStack/boltrig);
+      # waymark claims 8090.
+      - "${WEB_BIND:-127.0.0.1}:8090:80"
     depends_on:
       - server
     restart: unless-stopped

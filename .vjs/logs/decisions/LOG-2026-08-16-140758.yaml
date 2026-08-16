@@ -1,0 +1,12 @@
+id: LOG-2026-08-16-140758
+time: 2026-08-16T14:07:58.349569675+00:00
+actor: lexby
+kind: code_change
+issue: spec_v1_1
+decision: 'Parametrize the web bind as WEB_BIND (default 127.0.0.1): one artifact now deploys on any tailnet host — loopback publish leaves the tailnet IP free for tailscaled TLS serve; beelink pins WEB_BIND to its LAN cable IP via .env (cable intranet path unchanged)'
+basis:
+- PERMIT-1786889256
+risk: low
+reversibility: easy
+court_required: false
+why: Discharge before commit
