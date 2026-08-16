@@ -1,0 +1,12 @@
+id: LOG-2026-08-16-141625
+time: 2026-08-16T14:16:25.173496756+00:00
+actor: lexby
+kind: code_change
+issue: spec_v1_1
+decision: 'Add scripts/deploy-live.sh: the repeatable beelink-to-live deploy path (ssh pull + compose rebuild on jellytot-prod). Topology settled 2026-08-16: jellytot-prod is the live host, beelink is source + build; the script makes the build box the deployer'
+basis:
+- PERMIT-1786889780
+risk: low
+reversibility: easy
+court_required: false
+why: Discharge before commit
