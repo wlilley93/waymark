@@ -1,0 +1,12 @@
+id: LOG-2026-08-16-072913
+time: 2026-08-16T07:29:13.121074+00:00
+actor: lexby
+kind: code_change
+issue: design_w1_commencement
+decision: 'Binary-gate portability under PERMIT-1786865345: VDS_BIN resolves against the repo root (the absolute home default and env-relative path both broke under CI workspace cwd); CI invokes vitest through the workspace script so cwd is apps/server; gate digest re-pinned with recorded rationale per VDS S-12(3). Verified locally in both invocation styles. Discharges PERMIT-1786865345'
+basis:
+- PERMIT-1786865345
+risk: low
+reversibility: easy
+court_required: false
+why: Discharge before commit

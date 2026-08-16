@@ -1,5 +1,5 @@
 schema_version: 1
-generated_at: 2026-08-16T07:18:38Z
+generated_at: 2026-08-16T07:28:53Z
 entries:
 - path: ../vibe-design-system/target/release/vds
   digest: sha256:c7af8d5b16c3adfb2e97b496a7215d1bd1754789ee12704c30edcb68f7e6189c
@@ -35,7 +35,7 @@ entries:
   pinned_at: 2026-08-15T22:15:02Z
   pinned_by: williamlilley
 - path: apps/server/test/vds-gate.test.ts
-  digest: sha256:be0f74e80676172f12e5b268dcda8fcd7a9684b5d10a35dc2702ab92dbb836e9
+  digest: sha256:0eaf7b47bde603c55da7d6b1200374820d49b55404584f2a8d1901b0ab6435a6
   kind: criteria_grader
   invoked_by:
   - surface: package_script
@@ -49,8 +49,10 @@ entries:
   - path: apps/server/test/vds-gate.test.ts
     test_name: vds binary fails on a seeded stored colour
     seeds: released binary exits non-zero on a seeded stored-colour violation
-  pinned_at: 2026-08-16T07:18:38Z
+  pinned_at: 2026-08-16T07:28:53Z
   pinned_by: williamlilley
+  supersedes_digest: sha256:be0f74e80676172f12e5b268dcda8fcd7a9684b5d10a35dc2702ab92dbb836e9
+  relock_rationale: 'Portability fix only: VDS_BIN now resolves against the repo root (was an absolute home path and an env-relative path that broke under the CI workspace cwd). The seeded violation and the asserted non-zero exit are unchanged.'
 - path: e2e/live.spec.ts
   digest: sha256:1c089ea5469a5829a6eef6bc063c554040560cc76c98b48052c3710a7ad95810
   kind: criteria_grader

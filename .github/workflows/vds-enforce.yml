@@ -120,6 +120,7 @@ jobs:
       - run: npm install --no-audit --fund=false
       - run: npm approve-scripts --all || true
       - name: binary negative control
-        run: npx -w @waymark/server vitest run test/vds-gate.test.ts
+        # run through the workspace script so vitest's cwd is apps/server
+        run: npm -w @waymark/server run test -- test/vds-gate.test.ts
         env:
           VDS_BIN: ../vibe-design-system/target/release/vds
