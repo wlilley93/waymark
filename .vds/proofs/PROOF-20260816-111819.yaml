@@ -1,0 +1,22 @@
+id: PROOF-20260816-111819
+kind: composition
+status: passed
+warrant_id: null
+command: vds proof composition
+script: crates/vds-proof/src/composition.rs
+exit_code: 0
+rows_considered: 221
+rows_enforced: 100
+rows_skipped_reasons:
+  bare_element_below_the_floor_vds_s9_10: 118
+  component_reference_with_no_resolvable_import: 3
+violations: []
+notes:
+- 'S-9(10) is SETTLED ([2026] VJS-CC-VIBE-DESIGN-SYSTEM 5, answering SUBMISSION-VDS-005): elements in the enumerated floor are informational; a bare element above it fails R4 unless named in [surface] element_carveouts, where every use is counted by site.'
+inputs_digest: sha256:0bcedd45bc2c1867ae6282cfb6a45fef9d868e7e2a801670d9a265fc0aec5737
+digest: sha256:d25339f577070bab9cab73348add0aa1560f6ccf7f76fb018403b1ae0029f7b5
+designpack_digest: sha256:26881b72dd07cff7f05dde47452c2d9360691904dadbd1083906e1fc490e1c58
+captured_at: 2026-08-16T11:18:17Z
+capture_mode: automatic
+invoked_by: manual
+duration_ms: 0

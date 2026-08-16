@@ -1,0 +1,114 @@
+id: PROOF-20260816-111823
+kind: states
+status: failed
+warrant_id: null
+command: vds proof states
+script: crates/vds-proof/src/states.rs
+exit_code: 1
+rows_considered: 16
+rows_enforced: 15
+rows_skipped_reasons:
+  record_declares_no_required_state: 1
+violations:
+- location: .vds/register/CMP-0001.yaml <CMP-0001 MapView>
+  rule: 'VDS S-7(5) states R1: every required state of every registered component is drawn'
+  expected: CMP-0001 draws every state it requires, so states.drawn contains default, focus
+  actual: CMP-0001 is at status registered and states.drawn omits default, focus
+  severity: fatal
+  drift: undetermined
+- location: .vds/register/CMP-0002.yaml <CMP-0002 PlaceSummaryCard>
+  rule: 'VDS S-7(5) states R1: every required state of every registered component is drawn'
+  expected: CMP-0002 draws every state it requires, so states.drawn contains default, focus
+  actual: CMP-0002 is at status registered and states.drawn omits default, focus
+  severity: fatal
+  drift: undetermined
+- location: .vds/register/CMP-0003.yaml <CMP-0003 AddPlaceSheet>
+  rule: 'VDS S-7(5) states R1: every required state of every registered component is drawn'
+  expected: CMP-0003 draws every state it requires, so states.drawn contains default, focus
+  actual: CMP-0003 is at status registered and states.drawn omits default, focus
+  severity: fatal
+  drift: undetermined
+- location: .vds/register/CMP-0004.yaml <CMP-0004 FiltersBar>
+  rule: 'VDS S-7(5) states R1: every required state of every registered component is drawn'
+  expected: CMP-0004 draws every state it requires, so states.drawn contains default, focus
+  actual: CMP-0004 is at status registered and states.drawn omits default, focus
+  severity: fatal
+  drift: undetermined
+- location: .vds/register/CMP-0005.yaml <CMP-0005 AuthScreen>
+  rule: 'VDS S-7(5) states R1: every required state of every registered component is drawn'
+  expected: CMP-0005 draws every state it requires, so states.drawn contains default, focus
+  actual: CMP-0005 is at status registered and states.drawn omits default, focus
+  severity: fatal
+  drift: undetermined
+- location: .vds/register/CMP-0006.yaml <CMP-0006 Dashboard>
+  rule: 'VDS S-7(5) states R1: every required state of every registered component is drawn'
+  expected: CMP-0006 draws every state it requires, so states.drawn contains default, focus
+  actual: CMP-0006 is at status registered and states.drawn omits default, focus
+  severity: fatal
+  drift: undetermined
+- location: .vds/register/CMP-0007.yaml <CMP-0007 MembersPanel>
+  rule: 'VDS S-7(5) states R1: every required state of every registered component is drawn'
+  expected: CMP-0007 draws every state it requires, so states.drawn contains default, focus
+  actual: CMP-0007 is at status registered and states.drawn omits default, focus
+  severity: fatal
+  drift: undetermined
+- location: .vds/register/CMP-0008.yaml <CMP-0008 ManagePanel>
+  rule: 'VDS S-7(5) states R1: every required state of every registered component is drawn'
+  expected: CMP-0008 draws every state it requires, so states.drawn contains default, focus
+  actual: CMP-0008 is at status registered and states.drawn omits default, focus
+  severity: fatal
+  drift: undetermined
+- location: .vds/register/CMP-0009.yaml <CMP-0009 App>
+  rule: 'VDS S-7(5) states R1: every required state of every registered component is drawn'
+  expected: CMP-0009 draws every state it requires, so states.drawn contains default, focus
+  actual: CMP-0009 is at status registered and states.drawn omits default, focus
+  severity: fatal
+  drift: undetermined
+- location: .vds/register/CMP-0010.yaml <CMP-0010 Button>
+  rule: 'VDS S-7(5) states R1: every required state of every registered component is drawn'
+  expected: CMP-0010 draws every state it requires, so states.drawn contains default, focus
+  actual: CMP-0010 is at status registered and states.drawn omits default, focus
+  severity: fatal
+  drift: undetermined
+- location: .vds/register/CMP-0011.yaml <CMP-0011 Input>
+  rule: 'VDS S-7(5) states R1: every required state of every registered component is drawn'
+  expected: CMP-0011 draws every state it requires, so states.drawn contains default, focus
+  actual: CMP-0011 is at status registered and states.drawn omits default, focus
+  severity: fatal
+  drift: undetermined
+- location: .vds/register/CMP-0012.yaml <CMP-0012 Select>
+  rule: 'VDS S-7(5) states R1: every required state of every registered component is drawn'
+  expected: CMP-0012 draws every state it requires, so states.drawn contains default, focus
+  actual: CMP-0012 is at status registered and states.drawn omits default, focus
+  severity: fatal
+  drift: undetermined
+- location: .vds/register/CMP-0013.yaml <CMP-0013 Textarea>
+  rule: 'VDS S-7(5) states R1: every required state of every registered component is drawn'
+  expected: CMP-0013 draws every state it requires, so states.drawn contains default, focus
+  actual: CMP-0013 is at status registered and states.drawn omits default, focus
+  severity: fatal
+  drift: undetermined
+- location: .vds/register/CMP-0014.yaml <CMP-0014 Checkbox>
+  rule: 'VDS S-7(5) states R1: every required state of every registered component is drawn'
+  expected: CMP-0014 draws every state it requires, so states.drawn contains default, focus
+  actual: CMP-0014 is at status registered and states.drawn omits default, focus
+  severity: fatal
+  drift: undetermined
+- location: .vds/register/CMP-0015.yaml <CMP-0015 Option>
+  rule: 'VDS S-7(5) states R1: every required state of every registered component is drawn'
+  expected: CMP-0015 draws every state it requires, so states.drawn contains default
+  actual: CMP-0015 is at status registered and states.drawn omits default
+  severity: fatal
+  drift: undetermined
+notes:
+- '[reach] no figma ledger is present, so `states.drawn` is the register''s own claim and this run did not check it. A pass establishes that the contract is complete, never that a frame exists in the decided-target file. Generate a ledger with `vds figma pull` and re-run to have the claim measured instead: it is a network read, which is why it happens out of band and not inside this proof (VDS S-7(2)(1)).'
+- '[taste] whether a drawn state looks right is reserved to the Principal (VDS S-1(6)). This proof checks that a required state is drawn, never that it is good.'
+- '[parity] a required state that is drawn and not built is recorded here as an informational finding and never fails this gate; the `parity` proof is the gate for that gap (VDS S-7(5)). Informational findings are captured on the proof record and are not printed, so the record is where they are read.'
+- '[contract] 1 register records declare no required state at all, so there is nothing about them for this proof to enforce and each is counted and skipped. This proof cannot tell a component that genuinely requires no state from a contract nobody filled in; a contract that disagrees with the code is `reconciliation`''s to find (VDS S-5(6)).'
+inputs_digest: sha256:087e08357d19ecfabe6c3e11f748530a1ef930127fe430745db6a803005fb11a
+digest: sha256:8813de465e1c24233a7d04f34cc6a172fc4e4e040ff9c7783b09fa5d50857a5c
+designpack_digest: sha256:26881b72dd07cff7f05dde47452c2d9360691904dadbd1083906e1fc490e1c58
+captured_at: 2026-08-16T11:18:18Z
+capture_mode: automatic
+invoked_by: manual
+duration_ms: 0
